@@ -1,9 +1,9 @@
 ---
 title: "Xinran Gao"
-subtitle: "Volunteer"
+subtitle: "Graduate Student"
 excerpt: " 
-  **Volunteer**<br>
-  Xinran Gao is a volunteer with the DigiMind Lab. She is a master’s student in Psychology at New York University, working with Dr. Matteo Malgaroli on her master’s thesis. She received her B.A. in Psychology with a minor in Economics from McGill University, where she studied the use of cursor-tracking methods to improve self-report measures. With interests in clinical psychology and computational approaches, she is currently examining how language models can be used to evaluate linguistic markers of mental health functioning. She is broadly interested in integrating psychological science and emerging technologies to support clinical assessment and care."
+  **Graduate Student**<br>
+  Xinran Gao is a graduate student in the DigiMind Lab. She is a master’s student in Psychology at New York University, working with Dr. Matteo Malgaroli on her master’s thesis. She received her B.A. in Psychology with a minor in Economics from McGill University, where she studied the use of cursor-tracking methods to improve self-report measures. With interests in clinical psychology and computational approaches, she is currently examining how language models can be used to evaluate linguistic markers of mental health functioning. She is broadly interested in integrating psychological science and emerging technologies to support clinical assessment and care."
 weight: 6
 author: ""
 show_post_thumbnail: true
@@ -34,4 +34,4 @@ links:
 #   name: Email
 #   url: mailto:Zoe.Mermin@NYULangone.org
 ---
-Xinran Gao is a volunteer with the DigiMind Lab. She is a master’s student in Psychology at New York University, working with Dr. Matteo Malgaroli on her master’s thesis. She received her B.A. in Psychology with a minor in Economics from McGill University, where she studied the use of cursor-tracking methods to improve self-report measures. With interests in clinical psychology and computational approaches, she is currently examining how language models can be used to evaluate linguistic markers of mental health functioning. She is broadly interested in integrating psychological science and emerging technologies to support clinical assessment and care.
+Xinran Gao is a graduate student in the DigiMind Lab. She is a master’s student in Psychology at New York University, working with Dr. Matteo Malgaroli on her master’s thesis. She received her B.A. in Psychology with a minor in Economics from McGill University, where she studied the use of cursor-tracking methods to improve self-report measures. With interests in clinical psychology and computational approaches, she is currently examining how language models can be used to evaluate linguistic markers of mental health functioning. She is broadly interested in integrating psychological science and emerging technologies to support clinical assessment and care.
