@@ -172,6 +172,11 @@ Do this once after creating the repository, then forget about it:
 3. The default branch must be **`main`** (the deploy workflow watches it).
 4. Push. The **Actions** tab shows "Deploy site to GitHub Pages" going green;
    the site address is under Settings → Pages.
+5. Custom domain: the site answers at **https://digimindlab.ai** (registered at
+   Namecheap) as well as https://malgaroli.github.io. The domain name lives in
+   `static/CNAME` and in Settings → Pages → Custom domain; the DNS records
+   (four A records for `@` to GitHub's IPs, one CNAME for `www` to
+   `malgaroli.github.io`) live in the Namecheap account.
 
 To preview locally: install [Hugo](https://gohugo.io) (extended) and run
 `hugo server` in this folder.
