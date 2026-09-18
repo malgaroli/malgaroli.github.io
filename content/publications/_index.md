@@ -73,7 +73,7 @@ publications:
   - human-ai
   - digital
 - id: zhu2025-adversarial-training-for-failu
-  title: Adversarial training for failure-sensitive user simulation in mental health dialogue optimization
+  title: 'DIAL: Direct Iterative Adversarial Learning for Realistic Multi-Turn Dialogue Simulation'
   authors:
   - Zhu, Z.
   - Tieleman, O.
@@ -81,12 +81,13 @@ publications:
   - Smyth, L.
   - Hull, T. D.
   - Cahn, D. R.
+  - Chen, J.
   - Malgaroli, M.
-  year: 2025
-  venue: arXiv preprint
+  year: 2026
+  venue: EMNLP 2026 (to appear)
   doi: 10.48550/arXiv.2512.20773
   url: https://doi.org/10.48550/arXiv.2512.20773
-  type: preprint
+  type: journal
   categories:
   - llms
   - human-ai

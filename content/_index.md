@@ -19,6 +19,8 @@ action_type: text
 # Use [text](https://link) for links and *text* for italics.
 news:
   - date: "September 2026"
+    text: '[DIAL](https://doi.org/10.48550/arXiv.2512.20773), our adversarial framework for realistic multi-turn user simulation (Zhu et al.), has been accepted at EMNLP 2026 — we will be presenting it in Budapest, October 24–29.'
+  - date: "September 2026"
     text: 'We are presenting our research at the [ISTSS 42nd Annual Meeting](https://istss.org/annual-meeting-hub/) in San Antonio, September 23–26, 2026.'
   - date: "August 2026"
     text: 'Now out in *Psychological Medicine*: [Mermin et al., "Anxiety and depression subtypes and their psychotherapy response: A network analysis of 33,675 patients"](https://doi.org/10.1017/S0033291726105480).'
