@@ -77,6 +77,11 @@ hr { border: 0; border-top: 1px solid $dm-border; margin: 2.5rem 0; }
 // the reader's browser text-size setting.
 // ─────────────────────────────────────────────────────────────────────────────
 
+// Base type size. Everything below is in rem, so this one rule scales the
+// whole site: 18px on desktop, 17px on phones.
+html { font-size: 112.5%; }
+@media (max-width: 50em) { html { font-size: 106.25%; } }
+
 // Solid body weight everywhere (no more thin text).
 body { font-weight: 400; }
 
@@ -458,7 +463,9 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
 }
 .news-row {
   display: grid;
-  grid-template-columns: 88px 1fr;
+  // Date column sized to its longest label ("September 2026") so it never
+  // spills into the text.
+  grid-template-columns: minmax(7.5rem, max-content) 1fr;
   gap: 1.25rem;
   padding: 0.75rem 0;
   border-bottom: 1px solid $dm-border;
@@ -489,7 +496,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
 @media (max-width: 50em) {
   .home-lede { font-size: 1.15rem; }
   .home-news-grid { grid-template-columns: 1fr; gap: 0.75rem; }
-  .news-row { grid-template-columns: 64px 1fr; gap: 0.85rem; }
+  .news-row { grid-template-columns: 1fr; gap: 0.2rem; } // date above text on phones
 }
 
 // Team-member photo on individual people pages.

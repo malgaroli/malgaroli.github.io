@@ -111,8 +111,9 @@ tags, and the weekly paper robot all read the folder — nothing else to edit.
    - `pub_keywords:` — words the robot looks for in paper titles to suggest this
      tag (optional; you can always tag papers by hand).
 4. Write the description below the `---` line.
-5. Upload a photo named `featured.jpg` to the same folder (any size; it's
-   cropped square).
+5. Add a card image: either upload a photo named `featured.jpg` (any size;
+   it's cropped square) or copy one of the existing `featured.svg`
+   illustrations and recolour it. Keep only one `featured.*` file per folder.
 6. Commit. Papers tagged with the new `pub_filter` appear on the page
    automatically — see **[PUBLICATIONS.md](PUBLICATIONS.md)** to tag them.
 

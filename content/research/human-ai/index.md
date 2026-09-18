@@ -29,6 +29,4 @@ pub_keywords:
   - empath
   - purpose-built
 ---
-<!-- TODO (lab editor): featured.jpg in this folder is a placeholder made from the
-     lab logo — replace it with a real photo (any size; it is cropped square). -->
 As conversational AI enters mental health care, we examine how people actually interact with it. We test whether language-model responses are perceived as empathic and supportive, analyze tens of thousands of real user–AI conversations to characterize safety-relevant behavior, and study engagement and outcomes when generative AI is deployed in real-world social and mental health support. We also build adversarial user simulations that expose how systems fail, so that human–AI interaction can be evaluated and improved before and during deployment.

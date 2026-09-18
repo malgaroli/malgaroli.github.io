@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <rect width="800" height="800" fill="#ECECF4"/>
+  <!-- person bubble (left) -->
+  <path d="M110 190 h380 a34 34 0 0 1 34 34 v150 a34 34 0 0 1 -34 34 h-290 l-70 60 v-60 h-20 a34 34 0 0 1 -34 -34 v-150 a34 34 0 0 1 34 -34 z" fill="#FFFFFF" stroke="#9FA1C6" stroke-width="14" stroke-linejoin="round"/>
+  <g stroke="#9FA1C6" stroke-width="16" stroke-linecap="round">
+    <line x1="160" y1="250" x2="440" y2="250"/>
+    <line x1="160" y1="300" x2="400" y2="300"/>
+    <line x1="160" y1="350" x2="300" y2="350"/>
+  </g>
+  <!-- AI bubble (right) -->
+  <path d="M310 440 h380 a34 34 0 0 1 34 34 v170 a34 34 0 0 1 -34 34 h-20 v60 l-70 -60 h-290 a34 34 0 0 1 -34 -34 v-170 a34 34 0 0 1 34 -34 z" fill="#FFFFFF" stroke="#2438B4" stroke-width="14" stroke-linejoin="round"/>
+  <!-- chip glyph -->
+  <rect x="350" y="490" width="120" height="120" rx="18" fill="#6F74C4" stroke="#2438B4" stroke-width="12"/>
+  <rect x="385" y="525" width="50" height="50" rx="8" fill="#ECECF4"/>
+  <g stroke="#2438B4" stroke-width="10" stroke-linecap="round">
+    <line x1="375" y1="470" x2="375" y2="490"/><line x1="410" y1="470" x2="410" y2="490"/><line x1="445" y1="470" x2="445" y2="490"/>
+    <line x1="375" y1="610" x2="375" y2="630"/><line x1="410" y1="610" x2="410" y2="630"/><line x1="445" y1="610" x2="445" y2="630"/>
+  </g>
+  <!-- AI text lines -->
+  <g stroke="#2438B4" stroke-width="16" stroke-linecap="round">
+    <line x1="510" y1="510" x2="660" y2="510"/>
+    <line x1="510" y1="560" x2="640" y2="560"/>
+    <line x1="510" y1="610" x2="590" y2="610"/>
+  </g>
+  <circle cx="660" cy="510" r="14" fill="#D8434F"/>
+</svg>
