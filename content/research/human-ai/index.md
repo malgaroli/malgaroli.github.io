@@ -2,7 +2,7 @@
 title: "AI–Human Interaction"
 subtitle: ""
 # One or two sentences shown on the /research/ listing card.
-excerpt: "We examine how patients and clinicians interact with conversational AI: whether its responses feel supportive, how people use it, and where it fails."
+excerpt: "We examine how patients and clinicians interact with conversational AI: how people conceptualize it, how people use it, and where it fails."
 draft: false
 layout: single
 # Listing + tag order: HIGHER weight shows FIRST on /research/.
