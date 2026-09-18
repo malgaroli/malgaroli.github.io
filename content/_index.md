@@ -31,7 +31,7 @@ news:
   - date: "January 2026"
     text: 'New preprint: [Brindle et al., "Language markers of emotion flexibility predict depression and anxiety treatment outcomes"](https://doi.org/10.48550/arXiv.2601.07961).'
   - date: "September 2025"
-    text: 'Dr. Malgaroli co-organized the [Dagstuhl Seminar on Natural Language Processing for Mental Health](https://www.dagstuhl.de/25361) at Schloss Dagstuhl, Germany.'
+    text: 'Dr. Malgaroli attended the [Dagstuhl Seminar on Natural Language Processing for Mental Health](https://www.dagstuhl.de/25361) at Schloss Dagstuhl, Germany.'
   - date: "August 2025"
     text: '[VISTA-SSM](https://github.com/benjaminbrindle/vista_ssm), our state-space clustering method, is published in *Psychological Methods*.'
   - date: "April 2025"
