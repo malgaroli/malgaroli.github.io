@@ -1,25 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
   <rect width="800" height="800" fill="#ECECF4"/>
   <!-- person's message (top left) -->
-  <path d="M136 150 h258 a26 26 0 0 1 26 26 v78 a26 26 0 0 1 -26 26 h-184 l-40 50 v-50 h-34 a26 26 0 0 1 -26 -26 v-78 a26 26 0 0 1 26 -26 z" fill="#FFFFFF" stroke="#9FA1C6" stroke-width="12" stroke-linejoin="round"/>
+  <path d="M136 120 h258 a26 26 0 0 1 26 26 v78 a26 26 0 0 1 -26 26 h-184 l-40 50 v-50 h-34 a26 26 0 0 1 -26 -26 v-78 a26 26 0 0 1 26 -26 z" fill="#FFFFFF" stroke="#9FA1C6" stroke-width="12" stroke-linejoin="round"/>
   <g stroke="#9FA1C6" stroke-width="12" stroke-linecap="round">
-    <line x1="150" y1="195" x2="370" y2="195"/><line x1="150" y1="235" x2="300" y2="235"/>
+    <line x1="150" y1="165" x2="370" y2="165"/><line x1="150" y1="205" x2="300" y2="205"/>
   </g>
   <!-- AI's reply (middle right) -->
-  <path d="M416 305 h248 a26 26 0 0 1 26 26 v78 a26 26 0 0 1 -26 26 h-84 v45 l-40 -45 h-124 a26 26 0 0 1 -26 -26 v-78 a26 26 0 0 1 26 -26 z" fill="#FFFFFF" stroke="#2438B4" stroke-width="12" stroke-linejoin="round"/>
+  <path d="M416 265 h248 a26 26 0 0 1 26 26 v78 a26 26 0 0 1 -26 26 h-84 v45 l-40 -45 h-124 a26 26 0 0 1 -26 -26 v-78 a26 26 0 0 1 26 -26 z" fill="#FFFFFF" stroke="#2438B4" stroke-width="12" stroke-linejoin="round"/>
   <g stroke="#2438B4" stroke-width="12" stroke-linecap="round">
-    <line x1="430" y1="350" x2="600" y2="350"/><line x1="430" y1="390" x2="540" y2="390"/>
+    <line x1="430" y1="310" x2="620" y2="310"/><line x1="430" y1="350" x2="540" y2="350"/>
   </g>
-  <circle cx="600" cy="350" r="11" fill="#D8434F"/>
   <!-- person (bottom left) -->
   <circle cx="170" cy="540" r="60" fill="#9FA1C6" stroke="#2438B4" stroke-width="14"/>
   <path d="M60 720 a110 110 0 0 1 220 0 z" fill="#9FA1C6" stroke="#2438B4" stroke-width="14" stroke-linejoin="round"/>
-  <!-- AI (bottom right) -->
-  <line x1="610" y1="458" x2="610" y2="488" stroke="#2438B4" stroke-width="14" stroke-linecap="round"/>
-  <circle cx="610" cy="448" r="12" fill="#D8434F"/>
-  <rect x="530" y="488" width="160" height="140" rx="30" fill="#6F74C4" stroke="#2438B4" stroke-width="14"/>
-  <circle cx="580" cy="543" r="13" fill="#ECECF4"/>
-  <circle cx="640" cy="543" r="13" fill="#ECECF4"/>
-  <path d="M580 583 q30 24 60 0" fill="none" stroke="#ECECF4" stroke-width="11" stroke-linecap="round"/>
+  <!-- AI (bottom right): antenna, head, shoulders, with clear space between head and body -->
+  <line x1="610" y1="425" x2="610" y2="455" stroke="#2438B4" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="610" cy="415" r="12" fill="#D8434F"/>
+  <rect x="530" y="455" width="160" height="140" rx="30" fill="#6F74C4" stroke="#2438B4" stroke-width="14"/>
+  <circle cx="580" cy="510" r="13" fill="#ECECF4"/>
+  <circle cx="640" cy="510" r="13" fill="#ECECF4"/>
+  <path d="M580 550 q30 24 60 0" fill="none" stroke="#ECECF4" stroke-width="11" stroke-linecap="round"/>
   <path d="M500 720 a110 110 0 0 1 220 0 z" fill="#6F74C4" stroke="#2438B4" stroke-width="14" stroke-linejoin="round"/>
 </svg>
