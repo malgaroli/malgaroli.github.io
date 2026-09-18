@@ -321,7 +321,13 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
   align-items: center;
   gap: 0.15rem 0.35rem;
   margin-top: 0 !important;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+
+  // Slightly denser menu items than the theme's `tracked ph2`, so the five
+  // links stay on one row beside the brand on laptop widths (~1100px+);
+  // below that they wrap to a row of their own under the brand.
+  a.link, .dropdown > a.link { letter-spacing: 0.05em; }
+  > a.link, > .dropdown { padding-left: 0.45rem; padding-right: 0.45rem; }
 }
 @media (max-width: 640px) {
   .site-nav { flex-direction: column; justify-content: center; }
