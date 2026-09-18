@@ -4,6 +4,10 @@ A quick guide for the lab. **No coding, no installing, no terminal.** If you can
 edit a Google Doc, you can do this. Everything happens in your web browser on
 GitHub.
 
+- **The website:** <https://digimindlab.ai>
+- **The files behind it:** <https://github.com/malgaroli/malgaroli.github.io>
+  (ask MM for edit access if you don't have it yet)
+
 ---
 
 ## 3 rules
@@ -20,7 +24,9 @@ GitHub.
 
 | I want to… | Open this file |
 | :--- | :--- |
-| Add a news item on the homepage | `content/_index.md` |
+| Add a news item on the homepage | `content/_index.md` (under `news:`) |
+| Change the homepage intro text | `content/_index.md` (under `description:`) |
+| Add or change a funder logo | `content/_index.md` (under `funders:`) + upload the logo to `static/img/funders/` |
 | Add / edit a team member | `content/people/<name>/index.md` |
 | Edit a research-area description | `content/research/<area>/index.md` |
 | Add a new research area | copy a folder in `content/research/` — see below |
@@ -54,7 +60,7 @@ That's it. Same five steps every time.
 3. Add a **new block at the top** of the list, matching the spacing exactly:
 
    ```yaml
-   - date: "2026"
+   - date: "October 2026"
      text: 'Your one sentence. Use [words](https://link) for links and *text* for italics.'
    ```
 
@@ -76,7 +82,9 @@ to copy an existing person's folder.
    On GitHub: *Add file → Create new file*, then type `anna/index.md` — the
    slash makes the folder for you.
 3. Paste, then change the name, role, and bio. Leave the rest alone.
-4. Upload a square photo named `featured.jpg` to the same folder.
+4. Upload a photo named `featured.jpg` to the same folder. Any size works; the
+   team page crops it square from the top, so a face in the upper half looks
+   best. Keep it under ~1 MB if you can.
 5. Commit.
 
 **Want their papers to appear automatically?** Add their ORCID — see
@@ -133,9 +141,9 @@ showing) until you re-tag them.
 Visitors who click **Contact** or **Get Involved** land on a page that asks if
 they're a **participant** or a **researcher/volunteer**.
 
-- **Volunteers & collaborators:** `content/researchers/_index.md`. The volunteer
-  button points to a REDCap form — paste the form's link where it says
-  `REDCAP_FORM_URL`.
+- **Volunteers & collaborators:** `content/researchers/_index.md`. The
+  "Volunteer interest form" button points to a REDCap survey; to change it,
+  replace the link in that file.
 - **Study participants:** `content/participants/_index.md`.
 
 ---
