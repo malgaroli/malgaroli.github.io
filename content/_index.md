@@ -30,11 +30,11 @@ news:
     text: 'Now out in *Psychological Medicine*: [Mermin et al., "Anxiety and depression subtypes and their psychotherapy response: A network analysis of 33,675 patients"](https://doi.org/10.1017/S0033291726105480).'
   - date: "January 2026"
     text: 'New preprint: [Brindle et al., "Language markers of emotion flexibility predict depression and anxiety treatment outcomes"](https://doi.org/10.48550/arXiv.2601.07961).'
-  - date: "2025"
-    text: '[VISTA-SSM](https://github.com/benjaminbrindle/vista_ssm), our state-space clustering method, is published in *Psychological Methods*.'
   - date: "September 2025"
     text: 'Dr. Malgaroli co-organized the [Dagstuhl Seminar on Natural Language Processing for Mental Health](https://www.dagstuhl.de/25361) at Schloss Dagstuhl, Germany.'
-  - date: "2025"
+  - date: "August 2025"
+    text: '[VISTA-SSM](https://github.com/benjaminbrindle/vista_ssm), our state-space clustering method, is published in *Psychological Methods*.'
+  - date: "April 2025"
     text: '*The Lancet Digital Health* commentary: [Large language models for the mental health community](https://doi.org/10.1016/S2589-7500(24)00255-3).'
 
 # ── Funding & Support ─────────────────────────────────────────────────────
