@@ -84,7 +84,7 @@ publications:
   - Chen, J.
   - Malgaroli, M.
   year: 2026
-  venue: EMNLP 2026 (to appear)
+  venue: Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing (EMNLP)
   doi: 10.48550/arXiv.2512.20773
   url: https://doi.org/10.48550/arXiv.2512.20773
   type: journal
