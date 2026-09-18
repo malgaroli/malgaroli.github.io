@@ -18,6 +18,10 @@ action_type: text
 # Newest first. Each item is a date label + one sentence.
 # Use [text](https://link) for links and *text* for italics.
 news:
+  - date: "September 2026"
+    text: 'We are presenting our research at the [ISTSS 42nd Annual Meeting](https://istss.org/annual-meeting-hub/) in San Antonio, September 23–26, 2026.'
+  - date: "August 2026"
+    text: 'Now out in *Psychological Medicine*: [Mermin et al., "Anxiety and depression subtypes and their psychotherapy response: A network analysis of 33,675 patients"](https://doi.org/10.1017/S0033291726105480).'
   - date: "January 2026"
     text: 'New preprint: [Brindle et al., "Language markers of emotion flexibility predict depression and anxiety treatment outcomes"](https://doi.org/10.48550/arXiv.2601.07961).'
   - date: "2025"

@@ -7,6 +7,23 @@ render_as: publications
 # are the `pub_filter` slugs in content/research/*/index.md (one folder per
 # topic). A paper shows up on every topic page whose tag it carries.
 publications:
+- id: mermin2026-anxiety-and-depression-subtypes
+  title: 'Anxiety and depression subtypes and their psychotherapy response: A network analysis of 33,675 patients'
+  authors:
+  - Mermin, Z.
+  - Robinaugh, D. J.
+  - Hull, T. D.
+  - Szuhany, K. L.
+  - Simon, N.
+  - Malgaroli, M.
+  year: 2026
+  venue: Psychological Medicine
+  doi: 10.1017/S0033291726105480
+  url: https://doi.org/10.1017/S0033291726105480
+  type: journal
+  categories:
+  - computational
+  - digital
 - id: brindle2026-language-markers-of-emotion-fl
   title: Language markers of emotion flexibility predict depression and anxiety treatment outcomes
   authors:
