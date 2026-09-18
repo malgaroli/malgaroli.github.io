@@ -1,0 +1,44 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer-grid">
+
+    <div class="site-footer-brand">
+      {{ if site.Params.logo }}
+      <img class="site-footer-mark" src="{{ site.Params.logo | relURL }}" alt="">
+      {{ end }}
+      <div>
+        <div class="site-footer-name">{{ site.Title }} Lab</div>
+        <div class="site-footer-address">
+          Department of Psychiatry<br>
+          NYU Grossman School of Medicine<br>
+          New York, NY
+        </div>
+      </div>
+    </div>
+
+    <nav class="site-footer-nav" aria-label="Footer">
+      {{ range site.Menus.footer }}
+        <a href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+      {{ end }}
+      {{ if site.Params.socialInFooter }}
+        {{ partial "shared/social-links.html" . }}
+      {{ end }}
+    </nav>
+
+  </div>
+
+  <div class="site-footer-baseline">
+    <span>© {{ now.Year }} {{ site.Title }} Lab. All rights reserved.</span>
+  </div>
+
+  {{ with site.Params.math }}
+    {{ partial "shared/math-preprocess.html" }}
+    {{ with .renderer }}
+      {{ if eq . "mathjax" }}
+        {{ partial "shared/math-render-mathjax.html" }}
+      {{ end }}
+      {{ if eq . "katex" }}
+        {{ partial "shared/math-render-katex.html" }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</footer>

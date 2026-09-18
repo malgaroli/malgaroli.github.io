@@ -1,0 +1,7 @@
+<!--https://gohugo.io/getting-started/configuration-markup#heading-link-example-->
+<!--icon from material design: https://material.io/resources/icons/?style=baseline-->
+
+
+<h{{ .Level }} id="{{ .Anchor | safeURL }}">
+  {{ .Text | safeHTML }}
+</h{{ .Level }}>

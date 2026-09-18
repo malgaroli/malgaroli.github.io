@@ -1,0 +1,27 @@
+{{/*  Project override of the theme's head.html (themes/hugo-apero/layouts/partials/head.html).
+      The ONLY difference is the favicon block: the theme emits a single .ico link,
+      we emit proper PNG / SVG / apple-touch-icon links. Files live in static/img/
+      (copied from lab-logo-set/). Everything else is identical to the theme. */}}
+<head>
+  {{ partial "meta.html" . }}
+  {{ template "_internal/schema.html" . }}
+  {{ template "_internal/google_analytics.html" . }}
+  {{ `<!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->` | safeHTML }}
+  {{/* Favicons — paths go through relURL so they work under a GitHub Pages sub-path. */}}
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "img/favicon-32.png" | relURL }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ "img/favicon-16.png" | relURL }}">
+  <link rel="icon" type="image/svg+xml" href="{{ "img/favicon.svg" | relURL }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "img/apple-touch-icon.png" | relURL }}">
+  {{ range .AlternativeOutputFormats }}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ end }}
+  {{ $styles := resources.Get "scaffold.scss" | resources.ExecuteAsTemplate "style.main.scss" . | toCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
+  <!-- panelset.js -->
+  {{ $panelsetJs := resources.Get "js/panelset.js" | js.Build "panelset.js" | minify | fingerprint }}
+  <script src="{{ $panelsetJs.RelPermalink }}" type="text/javascript"></script>
+  <!-- headroom.js -->
+  {{ $mainJs := resources.Get "js/main.js" | js.Build "main.js" | minify | fingerprint }}
+  <script src="{{ $mainJs.RelPermalink }}" type="text/javascript"></script>
+  <link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
+</head>

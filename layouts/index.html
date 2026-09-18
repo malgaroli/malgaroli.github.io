@@ -1,0 +1,68 @@
+{{ define "main" }}
+{{/*  Homepage. Built entirely from content/_index.md front matter:
+        - title / description / images  → hero
+        - news:    [{date, text}]       → Recent News (full width)
+        - funders: [{name, url, logo}]  → Funding & Support logo strip
+      Project-level override of the theme's index.html.  */}}
+<main class="page-main pa4" role="main">
+
+  {{/* ── Hero ───────────────────────────────────────────────────────────── */}}
+  <section class="page-content mw8 center">
+    <div class="flex-l items-center" style="{{ if .Params.image_left }}flex-direction: row-reverse;{{ end }}">
+      <div class="mh4 w-60-l {{ if not .Params.text_align_left }}tr{{ end }}">
+        {{ with .Params.title }}<h1 class="home-title fw5-ns mv4">{{ . }}</h1>{{ end }}
+        {{ with .Params.subtitle }}<h2 class="f5 fw7 mt0 mb4 ttu tracked">{{ . }}</h2>{{ end }}
+        {{ if .Params.show_social_links }}{{ partial "shared/social-links.html" . }}{{ end }}
+        {{ with .Params.description }}<p class="home-lede">{{ . | markdownify }}</p>{{ end }}
+        {{ if .Params.show_action_link }}<a class="mt4 action {{ .Params.action_type }}" href="{{ .Params.action_link | relURL }}">{{ .Params.action_label | safeHTML }}</a>{{ end }}
+      </div>
+      <div class="tc w-40-l {{ if .Params.image_left }}ml4{{ else }}mr4{{ end }}">
+      {{/* hero_image is preferred (can be an SVG); images[0] is the fallback and
+            also feeds the social card in partials/meta.html, so keep it a PNG. */}}
+      {{ with .Params.hero_image }}
+        <img class="home-hero-img" src="{{ . | relURL }}" alt="DigiMind Lab logo"/>
+      {{ else }}{{ with .Params.images }}
+        {{ range first 1 . }}<img class="home-hero-img" src="{{ . | relURL }}" alt="DigiMind Lab logo"/>{{ end }}
+      {{ end }}{{ end }}
+      </div>
+    </div>
+  </section>
+
+  {{/* ── Recent News (full width: heading left, items right) ─────────────── */}}
+  {{ with .Params.news }}
+  <section class="home-news mw9 center">
+    <div class="mh4 home-news-grid">
+      <div class="home-news-head"><h2>Recent News</h2></div>
+      <div class="home-news-items">
+        {{ range . }}
+        <div class="news-row">
+          <div class="news-date">{{ .date }}</div>
+          <div class="news-body">{{ .text | markdownify }}</div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* ── Funding & Support ───────────────────────────────────────────────── */}}
+  {{ with .Params.funders }}
+  <section class="home-funding mw9 center">
+    <div class="mh4">
+      <h2 class="home-section-head">Funding &amp; Support</h2>
+      <div class="funders">
+        {{ range . }}
+        <a href="{{ .url }}" target="_blank" rel="noopener" title="{{ .name }}"><img src="{{ .logo | relURL }}" alt="{{ .name }}"></a>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* Optional extra markdown body, if ever added below the front matter. */}}
+  {{ with .Content }}
+  <section class="home-extra mw9 center mt4 mb5"><div class="mh4 home-extra-inner">{{ . }}</div></section>
+  {{ end }}
+
+</main>
+{{ end }}

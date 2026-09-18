@@ -1,0 +1,142 @@
+{{ define "main" }}
+{{/*  Category slug → display label, built from the research pages themselves.
+      Every content/research/<slug>/index.md that sets `pub_filter:` is a topic;
+      its label is `pub_label` (or the page title). Ordered by weight desc, the
+      same order as the /research/ listing. Adding a topic = adding a folder;
+      nothing here needs editing. Unknown slugs fall back to the raw slug. */}}
+{{ $topics := where (where site.RegularPages "Section" "research") "Params.pub_filter" "!=" nil }}
+{{ $catLabels := dict }}
+{{ range $topics.ByWeight.Reverse }}
+  {{ $catLabels = merge $catLabels (dict (string .Params.pub_filter) (default .Title .Params.pub_label)) }}
+{{ end }}
+{{/*  Single-page layout.
+
+      Two special modes, both triggered by page front-matter:
+        - Params.render_as == "publications" → render the full filterable
+          publications list from Params.publications.
+        - Params.pub_filter == "<category-slug>" → append a "Selected
+          Publications" section pulled from /publications and filtered by
+          that category. Use on each research/<slug>/index.md page so the
+          list stays in sync automatically.  */}}
+
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 ph4-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">{{ .Title }}</h1>
+        {{ if .Params.subtitle }}<h4 class="f4 mt0 mb4 lh-title measure">{{ .Params.subtitle }}</h4>{{ end }}
+        {{ if .Params.show_author_byline }}<p class="f6 measure lh-copy mv1">{{ if .Params.author }}By {{ .Params.author }}{{ end }}{{ with .Params.categories }} in{{ range . }} <a href="{{ "categories/" | absURL }}{{ . | urlize }}">{{ . }}</a> {{ end }}{{ end }}</p>{{ end }}
+        {{ if .Params.show_post_date }}<p class="f7 db mv0 ttu">{{ .PublishDate.Format "January 2, 2006" }}</p>{{ end }}
+
+      {{ if .Params.links }}
+      <div class="ph0 pt5">
+        {{ partial "shared/btn-links.html" . }}
+      </div>
+      {{ end }}
+
+      </header>
+      <section class="post-body pt5 pb4">
+        {{/* Team-member photo (people section only): rendered via Resources so
+              the image is always published with a correct URL on any host. */}}
+        {{ if eq .Section "people" }}
+          {{ with (.Resources.ByType "image").GetMatch "*feature*" }}
+          <div class="person-photo"><img src="{{ .RelPermalink }}" alt="{{ $.Title }}"></div>
+          {{ end }}
+        {{ end }}
+        {{ .Content }}
+
+        {{/* ── Mode 1: full publications page with category filter chips ── */}}
+        {{ if eq .Params.render_as "publications" }}
+          {{ $all := .Params.publications }}
+
+          {{/* group preprints + each year */}}
+          {{ $preprints := where $all "type" "preprint" }}
+          {{ $journals  := where $all "type" "journal" }}
+
+          {{ with $preprints }}
+          <section class="pub-group" data-group="preprints">
+            <h2 class="pub-group-header">Preprints</h2>
+            {{ range . }}
+              <article class="pub-entry">
+                <p class="pub-citation">
+                  <span class="pub-authors">{{ delimit .authors ", " }}</span>
+                  <span class="pub-year">({{ .year }}).</span>
+                  {{ if .url }}<a class="pub-title" href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>.{{ else }}<span class="pub-title">{{ .title }}</span>.{{ end }}
+                  {{ with .venue }}<em class="pub-venue">{{ . }}</em>.{{ end }}
+                </p>
+              </article>
+            {{ end }}
+          </section>
+          {{ end }}
+
+          {{/* group journals by year, descending. Built manually because the
+                publications come from front matter (a plain slice), which has no
+                GroupByParam method — that's a Pages-only helper. */}}
+          {{ $years := slice }}
+          {{ range $journals }}{{ $years = $years | append .year }}{{ end }}
+          {{ range ($years | uniq | sort | collections.Reverse) }}
+            {{ $year := . }}
+            <section class="pub-group" data-group="year-{{ $year }}">
+              <h2 class="pub-group-header">{{ $year }}</h2>
+              {{ range where $journals "year" $year }}
+                <article class="pub-entry">
+                  <p class="pub-citation">
+                    <span class="pub-authors">{{ delimit .authors ", " }}</span>
+                    <span class="pub-year">({{ .year }}).</span>
+                    {{ if .url }}<a class="pub-title" href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>.{{ else }}<span class="pub-title">{{ .title }}</span>.{{ end }}
+                    {{ with .venue }}<em class="pub-venue">{{ . }}</em>.{{ end }}
+                  </p>
+                </article>
+              {{ end }}
+            </section>
+          {{ end }}
+
+        {{ end }}
+
+        {{/* ── Mode 2: research category page — append filtered list ── */}}
+        {{ with .Params.pub_filter }}
+          {{ $cat := . }}
+          {{ $pubsPage := site.GetPage "/publications" }}
+          {{ if $pubsPage }}
+            {{ $matches := slice }}
+            {{ range $pubsPage.Params.publications }}
+              {{ if in (default (slice) .categories) $cat }}
+                {{ $matches = $matches | append . }}
+              {{ end }}
+            {{ end }}
+            {{ with $matches }}
+              <section class="research-pubs">
+                <hr>
+                <h3>Selected Publications</h3>
+                {{ range . }}
+                  <article class="pub-entry">
+                    <p class="pub-citation">
+                      <span class="pub-authors">{{ delimit .authors ", " }}</span>
+                      <span class="pub-year">({{ .year }}).</span>
+                      {{ if .url }}<a class="pub-title" href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>.{{ else }}<span class="pub-title">{{ .title }}</span>.{{ end }}
+                      {{ with .venue }}<em class="pub-venue">{{ . }}</em>.{{ end }}
+                    </p>
+                    {{ with .categories }}
+                    <p class="pub-cats">
+                      {{ range . }}<span class="pub-tag pub-tag-{{ . }}">{{ index $catLabels . | default . }}</span>{{ end }}
+                    </p>
+                    {{ end }}
+                  </article>
+                {{ end }}
+                <p class="research-pubs-link"><a href="/publications/">See all publications →</a></p>
+              </section>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+
+      </section>
+      <footer class="post-footer">
+        {{ partial "shared/post-pagination.html" . }}
+      </footer>
+    </article>
+    {{ if .Params.show_comments }}
+      {{ partial "shared/comments.html" . }}
+    {{ end }}
+  </section>
+</main>
+{{ end }}

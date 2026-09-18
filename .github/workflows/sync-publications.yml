@@ -1,0 +1,51 @@
+name: Weekly publication sync
+
+# Every Monday 06:00 UTC, look for new papers on each team member's ORCID
+# record and open a pull request with them for review. You can also run it
+# on demand from the Actions tab ("Run workflow").
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the site
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Pull new publications from ORCID + auto-tag
+        run: python scripts/pubsync.py --sync
+
+      - name: Open a pull request with any changes
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "Weekly ORCID publication sync"
+          title: "Weekly ORCID publication sync"
+          body: |
+            Automated update from each team member's ORCID record.
+
+            **What to check before merging**
+            - New entries near the bottom of `content/publications/_index.md`.
+            - Author names, venue, and year look right (pulled from Crossref).
+            - Suggested research-area tags (`categories:`) are appropriate —
+              add or remove as you see fit.
+
+            If a paper shouldn't be here, just delete its block and merge.
+            If there are no new papers, no PR is created.
+          branch: bot/pubsync
+          delete-branch: true
+          add-paths: content/publications/_index.md

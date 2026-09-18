@@ -1,0 +1,173 @@
+baseURL = "/"
+defaultContentLanguage = "en"
+theme = "hugo-apero"
+title = "DigiMind Lab"
+author = "DigiMind Lab"
+copyright = "" # set to override the auto generated copyright using org info and current year
+googleAnalytics = ""
+disqusShortname = ""
+metaDataFormat = "yaml"
+footnoteReturnLinkContents = "&#8617;" # ↩
+preserveTaxonomyNames = true
+ignoreFiles = [
+  "\\.Rmd$",
+  "\\.Rmarkdown$",
+  "_cache$",
+  "\\.knit\\.md$",
+  "\\.utf8\\.md$",
+  # Leftover hugo-apero theme demo bundles — kept on disk for now, but not built.
+  "content/(publications|repository)/(about-page|built-in-contact-form|color-themes|css-grid-scaffold|fonts|homepage|seedling|social)/",
+  # Standalone /news/ section is retired — news lives on the homepage now.
+  "content/news/",
+  # R-project artifacts that shouldn't ship with the site.
+  "\\.RData$", "\\.Rhistory$", "\\.Rprofile$", "\\.Rproj$", "\\.Rproj\\.user/",
+  "imgs\\.R$",
+]
+enableEmoji = true
+
+# No taxonomy pages (/categories/, /tags/, /series/): this is a lab site, not a
+# blog, and the leftover terms only generated junk pages.
+disableKinds = ["taxonomy", "term"]
+
+[pagination]
+  pagerSize = 10
+
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark.renderer]
+    unsafe = true  # allow HTML snippets in Markdown content
+    hardwraps = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 2
+    ordered = false
+  [markup.highlight]
+    style = "github"
+
+[params]
+  orgName = "NYU Grossman School of Medicine"
+  orgLocal = "New York, NY"
+  description = "The DigiMind Lab, led by Dr. Matteo Malgaroli at the NYU Grossman School of Medicine, sits at the intersection of clinical psychology and artificial intelligence: language models and NLP for mental health monitoring and intervention, human–AI interaction, computational psychopathology, and digital mental health."
+  # Branding. Deployed files live in static/img/ (copied from lab-logo-set/,
+  # the brand master). The favicon links are emitted by layouts/partials/head.html;
+  # the value below is only a legacy fallback.
+  favicon = "/img/favicon-32.png"
+  logo = "/img/logo-mark.svg"          # header mark (head-only composition)
+  mainSections = ["research", "people", "publications", "repository"]
+  navallcaps = true
+  # show/hide social icons in site header & footer
+  socialInHeader = false
+  socialInFooter = false
+  # Default image for social sharing and search engines.
+  sharing_image = "/img/og-image.png"
+
+  # Color palette. "sky" is the closest built-in to the DigiMind logo; the
+  # brand-exact overrides (tube blue / deep navy / lavender, from
+  # lab-logo-set/README.txt) live in assets/scss/_custom.scss.
+  # To switch to a standalone hex-color file, set theme = "" and drop
+  # assets/digimind-hex.scss in (then set custom_theme = "digimind-hex").
+  theme = "sky"
+  custom_theme = ""
+
+  # Embedded font families.
+  # serif options: Fraunces / EB Garamond / Bitter
+  # sans-serif options: Commissioner / Atkinson Hyperlegible / Metropolis
+  customtextFontFamily = "Atkinson Hyperlegible"
+  customheadingFontFamily = "EB Garamond"
+  # Fallbacks if custom fonts fail to load.
+  textFontFamily = "sans-serif"
+  headingFontFamily = "sans-serif"
+
+  # Comments are off — this is a lab site, not a blog.
+  [params.utterances]
+    use_utterances = false
+    repo_name = ""
+    issue_term = "pathname"
+    theme = "boxy-light"
+    label = "comments"
+
+  # Social icons may appear on homepage and in site header or footer.
+  # Configure show/hide above — add as many as you like below.
+  # Icon packs: "fab" (brands), "fas" (solid), "far" (regular).
+  # Example:
+  # [[params.social]]
+  #   icon      = "github"
+  #   icon_pack = "fab"
+  #   url       = "https://github.com/malgaroli"
+
+
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"
+
+
+[menu]
+  [[menu.header]]
+    name   = "Research Interests"
+    title  = "Research Interests"
+    url    = "/research/"
+    weight = 1
+  [[menu.header]]
+    name   = "People"
+    title  = "People"
+    url    = "/people/"
+    weight = 2
+  [[menu.header]]
+    name   = "Publications"
+    title  = "Publications"
+    url    = "/publications/"
+    weight = 3
+  [[menu.header]]
+    name   = "Repository"
+    title  = "Repository"
+    url    = "/repository/"
+    weight = 5
+
+[[menu.header]]
+  name       = "Get Involved"
+  title      = "Get Involved"
+  url        = "/get-involved/"
+  weight     = 6
+  identifier = "get-involved"
+
+[[menu.header]]
+  name   = "For Participants"
+  title  = "For Participants"
+  url    = "/participants/"
+  parent = "get-involved"
+  weight = 1
+
+[[menu.header]]
+  name   = "For Researchers"
+  title  = "For Researchers"
+  url    = "/researchers/"
+  parent = "get-involved"
+  weight = 2
+
+# Footer menu
+[[menu.footer]]
+  name   = "Contact"
+  title  = "Get involved with the lab"
+  url    = "/get-involved/"
+  weight = 1
+
+
+# see https://gohugo.io/about/hugo-and-gdpr/
+[privacy]
+  [privacy.disqus]
+    disable = true
+  [privacy.googleAnalytics]
+    disable = false
+    anonymizeIP = true
+    respectDoNotTrack = true
+  [privacy.instagram]
+    disable = false
+    simple = true
+  [privacy.vimeo]
+    disable = false
+    enableDNT = true
+    simple = true
+  [privacy.youtube]
+    disable = false
+    privacyEnhanced = true

@@ -1,0 +1,547 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// DigiMind palette overrides.
+//
+// Brand colors (from lab-logo-set/README.txt — the traced head + digits logo):
+//   deep navy   #151B4D  (navy ground — headings, nav, buttons)
+//   tube blue   #2438B4  (the circuit tubes — links, active nav, paper titles)
+//   base slab   #6F74C4  (the slab under the head — hover accent, darkened)
+//   tube fill   #9FA1C6  (soft accent / default tag background)
+//   node red    #D8434F  (used only for the Human–AI tag)
+//   lavender    #ECECF4  (site background)
+//   ink         #1C1A22  (body text)
+//
+// Aim: minimalist academic — quiet lavender ground, navy for structure, tube
+// blue for anything clickable, slab for hover moments.
+//
+// This file imports last (see themes/hugo-apero/assets/scaffold.scss), so it
+// can override the .custom-* classes set by the active theme (currently "sky").
+// ─────────────────────────────────────────────────────────────────────────────
+
+$dm-navy:        #151B4D;  // deep navy — headings, nav, buttons
+$dm-blue:        #2438B4;  // tube blue — links, active nav, paper titles
+$dm-slate:       #9FA1C6;  // tube fill — soft accent
+$dm-slate-dk:    #4A50A6;  // base slab, darkened for hover contrast on lavender
+$dm-bg:          #ECECF4;  // lavender ground (matches the logo tiles)
+$dm-text:        #1C1A22;
+$dm-text-muted:  #5B5A66;
+$dm-border:      #D3D4E5;
+
+// Backgrounds
+.bg-custom-site-bg-color    { background-color: $dm-bg; }
+.bg-custom-sidebar-bg-color { background-color: #FFFFFF; }
+
+// Text
+.custom-text-color          { color: $dm-text; }
+.custom-sidebar-text-color  { color: $dm-text; }
+
+// Headings & headline
+.custom-headline-color      { color: $dm-navy; }
+.custom-heading-color       { color: $dm-navy; }
+
+// Links
+.custom-body-link-color     { color: $dm-blue; }
+.custom-nav-link-color      { color: $dm-navy; }
+.bg-custom-nav-bg-color     { background-color: $dm-blue; } // active-nav underline
+.custom-sidebar-link-color  { color: $dm-blue; }
+
+// Footer
+.custom-footer-text-color   { color: $dm-text-muted; }
+
+// Buttons
+.custom-button-text-color           { color: #FFFFFF; }
+.hover-custom-button-hover-text-color:hover { color: #FFFFFF; }
+.bg-custom-button-bg-color          { background-color: $dm-navy; }
+.hover-bg-custom-button-hover-bg-color:hover { background-color: $dm-slate-dk; }
+
+// Borders
+.b--custom-border-color { border-color: $dm-border; }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Small refinements
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Body link hover — keep subtle, use slate as the accent rather than navy.
+.custom-body-link-color:hover { color: $dm-slate-dk; }
+
+// Soft horizontal rules instead of harsh ones.
+hr { border: 0; border-top: 1px solid $dm-border; margin: 2.5rem 0; }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Typography size & weight.
+//
+// The theme's default body font (Commissioner) loaded at a Light/Thin weight,
+// which read as small and faint. We now use Atkinson Hyperlegible (body) +
+// EB Garamond (headings). These rules give the prose a comfortable reading
+// size and a solid weight, and keep headings at EB Garamond's real 600 weight
+// (avoids browser-synthesised fake bold). Sizes use rem, so they scale with
+// the reader's browser text-size setting.
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Solid body weight everywhere (no more thin text).
+body { font-weight: 400; }
+
+// Comfortable, readable prose on article/single pages.
+.post-body,
+.page-body {
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+// Homepage lede + news text, bumped to match.
+.home-lede { font-size: 1.2rem; line-height: 1.6; }
+.home-news .news-body { font-size: 1.08rem; line-height: 1.6; }
+
+// Headings: EB Garamond looks best at 600 (it ships a true 600; going heavier
+// would force a fake-bold). Applies to all headings across the site.
+h1, h2, h3, h4, h5, h6 { font-weight: 600; }
+
+// Existing tweak — keep blog post H1 size restrained.
+.blog-content h1.f3 {
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Listing card thumbnails — uniform square crop.
+//
+// The theme's _default/list.html → shared/summary.html partial renders each
+// card image as a plain <img> with no aspect-ratio enforcement. Source
+// photos in the lab differ in dimensions (e.g., Matteo 896×896, Julia
+// 1218×1294, Smokey 3024×3024), so without help the cards render at wildly
+// different heights — Matteo's small square looks broken next to the others.
+//
+// Force every listing thumbnail into a 1:1 square via object-fit: cover.
+// Applies to /people/ and /research/ listings; both benefit.
+// ─────────────────────────────────────────────────────────────────────────────
+.blog-content article figure {
+  position: relative;
+  align-self: flex-start; // don't stretch to the (tall) text column's height,
+                          // which would override the 1:1 ratio into a portrait
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #f3f4f8; // graceful fallback while images load
+}
+// The <img> sits inside <a class="db">; that anchor must fill the figure,
+// or the image keeps its natural height and leaves a grey gap below it.
+.blog-content article figure a {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+.blog-content article figure img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top; // bias toward faces
+  display: block;
+  margin: 0;
+}
+
+// Larger, more readable listing-card text (e.g., names on /people/).
+.blog-content article header h1 { font-size: 1.7rem; line-height: 1.25; }
+.blog-content article p.lh-copy { font-size: 1.05rem; line-height: 1.6; }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Homepage "Recent News" — SALT-lab-style two-column date|text table.
+// Lives in .home-extra (see themes/hugo-apero/layouts/index.html override).
+// ─────────────────────────────────────────────────────────────────────────────
+.home-extra-inner {
+  max-width: 56rem; // keep the table comfortable to scan; doesn't span full mw9.
+
+  h2 {
+    font-size: 1.5rem;
+    margin: 0 0 1.25rem 0;
+    color: $dm-navy;
+    font-weight: 500;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+  }
+
+  thead { display: none; } // we render a header-less table; hide the empty thead.
+
+  tbody td {
+    padding: 0.65rem 1rem 0.65rem 0;
+    vertical-align: top;
+    border-bottom: 1px solid $dm-border;
+    line-height: 1.5;
+  }
+
+  tbody tr td:first-child {
+    width: 5.5rem;
+    color: $dm-text-muted;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  // Subtle trailing note ("To edit this list…")
+  > em,
+  > p > em {
+    display: block;
+    margin-top: 1rem;
+    color: $dm-text-muted;
+    font-size: 0.85rem;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Publications list — filter chips, entries, category tags.
+// Rendered by layouts/_default/single.html when render_as: publications.
+// Also used by research/<cat>/index.md pages (via pub_filter front-matter).
+// ─────────────────────────────────────────────────────────────────────────────
+.pub-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.5rem 0 2rem;
+
+  .pub-chip {
+    padding: 0.4rem 0.85rem;
+    background: #FFFFFF;
+    border: 1px solid $dm-border;
+    border-radius: 999px;
+    color: $dm-navy;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+    font-family: inherit;
+    line-height: 1.2;
+
+    &:hover {
+      border-color: $dm-navy;
+    }
+
+    &.active {
+      background: $dm-navy;
+      border-color: $dm-navy;
+      color: #FFFFFF;
+    }
+  }
+}
+
+.pub-group-header {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: $dm-navy;
+  margin: 2rem 0 0.75rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid $dm-border;
+}
+
+.pub-entry {
+  margin: 0.85rem 0;
+  padding: 0.65rem 0;
+
+  .pub-citation {
+    margin: 0;
+    line-height: 1.55;
+    color: $dm-text;
+    font-size: 0.95rem;
+  }
+
+  .pub-authors {
+    color: $dm-text;
+  }
+
+  .pub-year {
+    color: $dm-text-muted;
+    margin: 0 0.15rem;
+  }
+
+  .pub-title {
+    color: $dm-blue;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  a.pub-title:hover {
+    text-decoration: underline;
+    color: $dm-slate-dk;
+  }
+
+  .pub-venue {
+    color: $dm-text-muted;
+  }
+
+  .pub-cats {
+    margin: 0.3rem 0 0;
+
+    .pub-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: $dm-slate-dk;
+      background: lighten($dm-slate, 22%);
+      border-radius: 3px;
+      padding: 0.12rem 0.5rem;
+      margin-right: 0.3rem;
+
+      // Per-research-area colors, one rule per `pub_filter` slug
+      // (content/research/<slug>/index.md). A slug with no rule here simply
+      // gets the neutral default above — so a new topic needs no CSS change,
+      // but adding a line here gives it its own colour.
+      &.pub-tag-nlp           { background: #DCE0F7; color: #2438B4; } // tube blue
+      &.pub-tag-llms          { background: #D9DBEA; color: #151B4D; } // deep navy
+      &.pub-tag-human-ai      { background: #FADFE1; color: #B0303C; } // node red
+      &.pub-tag-computational { background: #F1E1EA; color: #7A3B5E; } // digit pink → mauve
+      &.pub-tag-digital       { background: #E3E4F5; color: #4A50A6; } // base slab
+    }
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Nav brand — logo mark + "DigiMind" wordmark side by side.
+// ─────────────────────────────────────────────────────────────────────────────
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  vertical-align: middle;
+}
+.site-brand-mark {
+  // The traced artwork reads well down to ~96px and degrades below 48px
+  // (lab-logo-set/README.txt), so 3rem (~48px) is the floor.
+  height: 3rem;
+  width: auto;
+  display: block;
+}
+.site-brand-text {
+  font-family: $headingFontFamily, serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: $dm-navy;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .site-brand { justify-content: center; gap: 0.45rem; }
+  .site-brand-mark { height: 2.5rem; }
+  .site-brand-text { font-size: 1.1rem; }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Footer — brand mark + address on the left, footer nav on the right,
+// baseline copyright row underneath.
+// ─────────────────────────────────────────────────────────────────────────────
+.site-footer {
+  margin-top: 4rem;
+  padding: 2.5rem 2rem 1.5rem;
+  border-top: 1px solid $dm-border;
+  color: $dm-text-muted;
+  font-size: 0.9rem;
+}
+.site-footer-grid {
+  max-width: 96rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem 3rem;
+}
+.site-footer-brand {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  max-width: 28rem;
+}
+.site-footer-mark {
+  height: 2.5rem;
+  width: auto;
+  display: block;
+}
+.site-footer-name {
+  color: $dm-navy;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+.site-footer-address {
+  color: $dm-text-muted;
+  line-height: 1.45;
+  font-size: 0.85rem;
+}
+.site-footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  align-items: center;
+  font-size: 0.9rem;
+
+  a {
+    color: $dm-navy;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+    color: $dm-slate-dk;
+  }
+}
+.site-footer-baseline {
+  max-width: 96rem;
+  margin: 1.75rem auto 0;
+  padding-top: 1rem;
+  border-top: 1px solid $dm-border;
+  color: $dm-text-muted;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Funders strip (homepage). Full-color logos, uniform height, centered row.
+// ─────────────────────────────────────────────────────────────────────────────
+.funders {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.75rem 2.75rem;
+  margin: 1.25rem 0 0;
+  padding: 0.5rem 0;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  // Cap every logo to the same height so the row reads as a balanced strip,
+  // regardless of each logo's aspect ratio.
+  img {
+    max-height: 2.75rem;
+    width: auto;
+    max-width: 11rem;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+  }
+  a:hover img {
+    transform: translateY(-2px);
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Homepage hero + Recent News + Funding sections (rendered by layouts/index.html)
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Larger, more readable hero description.
+.home-lede {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin-top: 1.5rem;
+  color: $dm-text;
+}
+
+// Recent News — heading on the left, dated items on the right, full width.
+.home-news {
+  margin-top: 2.5rem;
+}
+.home-news-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1.25rem 2.5rem;
+  align-items: start;
+}
+.home-news-head h2,
+.home-section-head {
+  font-family: $headingFontFamily, serif;
+  color: $dm-navy;
+  font-size: 1.9rem;
+  font-weight: 500;
+  margin: 0;
+}
+.news-row {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 1.25rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid $dm-border;
+}
+.news-row:first-child { padding-top: 0; }
+.news-row:last-child { border-bottom: 0; }
+.news-date {
+  color: $dm-text-muted;
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.news-body {
+  color: $dm-text;
+  line-height: 1.55;
+  p { margin: 0; }
+  a { color: $dm-blue; }
+  a:hover { color: $dm-slate-dk; }
+}
+
+// Funding section spacing.
+.home-funding {
+  margin-top: 3rem;
+}
+.home-section-head { margin-bottom: 0.25rem; }
+
+// Stack the news columns on narrow screens.
+@media (max-width: 50em) {
+  .home-lede { font-size: 1.15rem; }
+  .home-news-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+  .news-row { grid-template-columns: 64px 1fr; gap: 0.85rem; }
+}
+
+// Team-member photo on individual people pages.
+.person-photo {
+  text-align: center;
+  margin: 0 0 1.5rem;
+
+  img {
+    width: 220px;
+    max-width: 60%;
+    height: auto;
+    border-radius: 8px;
+  }
+}
+
+// Homepage hero title — sized to stay on one line ("DigiMind Lab") beside the
+// intro text instead of wrapping awkwardly.
+.home-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.08;
+}
+
+// Homepage hero logo — kept modest so it doesn't crowd the intro text.
+.home-hero-img {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+}
+
+// Don't fade team/research photos on hover — the theme's .dim effect washes
+// portraits out and reads as "broken".
+.blog-content article figure img:hover { opacity: 1; }
+
+// Research category page — "Selected Publications" appendix
+.research-pubs {
+  margin-top: 2.5rem;
+
+  h3 {
+    font-size: 1.15rem;
+    color: $dm-navy;
+    font-weight: 500;
+    margin: 0 0 1rem;
+  }
+
+  .research-pubs-link {
+    margin-top: 1.25rem;
+    font-size: 0.9rem;
+
+    a {
+      color: $dm-slate-dk;
+      text-decoration: none;
+      &:hover { text-decoration: underline; }
+    }
+  }
+}

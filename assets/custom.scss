@@ -1,0 +1,5 @@
+// Bridge file. The theme's scaffold.scss ends with `@import "custom";`, which
+// resolves to THIS file (it shadows the theme's empty assets/custom.scss). It
+// pulls in the lab's brand overrides in assets/scss/_custom.scss — which were
+// previously never compiled into the site.
+@import "scss/custom";
