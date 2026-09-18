@@ -17,8 +17,6 @@ ignoreFiles = [
   "\\.utf8\\.md$",
   # Leftover hugo-apero theme demo bundles — kept on disk for now, but not built.
   "content/(publications|repository)/(about-page|built-in-contact-form|color-themes|css-grid-scaffold|fonts|homepage|seedling|social)/",
-  # Standalone /news/ section is retired — news lives on the homepage now.
-  "content/news/",
   # R-project artifacts that shouldn't ship with the site.
   "\\.RData$", "\\.Rhistory$", "\\.Rprofile$", "\\.Rproj$", "\\.Rproj\\.user/",
   "imgs\\.R$",

@@ -3,10 +3,159 @@ title: Publications
 layout: single
 show_post_thumbnail: false
 render_as: publications
+# DOIs the weekly robot must never propose again (e.g. papers on a member's
+# ORCID record that are not lab work). One DOI per line, lower-case.
+ignore_dois:
+- 10.1037/dev0002213      # Gallagher, Mermin & Olson 2026 (Developmental Psychology)
+- 10.1037/sgd0000899      # Mermin, Gallagher & Olson 2026 (Psychology of Sexual Orientation and Gender Diversity)
+- 10.1111/bjc.12254       # Malins et al. 2020 (no lab author)
 # Each paper may carry `categories:` — a list of research-area tags. Valid tags
 # are the `pub_filter` slugs in content/research/*/index.md (one folder per
 # topic). A paper shows up on every topic page whose tag it carries.
 publications:
+- id: wolfe2026-engagement-phenotypes-ai-chatbot
+  title: 'Engagement phenotypes for a sample of 102,684 AI mental health chatbot users and dose-response associations with clinical outcomes'
+  authors:
+  - Wolfe, E. C.
+  - Su, T.
+  - Tieleman, O.
+  - Hull, T. D.
+  - Malgaroli, M.
+  - Stamatis, C. A.
+  year: 2026
+  venue: arXiv preprint
+  doi: 10.48550/arXiv.2605.00275
+  url: https://doi.org/10.48550/arXiv.2605.00275
+  type: preprint
+  categories:
+  - llms
+  - human-ai
+  - computational
+  - digital
+- id: stamatis2026-talking-to-a-human-attitudinal
+  title: 'Talking to a human as an attitudinal barrier: A mixed methods evaluation of stigma, access, and the appeal of AI mental health support'
+  authors:
+  - Stamatis, C. A.
+  - Wolfe, E. C.
+  - Malgaroli, M.
+  - Hull, T. D.
+  year: 2026
+  venue: arXiv preprint
+  doi: 10.48550/arXiv.2604.09575
+  url: https://doi.org/10.48550/arXiv.2604.09575
+  type: preprint
+  categories:
+  - human-ai
+  - digital
+- id: beikzadeh2026-multi-objective-alignment
+  title: Multi-objective alignment of language models for personalized psychotherapy
+  authors:
+  - Beikzadeh, M.
+  - Asadollah Salmanpour, Y.
+  - Suvarna, A.
+  - Sankararaman, S.
+  - Malgaroli, M.
+  - Sarrafzadeh, M.
+  - Gabriel, S.
+  year: 2026
+  venue: arXiv preprint
+  doi: 10.48550/arXiv.2602.16053
+  url: https://doi.org/10.48550/arXiv.2602.16053
+  type: preprint
+  categories:
+  - llms
+- id: jin2026-evaluating-diagnostic-accuracy-llms
+  title: Evaluating diagnostic accuracy and clinical reasoning of multiple large language models in psychiatry
+  authors:
+  - Jin, K. W.
+  - Rostam-Abadi, Y.
+  - Chaudhary, P.
+  - Garrett, M. A.
+  - Huang, A. S.
+  - Montelongo, M.
+  - Nagpal, C.
+  - Shei, J.
+  - Weathers, J.
+  - Zhang, J. S.
+  - Chen, Q.
+  - Kim, J.
+  - Malgaroli, M.
+  - Mathis, W. S.
+  - Rodriguez, C. I.
+  - Selek, S.
+  - Sharma, M. S.
+  - Pittenger, C.
+  - Yip, S. W.
+  - Zaboski, B. A.
+  - Xu, H.
+  year: 2026
+  venue: medRxiv preprint
+  doi: 10.64898/2026.02.03.26345402
+  url: https://doi.org/10.64898/2026.02.03.26345402
+  type: preprint
+  categories:
+  - nlp
+  - llms
+- id: sun2026-prevalence-and-network-model
+  title: 'Prevalence and network model of depressive symptoms among older adults: Evidence based on national surveys from China, the United Kingdom, the United States, India and Mexico'
+  authors:
+  - Sun, H. L.
+  - Chen, P.
+  - Feng, Y.
+  - Sha, S.
+  - Su, Z.
+  - Cheung, T.
+  - Ungvari, G. S.
+  - Malgaroli, M.
+  - Jackson, T.
+  - Zhang, Q.
+  - Xiang, Y. T.
+  year: 2026
+  venue: Journal of Affective Disorders
+  doi: 10.1016/j.jad.2026.121530
+  url: https://doi.org/10.1016/j.jad.2026.121530
+  type: journal
+  categories:
+  - computational
+- id: neu2026-gaming-based-community-intervention
+  title: 'Gaming-based community intervention for loneliness in adult gamers: Longitudinal observational study'
+  authors:
+  - Neu, C.
+  - Hull, T. D.
+  - Malgaroli, M.
+  year: 2026
+  venue: JMIR Formative Research
+  doi: 10.2196/82428
+  url: https://doi.org/10.2196/82428
+  type: journal
+  categories:
+  - digital
+- id: szuhany2025-current-treatments-for-anxiety
+  title: Current treatments for anxiety and trauma-related disorders
+  authors:
+  - Szuhany, K. L.
+  - Feldman, B.
+  - Malgaroli, M.
+  - Simon, N. M.
+  year: 2025
+  venue: 'Charney and Nestler''s Neurobiology of Mental Illness (Oxford University Press)'
+  doi: 10.1093/med/9780197640654.003.0042
+  url: https://doi.org/10.1093/med/9780197640654.003.0042
+  type: journal
+  categories: []
+- id: malgaroli2021-digital-health-and-ai-for-ptsd
+  title: 'Digital health and artificial intelligence for PTSD: Improving treatment delivery through personalization'
+  authors:
+  - Malgaroli, M.
+  - Hull, T. D.
+  - Schultebraucks, K.
+  year: 2021
+  venue: Psychiatric Annals
+  doi: 10.3928/00485713-20201203-01
+  url: https://doi.org/10.3928/00485713-20201203-01
+  type: journal
+  categories:
+  - digital
 - id: mermin2026-anxiety-and-depression-subtypes
   title: 'Anxiety and depression subtypes and their psychotherapy response: A network analysis of 33,675 patients'
   authors:
@@ -89,6 +238,7 @@ publications:
   url: https://doi.org/10.48550/arXiv.2512.20773
   type: journal
   categories:
+  - nlp
   - llms
   - human-ai
 - id: gabriel2024-can-ai-relate-testing-large-la
@@ -100,13 +250,15 @@ publications:
   - Malgaroli, M.
   - Ghassemi, M.
   year: 2024
-  venue: arXiv preprint
-  doi: 10.48550/arXiv.2405.12021
-  url: https://doi.org/10.48550/arXiv.2405.12021
-  type: preprint
+  venue: 'Findings of the Association for Computational Linguistics: EMNLP 2024'
+  doi: 10.18653/v1/2024.findings-emnlp.120
+  url: https://doi.org/10.18653/v1/2024.findings-emnlp.120
+  type: journal
   categories:
+  - nlp
   - llms
   - human-ai
+  - computational
 - id: galatzer-levy2023-the-capability-of-large-langua
   title: The capability of large language models to measure psychiatric functioning
   authors:
@@ -116,10 +268,10 @@ publications:
   - Karthikesalingam, A.
   - Malgaroli, M.
   year: 2023
-  venue: arXiv preprint
+  venue: arXiv
   doi: 10.48550/arXiv.2308.01834
   url: https://doi.org/10.48550/arXiv.2308.01834
-  type: preprint
+  type: journal
   categories:
   - nlp
   - llms
@@ -128,10 +280,10 @@ publications:
   authors:
   - Arean, P. A.
   year: 2021
-  venue: PubPub
+  venue: Technology, Mind, and Behavior (TMS Proceedings 2021)
   doi: 10.1037/tms0000073
   url: https://doi.org/10.1037/tms0000073
-  type: preprint
+  type: journal
   categories:
   - digital
 - id: chen2026-network-models-of-subjective-s
@@ -272,8 +424,8 @@ publications:
   - Torous, J.
   year: 2025
   venue: The Lancet Digital Health
-  doi: 10.1016/S2589-7500(24
-  url: https://doi.org/10.1016/S2589-7500(24
+  doi: 10.1016/S2589-7500(24)00255-3
+  url: https://doi.org/10.1016/S2589-7500(24)00255-3
   type: journal
   categories:
   - llms

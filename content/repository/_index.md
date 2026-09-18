@@ -11,7 +11,7 @@ layout: single
       <h3>VISTA-SSM</h3>
       <p class="repo-subtitle">Longitudinal Clustering for Health Data</p>
     </header>
-    <p>Varying and Irregular Sampling Time-series Analysis via State-Space Models — our clustering method for longitudinal psychological measurement data. Published in <em>Psychological Methods</em> (2025).</p>
+    <p>Varying and Irregular Sampling Time-series Analysis via State-Space Models, our clustering method for longitudinal psychological measurement data. Published in <em>Psychological Methods</em> (2025).</p>
     <footer>
       <a href="https://github.com/benjaminbrindle/vista_ssm" target="_blank" rel="noopener">
         <i class="fab fa-github"></i> github.com/benjaminbrindle/vista_ssm

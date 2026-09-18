@@ -1,21 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
   <rect width="800" height="800" fill="#ECECF4"/>
-  <!-- phone -->
-  <rect x="245" y="110" width="310" height="580" rx="44" fill="#FFFFFF" stroke="#2438B4" stroke-width="14"/>
-  <rect x="275" y="165" width="250" height="450" rx="18" fill="#ECECF4"/>
-  <line x1="360" y1="650" x2="440" y2="650" stroke="#2438B4" stroke-width="14" stroke-linecap="round"/>
+  <!-- laptop -->
+  <rect x="150" y="170" width="500" height="330" rx="26" fill="#FFFFFF" stroke="#2438B4" stroke-width="14"/>
+  <rect x="180" y="200" width="440" height="270" rx="12" fill="#ECECF4"/>
+  <path d="M90 520 h620 a20 20 0 0 1 20 20 v10 a30 30 0 0 1 -30 30 h-600 a30 30 0 0 1 -30 -30 v-10 a20 20 0 0 1 20 -20 z" fill="#9FA1C6" stroke="#2438B4" stroke-width="14" stroke-linejoin="round"/>
+  <!-- clinician on video call -->
+  <circle cx="300" cy="300" r="42" fill="#9FA1C6" stroke="#2438B4" stroke-width="12"/>
+  <path d="M225 440 a75 75 0 0 1 150 0 z" fill="#9FA1C6" stroke="#2438B4" stroke-width="12" stroke-linejoin="round"/>
+  <!-- chat panel -->
+  <rect x="420" y="240" width="130" height="34" rx="17" fill="#6F74C4"/>
+  <rect x="450" y="290" width="150" height="34" rx="17" fill="#2438B4"/>
+  <rect x="420" y="340" width="110" height="34" rx="17" fill="#6F74C4"/>
   <!-- pulse line -->
-  <polyline points="290,400 340,400 365,340 395,470 425,300 455,430 480,400 510,400" fill="none" stroke="#2438B4" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="425" cy="300" r="14" fill="#D8434F"/>
-  <!-- message bubbles on screen -->
-  <rect x="300" y="200" width="130" height="50" rx="20" fill="#9FA1C6"/>
-  <rect x="370" y="270" width="130" height="50" rx="20" fill="#6F74C4"/>
-  <rect x="300" y="520" width="150" height="50" rx="20" fill="#9FA1C6"/>
-  <!-- signal arcs -->
-  <g fill="none" stroke="#6F74C4" stroke-width="12" stroke-linecap="round">
-    <path d="M590 250 a90 90 0 0 1 0 140"/>
-    <path d="M630 210 a150 150 0 0 1 0 220"/>
-    <path d="M210 250 a90 90 0 0 0 0 140"/>
-    <path d="M170 210 a150 150 0 0 0 0 220"/>
-  </g>
+  <polyline points="420,420 455,420 470,385 490,450 510,395 530,435 545,420 600,420" fill="none" stroke="#2438B4" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="510" cy="395" r="10" fill="#D8434F"/>
+  <!-- phone in the corner -->
+  <rect x="600" y="560" width="120" height="200" rx="22" fill="#FFFFFF" stroke="#2438B4" stroke-width="12"/>
+  <rect x="616" y="585" width="88" height="140" rx="8" fill="#ECECF4"/>
+  <circle cx="660" cy="640" r="18" fill="#D8434F"/>
+  <rect x="630" y="675" width="60" height="14" rx="7" fill="#6F74C4"/>
 </svg>

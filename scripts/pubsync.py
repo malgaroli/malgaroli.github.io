@@ -187,6 +187,46 @@ def existing_dois(entries) -> set[str]:
     return dois
 
 
+def norm_title(title: str) -> str:
+    """Lower-case letters+digits only, with '(preprint)' suffixes dropped, so
+    the same paper on arXiv / medRxiv / SSRN and in a journal compares equal."""
+    t = re.sub(r"\(\s*preprint\s*\)", "", (title or "").lower())
+    return re.sub(r"[^a-z0-9]+", "", t)
+
+
+def existing_titles(entries) -> set[str]:
+    titles = set()
+    for e in entries:
+        try:
+            data = yaml.safe_load(e)
+            pub = data[0] if isinstance(data, list) else data
+            titles.add(norm_title(pub.get("title", "")))
+        except Exception:  # noqa: BLE001
+            m = re.search(r"(?m)^  title:\s*(.+)$", e)
+            if m:
+                titles.add(norm_title(m.group(1).strip("'\"")))
+    return titles
+
+
+def ignored_dois(head: str) -> set[str]:
+    """DOIs listed under `ignore_dois:` in the page front matter."""
+    m = re.search(r"(?ms)^ignore_dois:\n((?:- .*\n)*)", head)
+    if not m:
+        return set()
+    out = set()
+    for line in m.group(1).splitlines():
+        val = line[2:].split("#", 1)[0].strip().lower()
+        if val:
+            out.add(val)
+    return out
+
+
+# Records that are not papers (peer-review reports, publisher "(Preprint)"
+# stubs) or that duplicate a paper already on the site are skipped.
+JUNK_TITLE_RE = re.compile(r"^\s*(review|decision|recommendation|referee report)\s*:", re.I)
+JUNK_TYPES = {"peer-review", "component", "dataset", "other"}
+
+
 def existing_ids(entries) -> set[str]:
     ids = set()
     for e in entries:
@@ -278,6 +318,8 @@ def crossref_meta(doi: str) -> dict | None:
             break
     venue = (m.get("container-title") or [""])[0]
     cr_type = m.get("type", "")
+    if cr_type in JUNK_TYPES or JUNK_TITLE_RE.match(title) or "(preprint)" in title.lower():
+        return {"skip": f"{cr_type or 'record'}: {title[:60]}"}
     ptype = "preprint" if cr_type in ("posted-content", "preprint") else "journal"
     return {
         "title": title, "authors": authors, "year": year,
@@ -319,7 +361,7 @@ def render_entry(meta: dict) -> str:
     return dumped if dumped.endswith("\n") else dumped + "\n"
 
 
-def sync(entries) -> list[str]:
+def sync(entries, head: str = "") -> list[str]:
     if requests is None:
         sys.exit("--sync needs 'requests': pip install -r scripts/requirements.txt")
     people = read_people_orcids()
@@ -327,15 +369,25 @@ def sync(entries) -> list[str]:
         print("No team members have an 'orcid:' set — nothing to ingest.")
         return entries
     have_dois = existing_dois(entries)
+    have_titles = existing_titles(entries)
+    skip_dois = ignored_dois(head)
     used_ids = existing_ids(entries)
     added = 0
     for p in people:
         print(f"• ORCID {p['orcid']} ({p['who']})")
         for doi in orcid_dois(p["orcid"]):
-            if doi in have_dois or doi.rstrip(")") in have_dois:
+            if doi in have_dois or doi.rstrip(")") in have_dois or doi in skip_dois:
                 continue
             meta = crossref_meta(doi)
-            if not meta or not meta.get("year"):
+            if not meta:
+                continue
+            if meta.get("skip"):
+                print(f"    - skipped {meta['skip']}")
+                continue
+            if not meta.get("year"):
+                continue
+            if norm_title(meta["title"]) in have_titles:
+                print(f"    - already on the site under another DOI: {meta['title'][:60]}")
                 continue
             yr = int(meta["year"])
             if p["joined"] and yr < p["joined"]:
@@ -345,6 +397,7 @@ def sync(entries) -> list[str]:
             meta["id"] = make_id(meta, used_ids)
             entries.append(render_entry(meta))
             have_dois.add(doi)
+            have_titles.add(norm_title(meta["title"]))
             added += 1
             print(f"    + {meta['id']} ({yr})")
     print(f"Added {added} new publication(s).")
@@ -365,7 +418,7 @@ def main():
     _orig, head, entries, body = load_file()
 
     if args.sync:
-        entries = sync(entries)
+        entries = sync(entries, head)
 
     entries = [retag_entry(e) for e in entries]
 

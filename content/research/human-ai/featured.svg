@@ -1,20 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
   <rect width="800" height="800" fill="#ECECF4"/>
-  <!-- human (left) -->
-  <circle cx="230" cy="300" r="85" fill="#9FA1C6" stroke="#2438B4" stroke-width="14"/>
-  <path d="M80 620 a150 150 0 0 1 300 0 z" fill="#9FA1C6" stroke="#2438B4" stroke-width="14" stroke-linejoin="round"/>
-  <!-- AI (right): rounded chip head + shoulders -->
-  <rect x="490" y="215" width="170" height="170" rx="36" fill="#6F74C4" stroke="#2438B4" stroke-width="14"/>
-  <g stroke="#ECECF4" stroke-width="12" stroke-linecap="round" fill="none">
-    <path d="M520 300 h40 v-40 h40"/>
-    <path d="M630 300 h-40 v40 h-40"/>
+  <!-- person, left -->
+  <circle cx="200" cy="330" r="70" fill="#9FA1C6" stroke="#2438B4" stroke-width="14"/>
+  <path d="M70 560 a130 130 0 0 1 260 0 z" fill="#9FA1C6" stroke="#2438B4" stroke-width="14" stroke-linejoin="round"/>
+  <!-- person's message -->
+  <path d="M330 300 h150 a26 26 0 0 1 26 26 v70 a26 26 0 0 1 -26 26 h-100 l-50 40 v-40 a26 26 0 0 1 -26 -26 v-70 a26 26 0 0 1 26 -26 z" fill="#FFFFFF" stroke="#9FA1C6" stroke-width="12" stroke-linejoin="round"/>
+  <g stroke="#9FA1C6" stroke-width="12" stroke-linecap="round">
+    <line x1="360" y1="340" x2="450" y2="340"/><line x1="360" y1="380" x2="420" y2="380"/>
   </g>
-  <circle cx="600" cy="260" r="10" fill="#D8434F"/>
-  <circle cx="550" cy="340" r="10" fill="#D8434F"/>
-  <path d="M425 620 a150 150 0 0 1 300 0 z" fill="#6F74C4" stroke="#2438B4" stroke-width="14" stroke-linejoin="round"/>
-  <!-- connection -->
-  <path d="M330 300 C 380 220, 440 220, 480 300" fill="none" stroke="#2438B4" stroke-width="12" stroke-dasharray="4 26" stroke-linecap="round"/>
-  <path d="M480 340 C 440 420, 380 420, 330 340" fill="none" stroke="#2438B4" stroke-width="12" stroke-dasharray="4 26" stroke-linecap="round"/>
-  <circle cx="405" cy="240" r="16" fill="#D8434F"/>
-  <circle cx="405" cy="400" r="16" fill="#D8434F"/>
+  <!-- AI, right: friendly screen face -->
+  <rect x="565" y="250" width="190" height="160" rx="34" fill="#6F74C4" stroke="#2438B4" stroke-width="14"/>
+  <line x1="660" y1="215" x2="660" y2="250" stroke="#2438B4" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="660" cy="205" r="14" fill="#D8434F"/>
+  <circle cx="625" cy="315" r="16" fill="#ECECF4"/>
+  <circle cx="695" cy="315" r="16" fill="#ECECF4"/>
+  <path d="M623 360 q37 30 74 0" fill="none" stroke="#ECECF4" stroke-width="12" stroke-linecap="round"/>
+  <path d="M550 560 a110 110 0 0 1 220 0 z" fill="#6F74C4" stroke="#2438B4" stroke-width="14" stroke-linejoin="round"/>
+  <!-- AI's reply -->
+  <path d="M315 450 h170 a26 26 0 0 1 26 26 v70 a26 26 0 0 1 -26 26 h-120 a26 26 0 0 1 -26 -26 v-70 a26 26 0 0 1 26 -26 z M511 462 l24 -14 v40 z" fill="#FFFFFF" stroke="#2438B4" stroke-width="12" stroke-linejoin="round"/>
+  <g stroke="#2438B4" stroke-width="12" stroke-linecap="round">
+    <line x1="345" y1="490" x2="455" y2="490"/><line x1="345" y1="530" x2="425" y2="530"/>
+  </g>
+  <circle cx="455" cy="490" r="11" fill="#D8434F"/>
 </svg>

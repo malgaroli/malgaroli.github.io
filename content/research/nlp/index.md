@@ -1,7 +1,8 @@
 ---
 title: "Language Markers & NLP for Mental Health Monitoring"
 subtitle: ""
-excerpt: ""
+# One or two sentences shown on the /research/ listing card.
+excerpt: "We build NLP tools that measure mental health from language, so that monitoring no longer depends only on infrequent self-report."
 draft: false
 layout: single
 # Listing + tag order: HIGHER weight shows FIRST on /research/.
@@ -29,4 +30,4 @@ pub_keywords:
   - psychiatric functioning
   - measure and differentiate
 ---
-Much of our work builds natural language processing (NLP) tools for scalable, objective mental health monitoring, so that care no longer depends only on infrequent self-report. We proposed a research framework that maps NLP intervention targets, evidence gaps, and methodological standards, and we conducted the first systematic evaluation of large language models' ability to measure psychiatric functioning. Translating these foundations into practice, we identify linguistic, acoustic, and emotional markers in patient–clinician communication that track symptoms and predict treatment outcomes, enabling passive monitoring at scale.
+We build natural language processing (NLP) tools for scalable, objective mental health monitoring, so that care no longer depends only on infrequent self-report. We proposed a research framework that maps NLP intervention targets, evidence gaps, and methodological standards, and we conducted the first evaluation of large language models' ability to measure psychiatric functioning. We identify linguistic, acoustic, and emotional markers in communication between patients and clinicians that track symptoms and predict treatment outcomes, enabling passive monitoring at scale.

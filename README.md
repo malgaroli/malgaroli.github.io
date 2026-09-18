@@ -59,7 +59,10 @@ That's it. Same five steps every time.
    ```
 
 4. Commit. Newest on top. Keep the 2-space indent, and wrap the text in
-   'single quotes'.
+   'single quotes'. Avoid dashes in the text; use commas or a full stop.
+
+The homepage shows the newest 7 items; the full list is at `/news/`
+automatically. Nothing ever needs deleting.
 
 ---
 

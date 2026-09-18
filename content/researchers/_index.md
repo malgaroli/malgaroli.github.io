@@ -7,8 +7,8 @@ Our lab welcomes new people and partnerships. There are two ways to get involved
 
 ## Volunteer in the lab
 
-If you're interested in volunteering with the DigiMind Lab — for example as a
-research assistant or student affiliate — please fill out our short interest
+If you're interested in volunteering with the DigiMind Lab, for example as a
+research assistant or student affiliate, please fill out our short interest
 form and we'll be in touch.
 
 [**Volunteer interest form &rarr;**](https://openredcap.nyumc.org/apps/redcap/surveys/?s=9KPYCHC3DAXCX3EH)

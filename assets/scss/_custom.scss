@@ -301,10 +301,36 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Nav brand — logo mark + "DigiMind" wordmark side by side.
+// Site header: brand (mark + wordmark) on the left, menu on the right.
+// The theme lays these out as table cells, which lets the menu overlap the
+// brand once the type is larger; a flex row with wrapping never overlaps.
 // ─────────────────────────────────────────────────────────────────────────────
+.site-nav {
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+}
+.site-links {
+  display: flex !important;
+  flex: 1 1 auto;
+  width: auto !important;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.15rem 0.35rem;
+  margin-top: 0 !important;
+  font-size: 0.9rem;
+}
+@media (max-width: 640px) {
+  .site-nav { flex-direction: column; justify-content: center; }
+  .site-links { justify-content: center; }
+}
 .site-brand {
-  display: inline-flex;
+  display: inline-flex !important;
+  width: auto !important;
+  flex: 0 0 auto;
   align-items: center;
   gap: 0.55rem;
   vertical-align: middle;
@@ -435,13 +461,22 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
 // Homepage hero + Recent News + Funding sections (rendered by layouts/index.html)
 // ─────────────────────────────────────────────────────────────────────────────
 
-// Larger, more readable hero description.
+// Larger, more readable hero description (may hold several paragraphs).
 .home-lede {
   font-size: 1.3rem;
   line-height: 1.6;
   margin-top: 1.5rem;
   color: $dm-text;
+  p { margin: 0 0 1rem; }
+  p:last-child { margin-bottom: 0; }
 }
+.news-more {
+  margin: 1rem 0 0;
+  font-size: 0.95rem;
+  a { color: $dm-slate-dk; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+}
+.news-archive .news-row:first-child { padding-top: 0.75rem; }
 
 // Recent News — heading on the left, dated items on the right, full width.
 .home-news {

@@ -13,7 +13,7 @@
         {{ with .Params.title }}<h1 class="home-title fw5-ns mv4">{{ . }}</h1>{{ end }}
         {{ with .Params.subtitle }}<h2 class="f5 fw7 mt0 mb4 ttu tracked">{{ . }}</h2>{{ end }}
         {{ if .Params.show_social_links }}{{ partial "shared/social-links.html" . }}{{ end }}
-        {{ with .Params.description }}<p class="home-lede">{{ . | markdownify }}</p>{{ end }}
+        {{ with .Params.description }}<div class="home-lede">{{ . | markdownify }}</div>{{ end }}
         {{ if .Params.show_action_link }}<a class="mt4 action {{ .Params.action_type }}" href="{{ .Params.action_link | relURL }}">{{ .Params.action_label | safeHTML }}</a>{{ end }}
       </div>
       <div class="tc w-40-l {{ if .Params.image_left }}ml4{{ else }}mr4{{ end }}">
@@ -34,12 +34,13 @@
     <div class="mh4 home-news-grid">
       <div class="home-news-head"><h2>Recent News</h2></div>
       <div class="home-news-items">
-        {{ range . }}
+        {{ range first 7 . }}
         <div class="news-row">
           <div class="news-date">{{ .date }}</div>
           <div class="news-body">{{ .text | markdownify }}</div>
         </div>
         {{ end }}
+        <p class="news-more"><a href="{{ "news/" | relURL }}">All news &rarr;</a></p>
       </div>
     </div>
   </section>

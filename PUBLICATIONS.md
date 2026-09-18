@@ -24,6 +24,12 @@ You mostly just **approve** what the robot finds. Here's how.
 The robot **never deletes** anything. Worst case it adds a duplicate or a typo,
 which you can fix by hand (below).
 
+It already skips peer-review reports, publisher "(Preprint)" stubs, and papers
+whose title is already on the site under another DOI. If it keeps proposing a
+paper that does not belong (for example a team member's work from before the
+lab), add that DOI under `ignore_dois:` at the top of
+`content/publications/_index.md` and it will never come back.
+
 ---
 
 ## The colored tags (research areas)

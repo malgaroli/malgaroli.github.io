@@ -1,7 +1,8 @@
 ---
 title: "Digital Mental Health"
 subtitle: ""
-excerpt: ""
+# One or two sentences shown on the /research/ listing card.
+excerpt: "We study telemedicine and other digital delivery methods that expand access to mental health treatment, using large real-world samples."
 draft: false
 layout: single
 # Listing + tag order: HIGHER weight shows FIRST on /research/.
@@ -32,4 +33,4 @@ pub_keywords:
   - online
   - app-based
 ---
-We study telemedicine and other digital delivery methods to provide effective mental health treatment at scale. Working with digital health stakeholders and very large real-world samples (N > 10,000), we have found that digital delivery preserves the safety and efficacy of both psychotherapy and pharmacological interventions while dramatically expanding access. Because every interaction in these settings is captured through the digital surface, they also create an unprecedented opportunity to study therapeutic processes with NLP and language models.
+We study telemedicine and other digital delivery methods to provide mental health treatment at scale. Working with digital health stakeholders and real-world samples of more than 10,000 patients, we have found that digital delivery preserves the safety and efficacy of both psychotherapy and pharmacological interventions while expanding access. Because every interaction in these settings is captured through the digital surface, they also let us study therapeutic processes with NLP and language models.

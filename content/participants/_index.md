@@ -13,7 +13,7 @@ links:
 
 ## Natural Language Processing as a Tool to Detect Anxiety and Depression
 
-This study develops a method to identify signs of depression and anxiety using a computer algorithm. The algorithm examines data — including anonymized interview transcripts — to determine whether someone displays symptoms of depression or anxiety. An in-person screening is required to confirm eligibility; the screening visit lasts about three hours. If you qualify, you will complete an interview and a series of computer tasks.
+This study develops a method to identify signs of depression and anxiety using a computer algorithm. The algorithm examines data, including anonymized interview transcripts, to determine whether someone displays symptoms of depression or anxiety. An in-person screening is required to confirm eligibility; the screening visit lasts about three hours. If you qualify, you will complete an interview and a series of computer tasks.
 
 **Key eligibility criteria:** Adults ages 18–65 with generalized anxiety disorder and/or major depressive disorder.
 

@@ -1,0 +1,26 @@
+{{ define "main" }}
+{{/*  Full news archive. Reads the same `news:` list that the homepage shows the
+      first 7 items of (content/_index.md), so there is one place to edit. */}}
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 ph4-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">{{ .Title }}</h1>
+      </header>
+      <section class="post-body pt4 pb4">
+        {{ with (site.GetPage "/").Params.news }}
+        <div class="home-news-items news-archive">
+          {{ range . }}
+          <div class="news-row">
+            <div class="news-date">{{ .date }}</div>
+            <div class="news-body">{{ .text | markdownify }}</div>
+          </div>
+          {{ end }}
+        </div>
+        {{ end }}
+        {{ .Content }}
+      </section>
+    </article>
+  </section>
+</main>
+{{ end }}

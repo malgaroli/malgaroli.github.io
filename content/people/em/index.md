@@ -3,7 +3,7 @@ title: "Emily Whitney"
 subtitle: "Graduate Student"
 excerpt: " 
   **Graduate Student**<br>
-  Emily Whitney is a graduate student in the DigiMind Lab. She is also a Software Engineer and post-baccalaureate psychology student at Hunter College. She volunteers with Crisis Text Line and is interested in scalable mental health interventions and ways computation can aid the therapeutic process. Prior to her software career, she graduated from Johns Hopkins University with degrees in Economics and Writing Seminars. In her free time she enjoys reading, writing, and traveling to new places."
+  Emily Whitney is a Software Engineer and post-baccalaureate psychology student at Hunter College. She volunteers with Crisis Text Line and is interested in scalable mental health interventions and ways computation can aid the therapeutic process. Prior to her software career, she graduated from Johns Hopkins University with degrees in Economics and Writing Seminars. In her free time she enjoys reading, writing, and traveling to new places."
 weight: 5
 author: ""
 show_post_thumbnail: true
@@ -34,4 +34,4 @@ links:
 #   name: Email
 #   url: mailto:Zoe.Mermin@NYULangone.org
 ---
-Emily Whitney is a graduate student in the DigiMind Lab. She is also a Software Engineer and post-baccalaureate psychology student at Hunter College. She volunteers with Crisis Text Line and is interested in scalable mental health interventions and ways computation can aid the therapeutic process. Prior to her software career, she graduated from Johns Hopkins University with degrees in Economics and Writing Seminars. In her free time she enjoys reading, writing, and traveling to new places.
+Emily Whitney is a Software Engineer and post-baccalaureate psychology student at Hunter College. She volunteers with Crisis Text Line and is interested in scalable mental health interventions and ways computation can aid the therapeutic process. Prior to her software career, she graduated from Johns Hopkins University with degrees in Economics and Writing Seminars. In her free time she enjoys reading, writing, and traveling to new places.

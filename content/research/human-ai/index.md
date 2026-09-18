@@ -1,7 +1,8 @@
 ---
 title: "AI–Human Interaction"
 subtitle: ""
-excerpt: ""
+# One or two sentences shown on the /research/ listing card.
+excerpt: "We examine how patients and clinicians interact with conversational AI: whether its responses feel supportive, how people use it, and where it fails."
 draft: false
 layout: single
 # Listing + tag order: HIGHER weight shows FIRST on /research/.
@@ -29,4 +30,4 @@ pub_keywords:
   - empath
   - purpose-built
 ---
-As conversational AI enters mental health care, we examine how people actually interact with it. We test whether language-model responses are perceived as empathic and supportive, analyze tens of thousands of real user–AI conversations to characterize safety-relevant behavior, and study engagement and outcomes when generative AI is deployed in real-world social and mental health support. We also build adversarial user simulations that expose how systems fail, so that human–AI interaction can be evaluated and improved before and during deployment.
+As conversational AI enters mental health care, we examine how people interact with it. We test whether language model responses are perceived as empathic and supportive, analyze tens of thousands of real conversations between users and AI to characterize safety-relevant behavior, and study engagement and outcomes when generative AI is deployed for social and mental health support. We also build adversarial user simulations that expose how systems fail, so that these interactions can be evaluated and improved before and during deployment.

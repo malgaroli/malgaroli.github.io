@@ -3,7 +3,7 @@ title: "Adam Chang"
 subtitle: "Graduate Student"
 excerpt: " 
   **Graduate Student**<br>
-  Adam Chang is a graduate student in the DigiMind Lab, studying Urban Data Science at the Tandon School of Engineering, specializing in Machine Learning methods in Healthcare settings. He holds a Bachelors degree in Applied Psychology also from NYU and has worked in both clinical and computational capacities within the fields of Psychology and Psychiatry. He holds a specific interest in Machine Learning Applications within clinical and public health settings, with current research investigating how geospatial and location-aware digital therapeutics can enhance patient outcomes and clinical workflows."
+  Adam Chang is a graduate student in Urban Data Science at the NYU Tandon School of Engineering, specializing in machine learning methods in healthcare settings. He holds a Bachelors degree in Applied Psychology also from NYU and has worked in both clinical and computational capacities within the fields of Psychology and Psychiatry. He holds a specific interest in Machine Learning Applications within clinical and public health settings, with current research investigating how geospatial and location-aware digital therapeutics can enhance patient outcomes and clinical workflows."
 weight: 4
 author: ""
 show_post_thumbnail: true
@@ -34,4 +34,4 @@ links:
 #   name: Email
 #   url: mailto:Zoe.Mermin@NYULangone.org
 ---
-Adam Chang is a graduate student in the DigiMind Lab, studying Urban Data Science at the Tandon School of Engineering, specializing in Machine Learning methods in Healthcare settings. He holds a Bachelors degree in Applied Psychology also from NYU and has worked in both clinical and computational capacities within the fields of Psychology and Psychiatry. He holds a specific interest in Machine Learning Applications within clinical and public health settings, with current research investigating how geospatial and location-aware digital therapeutics can enhance patient outcomes and clinical workflows.
+Adam Chang is a graduate student in Urban Data Science at the NYU Tandon School of Engineering, specializing in machine learning methods in healthcare settings. He holds a Bachelors degree in Applied Psychology also from NYU and has worked in both clinical and computational capacities within the fields of Psychology and Psychiatry. He holds a specific interest in Machine Learning Applications within clinical and public health settings, with current research investigating how geospatial and location-aware digital therapeutics can enhance patient outcomes and clinical workflows.
