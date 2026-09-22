@@ -3,7 +3,7 @@
 Website: <https://digimindlab.ai>
 Files: <https://github.com/malgaroli/malgaroli.github.io> (ask MM for access)
 
-You edit files in your browser on GitHub. No installing, no code.
+
 
 ## How to edit any file
 
