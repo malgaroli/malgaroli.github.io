@@ -71,6 +71,6 @@ Run on demand from the Actions tab.
 
 ## Conventions
 
-- Commits are authored by Matteo only, no co-author trailers.
+- Lab members commit under their own GitHub accounts.
 - No em dashes in site copy; keep descriptions free of filler adjectives.
 - Base type is 18px (`html { font-size: 112.5% }`); everything else is in rem.
