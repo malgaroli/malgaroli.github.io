@@ -72,5 +72,5 @@ Run on demand from the Actions tab.
 ## Conventions
 
 - Lab members commit under their own GitHub accounts.
-- No em dashes in site copy; keep descriptions free of filler adjectives.
+- Keep descriptions free of filler adjectives.
 - Base type is 18px (`html { font-size: 112.5% }`); everything else is in rem.
