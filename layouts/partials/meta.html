@@ -7,7 +7,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 {{ hugo.Generator }}
-<title>{{ if .IsHome }}{{ .Title }}{{ else }}{{ .Page.Title }} | {{ site.Title }}{{ end }}</title>
+{{ $title := printf "%s | %s" .Page.Title site.Title }}
+{{ if .IsHome }}{{ $title = site.Params.homeTitle | default .Title }}{{ end }}
+<title>{{ $title }}</title>
 
 {{ with site.Params.twitter }}
 <meta property="twitter:site" content="@{{ . }}">
@@ -30,10 +32,28 @@
     {{ $desc = site.Params.description  }}
   {{ end }}
 <meta name="description" content="{{ $desc }}">
+<link rel="canonical" href="{{ .Permalink }}">
+
+<!--structured data (JSON-LD) for search engines-->
+{{ $nyu := dict "@type" "Organization" "name" "NYU Grossman School of Medicine" "url" "https://med.nyu.edu/" }}
+{{ $lab := dict "@type" "ResearchOrganization" "name" site.Title "url" ("/" | absURL) }}
+{{ if .IsHome }}
+  {{ $founder := dict "@type" "Person" "name" "Matteo Malgaroli" "url" ("/people/matteo/" | absURL) }}
+  {{ $org := merge $lab (dict "@context" "https://schema.org" "logo" (site.Params.logo | absURL) "description" site.Params.description "parentOrganization" $nyu "founder" $founder) }}
+<script type="application/ld+json">{{ $org | jsonify | safeJS }}</script>
+{{ else if and .IsPage (eq .Section "people") }}
+  {{ $sameAs := slice }}
+  {{ with .Params.orcid }}{{ $sameAs = $sameAs | append (printf "https://orcid.org/%s" .) }}{{ end }}
+  {{ range .Params.links }}{{ with .url }}{{ if hasPrefix . "http" }}{{ $sameAs = $sameAs | append . }}{{ end }}{{ end }}{{ end }}
+  {{ $person := dict "@context" "https://schema.org" "@type" "Person" "name" .Title "url" .Permalink "affiliation" $nyu "worksFor" $lab }}
+  {{ with .Params.subtitle }}{{ $person = merge $person (dict "jobTitle" .) }}{{ end }}
+  {{ with uniq $sameAs }}{{ $person = merge $person (dict "sameAs" .) }}{{ end }}
+<script type="application/ld+json">{{ $person | jsonify | safeJS }}</script>
+{{ end }}
 
 <!--opengraph tags-->
 <meta property="og:site_name" content="{{ site.Title }}">
-<meta property="og:title" content="{{ if .IsHome }}{{ .Title }}{{ else }}{{ .Page.Title }} | {{ site.Title }}{{ end }}">
+<meta property="og:title" content="{{ $title }}">
 <meta property="og:description" content="{{ $desc }}" />
 <meta property="og:type" content="{{ if .IsPage }}page{{ else }}website{{ end }}" />
 <meta property="og:url" content="{{ .Permalink }}" />

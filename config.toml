@@ -45,6 +45,9 @@ disableKinds = ["taxonomy", "term"]
 [params]
   orgName = "NYU Grossman School of Medicine"
   orgLocal = "New York, NY"
+  # Browser-tab / Google title for the homepage only (other pages use
+  # "<Page> | DigiMind Lab"). Names here help searches for the PI find the site.
+  homeTitle = "DigiMind Lab | Matteo Malgaroli | New York University | NYU Grossman School of Medicine"
   description = "The DigiMind Lab, led by Dr. Matteo Malgaroli at the NYU Grossman School of Medicine, sits at the intersection of clinical psychology and artificial intelligence: language models and NLP for mental health monitoring and intervention, human–AI interaction, computational psychopathology, and digital mental health."
   # Branding. Deployed files live in static/img/ (copied from lab-logo-set/,
   # the brand master). The favicon links are emitted by layouts/partials/head.html;

@@ -58,6 +58,17 @@ It skips peer-review records, publisher "(Preprint)" stubs, DOIs listed under
 under another DOI. It never deletes. `--backfill` re-tags without network.
 Run on demand from the Actions tab.
 
+## Search engines
+
+- Google Search Console: Domain property `digimindlab.ai`, verified by a TXT
+  record at Namecheap (keep that record). Sitemap submitted:
+  `https://digimindlab.ai/sitemap.xml` (Hugo generates it on every build).
+- `static/robots.txt` allows all crawlers and points to the sitemap.
+- `layouts/partials/meta.html` emits the canonical link and JSON-LD: a
+  `ResearchOrganization` on the homepage, a `Person` on each people page
+  (`sameAs` comes from the person's `orcid` and `links`).
+- The homepage `<title>` is `homeTitle` in `config.toml`.
+
 ## Conventions
 
 - Commits are authored by Matteo only, no co-author trailers.
