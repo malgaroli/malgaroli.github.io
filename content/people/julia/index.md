@@ -4,7 +4,7 @@ subtitle: "Postdoctoral Researcher"
 excerpt: "
   **Postdoctoral Researcher**<br>
   Julia received her PhD in Clinical Psychology from York University in Toronto, Canada. She is currently a postdoctoral fellow at the Anxiety, Stress, and Prolonged Grief Program at NYU Grossman School of Medicine. Her research interests include anxiety, health-related decisions, and decision-making under uncertainty."
-weight: 9
+weight: 8
 author: "Julia Halilova"
 draft: false
 # layout options: single or single-sidebar

@@ -105,8 +105,8 @@ disableKinds = ["taxonomy", "term"]
 
 [menu]
   [[menu.header]]
-    name   = "Research Interests"
-    title  = "Research Interests"
+    name   = "Research"
+    title  = "Research"
     url    = "/research/"
     weight = 1
   [[menu.header]]
@@ -119,6 +119,11 @@ disableKinds = ["taxonomy", "term"]
     title  = "Publications"
     url    = "/publications/"
     weight = 3
+  [[menu.header]]
+    name   = "Press"
+    title  = "Press"
+    url    = "/press/"
+    weight = 4
   [[menu.header]]
     name   = "Repository"
     title  = "Repository"

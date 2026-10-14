@@ -21,6 +21,8 @@ Nothing can break for good: every old version is kept under **History**.
 | :--- | :--- |
 | Add news | `content/_index.md` |
 | Add or edit a team member | `content/people/<name>/index.md` |
+| Add an alumnus | `content/people/_index.md` (`alumni:` list) |
+| Add a press article | `content/press/_index.md` (new item at the top) |
 | Edit a research area text | `content/research/<area>/index.md` |
 | Approve or add papers | see [PUBLICATIONS.md](PUBLICATIONS.md) |
 

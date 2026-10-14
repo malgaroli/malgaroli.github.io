@@ -74,12 +74,15 @@
                 GroupByParam method — that's a Pages-only helper. */}}
           {{ $years := slice }}
           {{ range $journals }}{{ $years = $years | append .year }}{{ end }}
+          {{/* Published papers are numbered down the page: newest = highest. */}}
+          {{ $num := len $journals }}
           {{ range ($years | uniq | sort | collections.Reverse) }}
             {{ $year := . }}
             <section class="pub-group" data-group="year-{{ $year }}">
               <h2 class="pub-group-header">{{ $year }}</h2>
               {{ range where $journals "year" $year }}
-                <article class="pub-entry">
+                <article class="pub-entry pub-numbered">
+                  <span class="pub-num">{{ $num }}</span>
                   <p class="pub-citation">
                     <span class="pub-authors">{{ delimit .authors ", " }}</span>
                     <span class="pub-year">({{ .year }}).</span>
@@ -87,10 +90,25 @@
                     {{ with .venue }}<em class="pub-venue">{{ . }}</em>.{{ end }}
                   </p>
                 </article>
+                {{ $num = sub $num 1 }}
               {{ end }}
             </section>
           {{ end }}
 
+        {{ end }}
+
+        {{/* ── Press page (content/press/): items from Params.media, in listed order ── */}}
+        {{ if eq .Params.render_as "media" }}
+          <section class="media-list">
+            {{ range .Params.media }}
+              <article class="pub-entry media-entry">
+                <p class="pub-citation">
+                  <em class="media-outlet">{{ .outlet }}</em>.
+                  {{ if .url }}<a class="pub-title" href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>.{{ else }}<span class="pub-title">{{ .title }}</span>.{{ end }}
+                </p>
+              </article>
+            {{ end }}
+          </section>
         {{ end }}
 
         {{/* ── Mode 2: research category page — append filtered list ── */}}

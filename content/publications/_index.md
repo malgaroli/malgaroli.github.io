@@ -13,6 +13,27 @@ ignore_dois:
 # are the `pub_filter` slugs in content/research/*/index.md (one folder per
 # topic). A paper shows up on every topic page whose tag it carries.
 publications:
+- id: gershov2026-multimodal-stress-profiles-healthcare-workers
+  title: Multimodal computational analysis of longitudinal stress profiles in healthcare workers
+  authors:
+  - Gershov, S.
+  - Cho, D.
+  - Vergyri, D.
+  - Ferguson, K.
+  - Taitz, A.
+  - Adams, C.
+  - Malgaroli, M.
+  - Gallagher, T.
+  - Marmar, C. R.
+  - Schultebraucks, K.
+  year: 2026
+  venue: npj Digital Medicine
+  doi: 10.1038/s41746-026-03328-4
+  url: https://doi.org/10.1038/s41746-026-03328-4
+  type: journal
+  categories:
+  - computational
+  - digital
 - id: wolfe2026-engagement-phenotypes-ai-chatbot
   title: 'Engagement phenotypes for a sample of 102,684 AI mental health chatbot users and dose-response associations with clinical outcomes'
   authors:

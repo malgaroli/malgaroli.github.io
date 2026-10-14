@@ -25,7 +25,9 @@ site's structure. Site: Hugo (extended) with the vendored `hugo-apero` theme.
 | `content/_index.md` | Homepage: intro (`description`), `hero_image`, `news`, `funders` |
 | `content/research/<slug>/` | One research area per folder (see below) |
 | `content/people/<name>/` | Team members; `orcid`/`joined`/`left` drive the sync |
-| `content/publications/_index.md` | All papers as YAML; `ignore_dois` for the robot |
+| `content/people/_index.md` | People page settings and the `alumni:` list (rendered by `layouts/people/list.html`) |
+| `content/publications/_index.md` | All papers as YAML; `ignore_dois` for the robot. Published papers are numbered on the page (newest = highest) |
+| `content/press/_index.md` | Press coverage as YAML (`render_as: media`, rendered in `layouts/_default/single.html`) |
 | `content/news/` | News archive page (reads the homepage `news` list) |
 | `layouts/` | Project overrides: `index.html`, `_default/single.html`, `_default/news.html`, `partials/head.html` (favicons), `partials/meta.html`, `partials/footer.html` |
 | `assets/scss/_custom.scss` | Palette (from `lab-logo-set/README.txt`), type sizes, header, tags |
