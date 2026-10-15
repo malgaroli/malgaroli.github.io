@@ -35,7 +35,8 @@
       {{ end }}
 
       </header>
-      <section class="post-body pt5 pb4">
+      {{/* List pages (publications, press) start right under the title. */}}
+      <section class="post-body {{ if .Params.render_as }}pt3{{ else }}pt5{{ end }} pb4">
         {{/* Team-member photo (people section only): rendered via Resources so
               the image is always published with a correct URL on any host. */}}
         {{ if eq .Section "people" }}
@@ -53,8 +54,14 @@
           {{ $preprints := where $all "type" "preprint" }}
           {{ $journals  := where $all "type" "journal" }}
 
+          {{/* Jump links to the two halves of the page. */}}
+          <nav class="pub-jump" aria-label="Jump to section">
+            {{ with $preprints }}<a href="#preprints">Preprints ({{ len . }})</a>{{ end }}
+            {{ with $journals }}<a href="#publications">Publications ({{ len . }})</a>{{ end }}
+          </nav>
+
           {{ with $preprints }}
-          <section class="pub-group" data-group="preprints">
+          <section class="pub-group" id="preprints" data-group="preprints">
             <h2 class="pub-group-header">Preprints</h2>
             {{ range . }}
               <article class="pub-entry">
@@ -76,6 +83,7 @@
           {{ range $journals }}{{ $years = $years | append .year }}{{ end }}
           {{/* Published papers are numbered down the page: newest = highest. */}}
           {{ $num := len $journals }}
+          <div id="publications">
           {{ range ($years | uniq | sort | collections.Reverse) }}
             {{ $year := . }}
             <section class="pub-group" data-group="year-{{ $year }}">
@@ -94,6 +102,7 @@
               {{ end }}
             </section>
           {{ end }}
+          </div>
 
         {{ end }}
 

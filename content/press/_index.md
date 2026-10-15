@@ -44,6 +44,10 @@ media:
   title: Unique Workplace Concerns Tied to Health Worker Depression, Anxiety During Pandemic
   url: https://www.healthday.com/healthpro-news/unique-workplace-concerns-tied-to-health-worker-depression-anxiety-during-pandemic
 - year: 2023
+  outlet: Healthcare Brew (Morning Brew)
+  title: First-of-its-kind study uses AI to diagnose mental distress in healthcare workers
+  url: https://www.healthcare-brew.com/stories/2023/10/25/first-of-its-kind-study-uses-ai-to-diagnosis-mental-distress-in-healthcare-workers
+- year: 2023
   outlet: Healthcare IT News
   title: AI tool can detect distress in overburdened hospital workers
   url: https://www.healthcareitnews.com/news/ai-tool-can-detect-distress-overburdened-hospital-workers
