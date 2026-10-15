@@ -23,6 +23,10 @@ media:
   outlet: MIT News
   title: Study reveals AI chatbots can detect race, but racial bias reduces response empathy
   url: https://news.mit.edu/2024/study-reveals-ai-chatbots-can-detect-race-but-racial-bias-reduces-response-empathy-1216
+- year: 2024
+  outlet: DoubleBlind Magazine
+  title: At-Home Ketamine Treatments Are an Effective Way to Treat Anxiety and Depression
+  url: https://doubleblindmag.com/mindbloom-ketamine-therapy-survey/
 - year: 2023
   outlet: Forbes
   title: "AI Chatbots—With Careful Guardrails—Can Help Treat Depression And Anxiety"
@@ -40,10 +44,6 @@ media:
   title: Unique Workplace Concerns Tied to Health Worker Depression, Anxiety During Pandemic
   url: https://www.healthday.com/healthpro-news/unique-workplace-concerns-tied-to-health-worker-depression-anxiety-during-pandemic
 - year: 2023
-  outlet: Healthcare Brew (Morning Brew)
-  title: First-of-its-kind study uses AI to diagnose mental distress in healthcare workers
-  url: https://www.healthcare-brew.com/stories/2023/10/25/first-of-its-kind-study-uses-ai-to-diagnosis-mental-distress-in-healthcare-workers
-- year: 2023
   outlet: Healthcare IT News
   title: AI tool can detect distress in overburdened hospital workers
   url: https://www.healthcareitnews.com/news/ai-tool-can-detect-distress-overburdened-hospital-workers
@@ -51,4 +51,8 @@ media:
   outlet: Monitor on Psychology (American Psychological Association)
   title: The promise and challenges of AI
   url: https://www.apa.org/monitor/2021/11/cover-artificial-intelligence
+- year: 2020
+  outlet: Bloomberg
+  title: Talkspace Using AI for Therapy During Mental Health Crisis
+  url: https://www.bloomberg.com/news/articles/2020-05-12/talkspace-using-ai-for-therapy-during-mental-health-crisis
 ---
