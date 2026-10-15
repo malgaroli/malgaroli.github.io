@@ -18,10 +18,10 @@ layout: single
 # joined: 2024      # year they joined the lab
 # left:             # year they left (leave blank while active)
 links:
-# - icon: graduation-cap
-#   icon_pack: fas
-#   name: Google Scholar
-#   url: https://scholar.google.com/citations?user=...
+- icon: graduation-cap
+  icon_pack: fas
+  name: Google Scholar
+  url: https://scholar.google.com/citations?user=p6AnYW4AAAAJ&hl=en
 # - icon: orcid
 #   icon_pack: fab
 #   name: ORCID

@@ -455,6 +455,59 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
   opacity: 0.6;
   &:hover { opacity: 1; color: $dm-blue; }
 }
+// Diagnostic panel shown above the π on hover / keyboard focus.
+.site-footer-pi-wrap {
+  position: relative;
+  display: inline-block;
+}
+.pi-diag {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  right: -0.5rem;
+  z-index: 10;
+  width: max-content;
+  max-width: unquote("min(26rem, calc(100vw - 2rem))");
+  padding: 0.6rem 0.8rem;
+  background: #fff;
+  color: $dm-text;
+  border: 1px solid $dm-border;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(28, 26, 34, 0.12);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  text-align: left;
+}
+.site-footer-pi-wrap:hover .pi-diag,
+.site-footer-pi-wrap:focus-within .pi-diag { display: block; }
+// On narrow screens pin the panel to the viewport so it can't run off the edge.
+@media (max-width: 40rem) {
+  .pi-diag {
+    position: fixed;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    width: auto;
+    max-width: none;
+  }
+}
+.pi-diag-head {
+  display: block;
+  margin-top: 0.4rem;
+  color: $dm-text-muted;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  &:first-child { margin-top: 0; }
+}
+.pi-diag-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  > span:first-child { color: $dm-text-muted; }
+  > span:last-child { overflow-wrap: anywhere; text-align: right; }
+}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Funders strip (homepage). Full-color logos, uniform height, centered row.

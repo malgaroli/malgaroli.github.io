@@ -28,7 +28,61 @@
   <div class="site-footer-baseline">
     <span>© {{ now.Year }} {{ site.Title }}. All rights reserved.</span>
     {{/* Easter egg: the hidden π backdoor on the Mozart's Ghost site in The Net (1995). */}}
-    <a class="site-footer-pi" href="https://www.imdb.com/title/tt0113957/" target="_blank" rel="noopener" title="The Net (1995)" aria-label="The Net (1995 film)">π</a>
+    {{/* Hovering it shows which build rendered this page and which server
+          delivered it. Build values are stamped in at build time (the GitHub
+          Actions vars must be allowed under [security.funcs] in config.toml);
+          the "Served by" rows are filled in by the script below. */}}
+    <span class="site-footer-pi-wrap">
+      <a class="site-footer-pi" href="https://www.imdb.com/title/tt0113957/" target="_blank" rel="noopener" aria-label="The Net (1995 film)" aria-describedby="pi-diag">π</a>
+      <span class="pi-diag" id="pi-diag" role="tooltip">
+        <span class="pi-diag-head">Rendered by</span>
+        <span class="pi-diag-row"><span>Generator</span><span>Hugo {{ hugo.Version }} ({{ hugo.GoVersion }})</span></span>
+        <span class="pi-diag-row"><span>Environment</span><span>{{ hugo.Environment }}</span></span>
+        <span class="pi-diag-row"><span>Built</span><span>{{ now.UTC.Format "2006-01-02 15:04:05" }} UTC</span></span>
+        {{ with os.Getenv "RUNNER_NAME" }}
+        <span class="pi-diag-row"><span>Runner</span><span>{{ . }} ({{ os.Getenv "RUNNER_OS" }}/{{ os.Getenv "RUNNER_ARCH" }})</span></span>
+        {{ else }}
+        <span class="pi-diag-row"><span>Runner</span><span>local machine</span></span>
+        {{ end }}
+        {{ with os.Getenv "GITHUB_SHA" }}
+        <span class="pi-diag-row"><span>Commit</span><span>{{ substr . 0 7 }}</span></span>
+        {{ end }}
+        {{ with os.Getenv "GITHUB_RUN_ID" }}
+        <span class="pi-diag-row"><span>Workflow run</span><span>#{{ os.Getenv "GITHUB_RUN_NUMBER" }} (id {{ . }})</span></span>
+        {{ end }}
+        <span class="pi-diag-head">Served by</span>
+        <span class="pi-diag-row"><span>Host</span><span data-pi="host">…</span></span>
+        <span class="pi-diag-row"><span>Server</span><span data-pi="server">…</span></span>
+        <span class="pi-diag-row"><span>Cache node</span><span data-pi="x-served-by">…</span></span>
+        <span class="pi-diag-row"><span>Cache</span><span data-pi="x-cache">…</span></span>
+        <span class="pi-diag-row"><span>Request ID</span><span data-pi="x-github-request-id">…</span></span>
+      </span>
+    </span>
+    <script>
+      (function () {
+        var wrap = document.querySelector('.site-footer-pi-wrap');
+        if (!wrap) return;
+        var loaded = false;
+        function load() {
+          if (loaded) return;
+          loaded = true;
+          var cells = wrap.querySelectorAll('[data-pi]');
+          wrap.querySelector('[data-pi="host"]').textContent = location.host || 'file';
+          fetch(location.href, { method: 'HEAD', cache: 'no-store' }).then(function (r) {
+            cells.forEach(function (el) {
+              var k = el.getAttribute('data-pi');
+              if (k !== 'host') el.textContent = r.headers.get(k) || '—';
+            });
+          }).catch(function () {
+            cells.forEach(function (el) {
+              if (el.getAttribute('data-pi') !== 'host') el.textContent = 'unavailable';
+            });
+          });
+        }
+        wrap.addEventListener('mouseenter', load);
+        wrap.addEventListener('focusin', load);
+      })();
+    </script>
   </div>
 
   {{ with site.Params.math }}

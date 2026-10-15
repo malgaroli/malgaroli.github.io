@@ -17,10 +17,10 @@ orcid:  0009-0004-6697-8017
 joined: 2025      # year they joined the lab
 # left:             # year they left (leave blank while active)
 links:
-# - icon: graduation-cap
-#   icon_pack: fas
-#   name: Google Scholar
-#   url: https://scholar.google.com/citations?user=...
+- icon: graduation-cap
+  icon_pack: fas
+  name: Google Scholar
+  url: https://scholar.google.com/citations?user=BDfqMugAAAAJ&hl=en
 # - icon: orcid
 #   icon_pack: fab
 #   name: ORCID

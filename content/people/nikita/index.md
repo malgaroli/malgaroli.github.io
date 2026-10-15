@@ -4,7 +4,7 @@ subtitle: "Postdoctoral Researcher"
 excerpt: " 
   **Postdoctoral Researcher**<br>
   Nikita Soni is a postdoctoral fellow in the DigiMind Lab. She has 16 peer-reviewed publications spanning ACL, npj digital medicine, JPSP, WASSA, and CLPsych. She also led the workshop Human-Centered Large Language Modeling (co-founded with the 1st edition at ACL 2024), and she's leading a SemEval-2026 shared task on Predicting Variation in Emotional Affect (at ACL/EMNLP 2026). Her research focuses on integrating the author’s context into language modeling to build human-context-aware models that can be useful in multiple domains, such as mental health."
-weight: 9
+weight: 10
 author: ""
 show_post_thumbnail: true
 draft: false

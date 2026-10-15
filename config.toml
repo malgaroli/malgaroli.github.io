@@ -159,6 +159,12 @@ disableKinds = ["taxonomy", "term"]
   weight = 1
 
 
+# Environment variables templates may read with os.Getenv. Hugo's defaults
+# plus the few GitHub Actions build vars the footer π diagnostics show.
+[security]
+  [security.funcs]
+    getenv = ['^HUGO_', '^CI$', '^GITHUB_(SHA|RUN_ID|RUN_NUMBER)$', '^RUNNER_(NAME|OS|ARCH)$']
+
 # see https://gohugo.io/about/hugo-and-gdpr/
 [privacy]
   [privacy.disqus]

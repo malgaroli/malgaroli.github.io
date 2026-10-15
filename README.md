@@ -47,6 +47,9 @@ items move to the News page by themselves.
    copy all of it.
 2. Create `content/people/<firstname>/index.md` (lowercase). On GitHub:
    **Add file → Create new file**, type the path, paste, edit name, role and bio.
+   The `weight:` number sets the order on the People page: higher numbers come
+   first. To slot someone in between two people, give them a number in
+   between, renumbering the people above if needed.
 3. Upload a photo called `featured.jpg` into the same folder.
 4. Commit.
 
