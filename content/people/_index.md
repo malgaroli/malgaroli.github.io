@@ -18,6 +18,14 @@ layout: list-grid # list, list-sidebar, list-grid
 alumni:
 - name: Benjamin Brindle
   url: https://benjaminbrindle.github.io/
+- name: Noah Wilson
+  url: https://www.linkedin.com/in/noah-wilson-698b88b9
+- name: Nicole Fridling-Cook
+  url: https://www.linkedin.com/in/nicolefridlingcook
+- name: Emma Jennings
+  url: https://scholar.google.com/citations?user=Rt86xh0AAAAJ&hl
+- name: Carly D. Miron
+  url: https://scholar.google.com/citations?hl=en&user=S_g9RFwAAAAJ
 - name: Adam Calderon
   url: https://www.adamcalderon.com/
 
