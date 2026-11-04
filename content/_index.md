@@ -1,11 +1,11 @@
 ---
-title: "DigiMind Lab"
+title: "digimind lab"
 description: |
-  The DigiMind Lab, led by Dr. Matteo Malgaroli in the Department of Psychiatry at the NYU Grossman School of Medicine, sits at the intersection of clinical psychology and artificial intelligence.
+  The digimind lab, led by Dr. Matteo Malgaroli at the NYU Grossman School of Medicine, sits at the intersection of clinical psychology and artificial intelligence.
 
   Mental health is assessed and treated through language. We use AI to examine and generate language at scale, allowing us to make mental health interventions more scalable and objective. We develop and test digital tools to support care, including automated systems for psychiatric assessment and risk stratification, and we study how patients and clinicians interact with conversational AI so that it can be deployed more safely.
 # Hero image (shown beside the intro). SVG so it stays crisp at any size.
-hero_image: img/logo-primary.svg
+hero_image: img/logo-mark.svg
 # Social-sharing card (og:image / twitter:image). Must be a PNG/JPG, not SVG.
 images:
   - img/og-image.png

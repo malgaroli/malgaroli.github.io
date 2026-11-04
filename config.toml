@@ -1,8 +1,8 @@
 baseURL = "/"
 defaultContentLanguage = "en"
 theme = "hugo-apero"
-title = "DigiMind Lab"
-author = "DigiMind Lab"
+title = "digimind lab"
+author = "digimind lab"
 copyright = "" # set to override the auto generated copyright using org info and current year
 googleAnalytics = ""
 disqusShortname = ""
@@ -46,14 +46,14 @@ disableKinds = ["taxonomy", "term"]
   orgName = "NYU Grossman School of Medicine"
   orgLocal = "New York, NY"
   # Browser-tab / Google title for the homepage only (other pages use
-  # "<Page> | DigiMind Lab"). Names here help searches for the PI find the site.
-  homeTitle = "DigiMind Lab | Matteo Malgaroli | New York University | NYU Grossman School of Medicine"
-  description = "The DigiMind Lab, led by Dr. Matteo Malgaroli at the NYU Grossman School of Medicine, sits at the intersection of clinical psychology and artificial intelligence: language models and NLP for mental health monitoring and intervention, human–AI interaction, computational psychopathology, and digital mental health."
-  # Branding. Deployed files live in static/img/ (copied from lab-logo-set/,
-  # the brand master). The favicon links are emitted by layouts/partials/head.html;
+  # "<Page> | digimind lab"). Names here help searches for the PI find the site.
+  homeTitle = "digimind lab | Matteo Malgaroli | New York University | NYU Grossman School of Medicine"
+  description = "The digimind lab, led by Dr. Matteo Malgaroli at the NYU Grossman School of Medicine, sits at the intersection of clinical psychology and artificial intelligence: language models and NLP for mental health monitoring and intervention, human–AI interaction, computational psychopathology, and digital mental health."
+  # Branding. Deployed files live in static/img/ (from the "Digimind Lab Logo"
+  # package, Digital Use folder). The favicon links are emitted by layouts/partials/head.html;
   # the value below is only a legacy fallback.
   favicon = "/img/favicon-32.png"
-  logo = "/img/logo-mark.svg"          # header mark (head-only composition)
+  logo = "/img/logo-open-lockup.svg"   # header: open lockup (mark - "digi mind lab" - mark)
   mainSections = ["research", "people", "publications", "repository"]
   navallcaps = true
   # show/hide social icons in site header & footer
@@ -62,7 +62,7 @@ disableKinds = ["taxonomy", "term"]
   # Default image for social sharing and search engines.
   sharing_image = "/img/og-image.png"
 
-  # Color palette. "sky" is the closest built-in to the DigiMind logo; the
+  # Color palette. "sky" is the closest built-in to the logo; the
   # brand-exact overrides (tube blue / deep navy / lavender, from
   # lab-logo-set/README.txt) live in assets/scss/_custom.scss.
   # To switch to a standalone hex-color file, set theme = "" and drop
@@ -70,11 +70,11 @@ disableKinds = ["taxonomy", "term"]
   theme = "sky"
   custom_theme = ""
 
-  # Embedded font families.
-  # serif options: Fraunces / EB Garamond / Bitter
-  # sans-serif options: Commissioner / Atkinson Hyperlegible / Metropolis
-  customtextFontFamily = "Atkinson Hyperlegible"
-  customheadingFontFamily = "EB Garamond"
+  # Font families (from the logo style guide): DM Sans for text and headings,
+  # DM Mono for the menu and small section labels. Loaded from Google Fonts in
+  # layouts/partials/head.html; the mono face is applied in assets/scss/_custom.scss.
+  customtextFontFamily = "'DM Sans', sans-serif"
+  customheadingFontFamily = "'DM Sans', sans-serif"
   # Fallbacks if custom fonts fail to load.
   textFontFamily = "sans-serif"
   headingFontFamily = "sans-serif"

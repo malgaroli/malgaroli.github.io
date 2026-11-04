@@ -1,4 +1,4 @@
-# Editing the DigiMind Lab website
+# Editing the digimind lab website
 
 Website: <https://digimindlab.ai>
 Files: <https://github.com/malgaroli/malgaroli.github.io> (ask MM for access)

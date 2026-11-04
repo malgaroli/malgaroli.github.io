@@ -1,6 +1,6 @@
 ---
 title: Press
-description: "Press coverage of the DigiMind Lab's work."
+description: "Press coverage of the digimind lab's work."
 layout: single
 show_post_thumbnail: false
 render_as: media

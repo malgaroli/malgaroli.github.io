@@ -10,7 +10,9 @@
   <section class="page-content mw9 center">
     <div class="flex-l items-center" style="{{ if .Params.image_left }}flex-direction: row-reverse;{{ end }}">
       <div class="mh4 w-60-l {{ if not .Params.text_align_left }}tr{{ end }}">
-        {{ with .Params.title }}<h1 class="home-title fw5-ns mv4">{{ . }}</h1>{{ end }}
+        {{/* The title is shown as the "digimind lab" wordmark image; the text
+              stays as the image's alt so the h1 still reads correctly. */}}
+        {{ with .Params.title }}<h1 class="home-title mv4"><img class="home-title-wordmark" src="{{ "img/wordmark-lab.svg" | relURL }}" alt="{{ . }}"></h1>{{ end }}
         {{ with .Params.subtitle }}<h2 class="f5 fw7 mt0 mb4 ttu tracked">{{ . }}</h2>{{ end }}
         {{ if .Params.show_social_links }}{{ partial "shared/social-links.html" . }}{{ end }}
         {{/* The action link (Learn More) runs on at the end of the description's
@@ -29,9 +31,9 @@
       {{/* hero_image is preferred (can be an SVG); images[0] is the fallback and
             also feeds the social card in partials/meta.html, so keep it a PNG. */}}
       {{ with .Params.hero_image }}
-        <img class="home-hero-img" src="{{ . | relURL }}" alt="DigiMind Lab logo"/>
+        <img class="home-hero-img" src="{{ . | relURL }}" alt="digimind lab logo"/>
       {{ else }}{{ with .Params.images }}
-        {{ range first 1 . }}<img class="home-hero-img" src="{{ . | relURL }}" alt="DigiMind Lab logo"/>{{ end }}
+        {{ range first 1 . }}<img class="home-hero-img" src="{{ . | relURL }}" alt="digimind lab logo"/>{{ end }}
       {{ end }}{{ end }}
       </div>
     </div>

@@ -1,6 +1,6 @@
 ---
 title: "Repository"
-description: "Open-source tools and datasets from the DigiMind Lab."
+description: "Open-source tools and datasets from the digimind lab."
 layout: single
 ---
 

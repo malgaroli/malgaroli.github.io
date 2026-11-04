@@ -1,5 +1,5 @@
 {{/*  Project override of the theme's head.html (themes/hugo-apero/layouts/partials/head.html).
-      The ONLY difference is the favicon block: the theme emits a single .ico link,
+      Differences: the favicon block and the brand-font links: the theme emits a single .ico link,
       we emit proper PNG / SVG / apple-touch-icon links. Files live in static/img/
       (copied from lab-logo-set/). Everything else is identical to the theme. */}}
 <head>
@@ -23,5 +23,9 @@
   <!-- headroom.js -->
   {{ $mainJs := resources.Get "js/main.js" | js.Build "main.js" | minify | fingerprint }}
   <script src="{{ $mainJs.RelPermalink }}" type="text/javascript"></script>
+  {{/* Brand fonts (logo style guide): DM Sans + DM Mono. */}}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&display=swap">
   <link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
 </head>

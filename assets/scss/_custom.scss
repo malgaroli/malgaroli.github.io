@@ -1,30 +1,45 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// DigiMind palette overrides.
+// digimind palette overrides.
 //
-// Brand colors (from lab-logo-set/README.txt — the traced head + digits logo):
-//   deep navy   #151B4D  (navy ground — headings, nav, buttons)
-//   tube blue   #2438B4  (the circuit tubes — links, active nav, paper titles)
-//   base slab   #6F74C4  (the slab under the head — hover accent, darkened)
+// Colors:
+//   black       #000000  (text, headings, nav, buttons — logo style guide)
+//   grey        #666666  (secondary text — guide grey #757575, darkened for
+//                         contrast on lavender)
+//   tube blue   #2438B4  (links, active nav, paper titles)
+//   slab        #4A50A6  (hover accent)
 //   tube fill   #9FA1C6  (soft accent / default tag background)
 //   node red    #D8434F  (used only for the Human–AI tag)
 //   lavender    #ECECF4  (site background)
-//   ink         #1C1A22  (body text)
 //
-// Aim: minimalist academic — quiet lavender ground, navy for structure, tube
-// blue for anything clickable, slab for hover moments.
+// Aim: minimalist academic — quiet lavender ground, black type, blue for
+// anything clickable.
 //
 // This file imports last (see themes/hugo-apero/assets/scaffold.scss), so it
 // can override the .custom-* classes set by the active theme (currently "sky").
 // ─────────────────────────────────────────────────────────────────────────────
 
-$dm-navy:        #151B4D;  // deep navy — headings, nav, buttons
-$dm-blue:        #2438B4;  // tube blue — links, active nav, paper titles
+// Text colors follow the logo style guide: black type, grey for secondary
+// text. ($dm-navy keeps its name so existing rules pick up the change.)
+$dm-navy:        #000000;  // black — headings, nav, buttons
+// Link color option:
+//   "deep"   — deep muted blue #2D3A9E, electric blue on hover (calmer than
+//              "guide", but still clearly a link)
+//   "ink"    — black links with a grey underline, electric blue on hover
+//              (the logo style guide is monochrome; blue only on interaction)
+//   "guide"  — electric blue #0000FF links, black on hover
+//   "indigo" — the previous tube blue #2438B4 + slab hover
+$dm-links:       "deep";
+$dm-blue:        if($dm-links == "deep", #2D3A9E, if($dm-links == "ink", #000000, if($dm-links == "guide", #0000FF, #2438B4)));  // links, active nav, paper titles
 $dm-slate:       #9FA1C6;  // tube fill — soft accent
-$dm-slate-dk:    #4A50A6;  // base slab, darkened for hover contrast on lavender
-$dm-bg:          #ECECF4;  // lavender ground (matches the logo tiles)
-$dm-text:        #1C1A22;
-$dm-text-muted:  #5B5A66;
-$dm-border:      #D3D4E5;
+$dm-slate-dk:    if($dm-links == "deep" or $dm-links == "ink", #0000FF, if($dm-links == "guide", #000000, #4A50A6));  // link hover / secondary accent
+// Background option — set to "neutral" (warm off-white, closer to the logo
+// style guide) or "lavender" (the previous look). Borders follow along.
+$dm-ground:      "neutral";
+$dm-bg:          if($dm-ground == "neutral", #F4F4F2, #ECECF4);
+$dm-text:        #000000;
+$dm-text-muted:  #666666;  // guide grey (#757575), darkened slightly for contrast on lavender
+$dm-border:      if($dm-ground == "neutral", #DCDCD8, #D3D4E5);
+$dm-mono:        'DM Mono', ui-monospace, Menlo, monospace;
 
 // Backgrounds
 .bg-custom-site-bg-color    { background-color: $dm-bg; }
@@ -51,7 +66,23 @@ $dm-border:      #D3D4E5;
 .custom-button-text-color           { color: #FFFFFF; }
 .hover-custom-button-hover-text-color:hover { color: #FFFFFF; }
 .bg-custom-button-bg-color          { background-color: $dm-navy; }
-.hover-bg-custom-button-hover-bg-color:hover { background-color: $dm-slate-dk; }
+.hover-bg-custom-button-hover-bg-color:hover { background-color: if($dm-links == "guide", $dm-blue, $dm-slate-dk); }
+
+// "ink" / "deep" links: a soft underline (grey for ink, blue-tinted for deep)
+// that turns solid on hover.
+@if $dm-links == "ink" or $dm-links == "deep" {
+  .page-main a:not(.link),
+  .custom-body-link-color {
+    text-decoration: underline;
+    text-decoration-color: if($dm-links == "deep", rgba(#2D3A9E, 0.35), #A8A8A4);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+  }
+  .page-main a:not(.link):hover,
+  .custom-body-link-color:hover {
+    text-decoration-color: currentColor;
+  }
+}
 
 // Borders
 .b--custom-border-color { border-color: $dm-border; }
@@ -69,10 +100,9 @@ hr { border: 0; border-top: 1px solid $dm-border; margin: 2.5rem 0; }
 // ─────────────────────────────────────────────────────────────────────────────
 // Typography size & weight.
 //
-// The theme's default body font (Commissioner) loaded at a Light/Thin weight,
-// which read as small and faint. We now use Atkinson Hyperlegible (body) +
-// EB Garamond (headings). These rules give the prose a comfortable reading
-// size and a solid weight, and keep headings at EB Garamond's real 600 weight
+// Fonts follow the logo style guide: DM Sans (body + headings) and DM Mono
+// (menu, section labels). These rules give the prose a comfortable reading
+// size and a solid weight, and keep headings at 600
 // (avoids browser-synthesised fake bold). Sizes use rem, so they scale with
 // the reader's browser text-size setting.
 // ─────────────────────────────────────────────────────────────────────────────
@@ -96,8 +126,7 @@ body { font-weight: 400; }
 .home-lede { font-size: 1.2rem; line-height: 1.6; }
 .home-news .news-body { font-size: 1.08rem; line-height: 1.6; }
 
-// Headings: EB Garamond looks best at 600 (it ships a true 600; going heavier
-// would force a fake-bold). Applies to all headings across the site.
+// Headings: DM Sans at 600. Applies to all headings across the site.
 h1, h2, h3, h4, h5, h6 { font-weight: 600; }
 
 // Existing tweak — keep blog post H1 size restrained.
@@ -125,7 +154,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
   aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: 6px;
-  background: #f3f4f8; // graceful fallback while images load
+  background: if($dm-ground == "neutral", #EBEBE8, #f3f4f8); // fallback while images load
 }
 // The <img> sits inside <a class="db">; that anchor must fill the figure,
 // or the image keeps its natural height and leaves a grey gap below it.
@@ -374,24 +403,25 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
   vertical-align: middle;
 }
 .site-brand-mark {
-  // The traced artwork reads well down to ~96px and degrades below 48px
-  // (lab-logo-set/README.txt), so 3rem (~48px) is the floor.
-  height: 3rem;
+  // The header image is the open lockup (mark, "digi mind lab", mark), so it
+  // carries the name itself.
+  height: 3.5rem;
   width: auto;
   display: block;
 }
+// The text title stays in the markup for screen readers only — the lockup
+// image already shows the name.
 .site-brand-text {
-  font-family: $headingFontFamily, serif;
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: $dm-navy;
-  letter-spacing: 0.02em;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
   white-space: nowrap;
 }
 @media (max-width: 640px) {
-  .site-brand { justify-content: center; gap: 0.45rem; }
-  .site-brand-mark { height: 2.5rem; }
-  .site-brand-text { font-size: 1.1rem; }
+  .site-brand { justify-content: center; }
+  .site-brand-mark { height: 3rem; }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -588,7 +618,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
 }
 .home-news-head h2,
 .home-section-head {
-  font-family: $headingFontFamily, serif;
+  font-family: $dm-mono;
   color: $dm-navy;
   font-size: 1.9rem;
   font-weight: 500;
@@ -645,11 +675,18 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
   }
 }
 
-// Homepage hero title — sized to stay on one line ("DigiMind Lab") beside the
+// Homepage hero title — sized to stay on one line ("digimind lab") beside the
 // intro text instead of wrapping awkwardly.
 .home-title {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   line-height: 1.08;
+}
+// Wordmark image used as the homepage title.
+.home-title-wordmark {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  height: auto;
 }
 
 // Homepage hero logo — kept modest so it doesn't crowd the intro text.
@@ -719,3 +756,8 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
 .media-entry {
   .media-outlet { color: $dm-navy; font-weight: 600; font-style: normal; }
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// DM Mono accents (logo style guide): header menu.
+// ─────────────────────────────────────────────────────────────────────────────
+.site-links a { font-family: $dm-mono; }

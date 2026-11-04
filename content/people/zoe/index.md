@@ -3,7 +3,7 @@ title: "Zoë Mermin"
 subtitle: "Research Data Associate"
 excerpt: " 
   **Research Data Associate**<br>
-  Zoë Mermin is a Research Data Associate at the NYU Grossman School of Medicine, affiliated with the DigiMind Lab and the Anxiety, Stress & Prolonged Grief Program, where she coordinates studies related to treatments for anxiety disorders and the detection of anxiety and depression. In her free time, she enjoys teaching cycling, baking, and hiking."
+  Zoë Mermin is a Research Data Associate at the NYU Grossman School of Medicine, affiliated with the digimind lab and the Anxiety, Stress & Prolonged Grief Program, where she coordinates studies related to treatments for anxiety disorders and the detection of anxiety and depression. In her free time, she enjoys teaching cycling, baking, and hiking."
 weight: 7
 author: ""
 show_post_thumbnail: true
@@ -34,4 +34,4 @@ links:
 #   name: Email
 #   url: mailto:Zoe.Mermin@NYULangone.org
 ---
-Zoë Mermin is a Research Data Associate at the NYU Grossman School of Medicine, affiliated with the DigiMind Lab and the Anxiety, Stress & Prolonged Grief Program, where she coordinates studies related to treatments for anxiety disorders and the detection of anxiety and depression. In her free time, she enjoys teaching cycling, baking, and hiking.
+Zoë Mermin is a Research Data Associate at the NYU Grossman School of Medicine, affiliated with the digimind lab and the Anxiety, Stress & Prolonged Grief Program, where she coordinates studies related to treatments for anxiety disorders and the detection of anxiety and depression. In her free time, she enjoys teaching cycling, baking, and hiking.
