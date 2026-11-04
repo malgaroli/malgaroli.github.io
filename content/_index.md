@@ -23,7 +23,7 @@ action_type: text
 # The homepage shows the first 8; the full list lives at /news/.
 news:
   - date: "November 2026"
-    text: 'CoralMind is launching! A multidisciplinary initiative to understand and improve AI''s impact on wellbeing, with Dr. Malgaroli as Clinical Lead. Explore the [taxonomy map](https://map.coralmind.org/) and the [toolkit pre-release](https://github.com/coralmind/toolkit) (patient simulations and AI interaction judges).'
+    text: 'CoralMind is launching! A multidisciplinary initiative to understand and improve AI''s impact on wellbeing, with Dr. Malgaroli as Clinical Lead. Explore the [taxonomy](https://map.coralmind.org/) and the [toolkit](https://github.com/coralmind/toolkit) (patient simulations and AI judges).'
   - date: "October 2026"
     text: '[DIAL](https://doi.org/10.48550/arXiv.2512.20773), our adversarial framework for realistic multi-turn user simulation (Zhu et al.), has been accepted at EMNLP 2026. We will present it in Budapest, October 24 to 29.'
   - date: "September 2026"
