@@ -43,7 +43,7 @@
     <div class="mh4 home-news-grid">
       <div class="home-news-head"><h2>Recent News</h2></div>
       <div class="home-news-items">
-        {{ range first 7 . }}
+        {{ range first 8 . }}
         <div class="news-row">
           <div class="news-date">{{ .date }}</div>
           <div class="news-body">{{ .text | markdownify }}</div>

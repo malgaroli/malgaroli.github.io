@@ -20,7 +20,7 @@ action_type: text
 # ── Recent News ───────────────────────────────────────────────────────────
 # Newest first. Each item is a date label + one sentence.
 # Use [text](https://link) for links and *text* for italics.
-# The homepage shows the first 7; the full list lives at /news/.
+# The homepage shows the first 8; the full list lives at /news/.
 news:
   - date: "November 2026"
     text: 'CoralMind is launching! A multidisciplinary initiative to understand and improve AI''s impact on wellbeing, with Dr. Malgaroli as Clinical Lead. Explore the [taxonomy map](https://map.coralmind.org/) and the [toolkit pre-release](https://github.com/coralmind/toolkit) (patient simulations and AI interaction judges).'
