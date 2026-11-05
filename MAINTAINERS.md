@@ -75,17 +75,17 @@ Run on demand from the Actions tab.
 ## Homepage logo animation
 
 `static/js/life-hero.js` draws a canvas over the hero logo. It runs Conway's
-Game of Life from random cells, pins the cells onto the two brackets set
-apart, types "digi / mind / lab" between them (glyphs from
-`static/img/logo-open-lockup.svg`), then fades the text and steps the brackets
-together into the logomark. The scale never changes. At the end the canvas is
+Game of Life from random cells, then pins the cells onto the logomark's
+squares until the logo has formed. At the end the canvas is
 removed and `static/img/logo-mark.svg` shows again. Click the logo to replay.
 With reduced motion or no JavaScript the static logo shows.
 
 - `layouts/index.html` wraps the hero image in `<div class="life-hero">` (the
-  script needs it), points `data-lockup` at the lockup SVG and loads the
-  script. The title has its own row so the logo centres on the intro text.
+  script needs it) and loads the script. The title has its own row so the logo centres on the intro text.
 - `.life-hero` in `_custom.scss` sets the logo size.
+- Timings are `T_SOUP` / `T_CONV` / `T_END` / `GEN_MS` near the top of the
+  script; to try values without editing, add e.g. `?soup=1200&conv=1800` to
+  the homepage URL.
 - To turn it off, delete the `<script>` line in `layouts/index.html`.
 
 Parameters at the top of `life-hero.js` (times in ms):

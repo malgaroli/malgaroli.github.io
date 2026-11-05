@@ -17,7 +17,9 @@
       {{ with .Params.subtitle }}<h2 class="f5 fw7 mt0 mb4 ttu tracked">{{ . }}</h2>{{ end }}
       {{ if .Params.show_social_links }}{{ partial "shared/social-links.html" . }}{{ end }}
     </div>
-    <div class="flex-l items-center" style="{{ if .Params.image_left }}flex-direction: row-reverse;{{ end }}">
+    {{/* Phones: logo above the intro text (column-reverse); wide screens:
+          side by side. */}}
+    <div class="flex flex-column-reverse {{ if .Params.image_left }}flex-row-reverse-l{{ else }}flex-row-l{{ end }} items-center-l">
       <div class="mh4 w-50-l {{ if not .Params.text_align_left }}tr{{ end }}">
         {{/* The action link (Learn More) runs on at the end of the description's
               last paragraph, so the description itself stays plain text for
@@ -31,11 +33,11 @@
           <div class="home-lede">{{ $lede | safeHTML }}</div>
         {{ end }}
       </div>
-      <div class="tc w-50-l {{ if .Params.image_left }}ml4{{ else }}mr4{{ end }}">
+      <div class="tc w-50-l mb4 mb0-l {{ if .Params.image_left }}ml4{{ else }}mr4{{ end }}">
       {{/* hero_image is preferred (can be an SVG); images[0] is the fallback and
             also feeds the social card in partials/meta.html, so keep it a PNG. */}}
       {{ with .Params.hero_image }}
-        <div class="life-hero"><img class="home-hero-img" src="{{ . | relURL }}" alt="digimind lab logo" data-lockup="{{ "img/logo-open-lockup.svg" | relURL }}"/></div>
+        <div class="life-hero"><img class="home-hero-img" src="{{ . | relURL }}" alt="digimind lab logo"/></div>
         {{/* Game of Life intro that resolves into this image (skipped for
               prefers-reduced-motion; click the logo to replay). */}}
         <script src="{{ "js/life-hero.js" | relURL }}" defer></script>
