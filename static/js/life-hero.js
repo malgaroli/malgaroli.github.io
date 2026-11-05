@@ -53,7 +53,7 @@
   var LK = CELL / 165.1 * TEXT_FIT, LCX = 990, LCY = 2.5 * 165.1;
 
   // ── Timeline (ms) ───────────────────────────────────────────────────────
-  var T_SOUP = 3000, T_CONV = 2400, T_HOLD1 = 300, T_WRITE = 1500,
+  var T_SOUP = 2000, T_CONV = 2400, T_HOLD1 = 300, T_WRITE = 1500,
       T_HOLD2 = 1100, T_FADE = 350, T_STEP = 140;
   // Closing steps as [left, right] offsets from the open state's column 0:
   // one square in from each side, then a final half square each to land
