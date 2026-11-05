@@ -7,9 +7,44 @@ layout: single
 <div class="repo-grid">
 
   <article class="repo-card">
-    <header>
-      <h3>VISTA-SSM</h3>
-      <p class="repo-subtitle">Longitudinal Clustering for Health Data</p>
+    <header class="has-logo">
+      <img class="repo-logo" src="/img/repository/coralmind.png" alt="" width="48" height="48">
+      <div>
+        <h3>CoralMind Knowledge Library</h3>
+        <p class="repo-subtitle">Evidence map of how AI conversations affect mental health</p>
+      </div>
+    </header>
+    <p>A taxonomy that links behaviors you can see in human–AI transcripts to their effects on wellbeing. It covers 116 pathways, 28 impacts and 414 sources, and reviews the strength of the existing evidence.</p>
+    <footer>
+      <a href="https://map.coralmind.org/" target="_blank" rel="noopener">
+        <i class="fas fa-globe"></i> map.coralmind.org
+      </a>
+    </footer>
+  </article>
+
+  <article class="repo-card">
+    <header class="has-logo">
+      <img class="repo-logo" src="/img/repository/coralmind.png" alt="" width="48" height="48">
+      <div>
+        <h3>CoralMind Toolkit</h3>
+        <p class="repo-subtitle">Simulation and evaluation for AI in mental health</p>
+      </div>
+    </header>
+    <p>Simulates conversations with an AI system, scores them with AI judges against the Knowledge Library, and reports the results. Python package <code>corallab</code>.</p>
+    <footer>
+      <a href="https://github.com/coralmind/toolkit" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i> github.com/coralmind/toolkit
+      </a>
+    </footer>
+  </article>
+
+  <article class="repo-card">
+    <header class="has-logo">
+      <img class="repo-logo" src="/img/repository/vista.png" alt="" width="48" height="48">
+      <div>
+        <h3>VISTA-SSM</h3>
+        <p class="repo-subtitle">Longitudinal Clustering for Health Data</p>
+      </div>
     </header>
     <p>Varying and Irregular Sampling Time-series Analysis via State-Space Models, our clustering method for longitudinal psychological measurement data. Published in <em>Psychological Methods</em> (2025).</p>
     <footer>
@@ -20,9 +55,12 @@ layout: single
   </article>
 
   <article class="repo-card">
-    <header>
-      <h3>ICD11-Psych</h3>
-      <p class="repo-subtitle">WHO ICD-11 Mental Health Diagnostic Benchmark</p>
+    <header class="has-logo">
+      <img class="repo-logo" src="/img/repository/who.jpg" alt="" width="48" height="48">
+      <div>
+        <h3>ICD11-Psych</h3>
+        <p class="repo-subtitle">WHO ICD-11 Mental Health Diagnostic Benchmark</p>
+      </div>
     </header>
     <p>Benchmark and evaluation resources for mental-health diagnosis aligned with the WHO ICD-11 classification.</p>
     <footer>
@@ -57,6 +95,23 @@ layout: single
   transform: translateY(-2px);
   box-shadow: 0 4px 14px rgba(26, 45, 92, 0.08);
 }
+/* Optional small logo beside the title: add class="has-logo" to the header
+   and an <img class="repo-logo"> before the title block. */
+.repo-card header.has-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.repo-card header.has-logo .repo-subtitle {
+  margin-bottom: 0;
+}
+.repo-logo {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
 .repo-card h3 {
   margin: 0 0 0.25rem 0;
   color: #1A2D5C;
@@ -90,7 +145,8 @@ layout: single
   position: absolute;
   inset: 0;
 }
-.repo-card footer .fa-github {
+.repo-card footer .fa-github,
+.repo-card footer .fa-globe {
   margin-right: 0.45rem;
 }
 </style>
