@@ -33,6 +33,7 @@ site's structure. Site: Hugo (extended) with the vendored `hugo-apero` theme.
 | `assets/scss/_custom.scss` | Palette (from `lab-logo-set/README.txt`), type sizes, header, tags |
 | `static/img/` | Deployed logo, favicons, social card; `lab-logo-set/` holds the masters |
 | `scripts/pubsync.py` | Weekly ORCID + Crossref sync and keyword tagger |
+| `static/js/life-hero.js` | Homepage logo animation (Game of Life) |
 
 ## Research areas are data-driven
 
@@ -70,6 +71,67 @@ Run on demand from the Actions tab.
   `ResearchOrganization` on the homepage, a `Person` on each people page
   (`sameAs` comes from the person's `orcid` and `links`).
 - The homepage `<title>` is `homeTitle` in `config.toml`.
+
+## Homepage logo animation
+
+`static/js/life-hero.js` draws a canvas over the hero logo. It runs Conway's
+Game of Life from random cells, pins the cells onto the two brackets set
+apart, types "digi / mind / lab" between them (glyphs from
+`static/img/logo-open-lockup.svg`), then fades the text and steps the brackets
+together into the logomark. The scale never changes. At the end the canvas is
+removed and `static/img/logo-mark.svg` shows again. Click the logo to replay.
+With reduced motion or no JavaScript the static logo shows.
+
+- `layouts/index.html` wraps the hero image in `<div class="life-hero">` (the
+  script needs it), points `data-lockup` at the lockup SVG and loads the
+  script. The title has its own row so the logo centres on the intro text.
+- `.life-hero` in `_custom.scss` sets the logo size.
+- To turn it off, delete the `<script>` line in `layouts/index.html`.
+
+Parameters at the top of `life-hero.js` (times in ms):
+
+| Parameter | Value | Effect |
+| :--- | :--- | :--- |
+| `SUB` | 3 | Life cells per logo square. 2 is chunkier; 4 or more reads as noise |
+| `GEN_MS` | 110 | Time per generation |
+| `T_SOUP` | 3000 | Free-running Life |
+| `T_CONV` | 2400 | Convergence onto the brackets |
+| `T_HOLD1` | 300 | Pause before the text |
+| `T_WRITE` | 1500 | Typing all three lines |
+| `T_HOLD2` | 1100 | Pause on the full open state |
+| `T_FADE` | 350 | Text fade |
+| `T_STEP` | 140 | Each closing step |
+| `TEXT_FIT` | 0.78 | Text size relative to the lockup |
+| `COLOR` | `#000` | Cells, brackets and text |
+
+In `seed()`, `Math.random() < 0.3` is the starting density (0.25–0.4 works),
+and `lockAt` sets the order cells are pinned in (bracket cells first, so the
+shape shows early). Total run time is the sum of the timings plus
+`STEPS.length × T_STEP` + 200, about 9 s.
+
+How far the brackets open decides how large the logo can be, so these change
+together:
+
+- `OPEN_SHIFT`: squares between the brackets when open (5 in the official
+  lockup, 3 here).
+- `OPEN_L`: `OPEN_SHIFT / 2`.
+- `STEPS`: closing positions `[left, right]`, ending at `[OPEN_L, OPEN_L]`.
+- `TEXT_FIT`: smaller when the gap is narrower.
+- The `0.71` in `.life-hero { width }`: at most
+  `1980 / (1920 + OPEN_SHIFT × 274.29 + 27.4)`. If it is too large the script
+  shrinks the logo on load and it visibly jumps.
+
+| `OPEN_SHIFT` | `OPEN_L` | `STEPS` | `TEXT_FIT` | CSS |
+| :--- | :--- | :--- | :--- | :--- |
+| 3 | 1.5 | `[[1, 3], [1, 2], [1.5, 1.5]]` | 0.78 | 0.71 |
+| 4 | 2 | `[[1, 4], [1, 3], [2, 3], [2, 2]]` | 0.9 | 0.65 |
+| 5 | 2.5 | `[[1, 5], [1, 4], [2, 4], [2, 3], [2.5, 2.5]]` | 1.0 | 0.59 |
+
+The canvas spills 2rem into the gutter on each side of the column: `4 * rem`
+in `layout()` and `+ 4rem` in the CSS must match.
+
+Check changes with `hugo server`. For the fallback, turn on Reduce motion in
+the OS accessibility settings and reload.
 
 ## Conventions
 

@@ -8,13 +8,17 @@
 
   {{/* ── Hero ───────────────────────────────────────────────────────────── */}}
   <section class="page-content mw9 center">
+    {{/* Title sits in its own row so the logo below is centred against the
+          intro text only, not text + title. */}}
+    <div class="mh4 {{ if not .Params.text_align_left }}tr{{ end }}">
+      {{/* The title is shown as the "digimind lab" wordmark image; the text
+            stays as the image's alt so the h1 still reads correctly. */}}
+      {{ with .Params.title }}<h1 class="home-title mv4"><img class="home-title-wordmark" src="{{ "img/wordmark-lab.svg" | relURL }}" alt="{{ . }}"></h1>{{ end }}
+      {{ with .Params.subtitle }}<h2 class="f5 fw7 mt0 mb4 ttu tracked">{{ . }}</h2>{{ end }}
+      {{ if .Params.show_social_links }}{{ partial "shared/social-links.html" . }}{{ end }}
+    </div>
     <div class="flex-l items-center" style="{{ if .Params.image_left }}flex-direction: row-reverse;{{ end }}">
-      <div class="mh4 w-60-l {{ if not .Params.text_align_left }}tr{{ end }}">
-        {{/* The title is shown as the "digimind lab" wordmark image; the text
-              stays as the image's alt so the h1 still reads correctly. */}}
-        {{ with .Params.title }}<h1 class="home-title mv4"><img class="home-title-wordmark" src="{{ "img/wordmark-lab.svg" | relURL }}" alt="{{ . }}"></h1>{{ end }}
-        {{ with .Params.subtitle }}<h2 class="f5 fw7 mt0 mb4 ttu tracked">{{ . }}</h2>{{ end }}
-        {{ if .Params.show_social_links }}{{ partial "shared/social-links.html" . }}{{ end }}
+      <div class="mh4 w-50-l {{ if not .Params.text_align_left }}tr{{ end }}">
         {{/* The action link (Learn More) runs on at the end of the description's
               last paragraph, so the description itself stays plain text for
               search and social previews. */}}
@@ -27,11 +31,14 @@
           <div class="home-lede">{{ $lede | safeHTML }}</div>
         {{ end }}
       </div>
-      <div class="tc w-40-l {{ if .Params.image_left }}ml4{{ else }}mr4{{ end }}">
+      <div class="tc w-50-l {{ if .Params.image_left }}ml4{{ else }}mr4{{ end }}">
       {{/* hero_image is preferred (can be an SVG); images[0] is the fallback and
             also feeds the social card in partials/meta.html, so keep it a PNG. */}}
       {{ with .Params.hero_image }}
-        <img class="home-hero-img" src="{{ . | relURL }}" alt="digimind lab logo"/>
+        <div class="life-hero"><img class="home-hero-img" src="{{ . | relURL }}" alt="digimind lab logo" data-lockup="{{ "img/logo-open-lockup.svg" | relURL }}"/></div>
+        {{/* Game of Life intro that resolves into this image (skipped for
+              prefers-reduced-motion; click the logo to replay). */}}
+        <script src="{{ "js/life-hero.js" | relURL }}" defer></script>
       {{ else }}{{ with .Params.images }}
         {{ range first 1 . }}<img class="home-hero-img" src="{{ . | relURL }}" alt="digimind lab logo"/>{{ end }}
       {{ end }}{{ end }}

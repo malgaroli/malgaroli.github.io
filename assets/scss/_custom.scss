@@ -430,7 +430,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
 // ─────────────────────────────────────────────────────────────────────────────
 .site-footer {
   margin-top: 4rem;
-  padding: 2.5rem 2rem 1.5rem;
+  padding: 1.25rem 2rem 1.5rem;
   border-top: 1px solid $dm-border;
   color: $dm-text-muted;
   font-size: 0.9rem;
@@ -484,7 +484,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
 }
 .site-footer-baseline {
   max-width: 96rem;
-  margin: 1.75rem auto 0;
+  margin: 1.25rem auto 0;
   padding-top: 1rem;
   border-top: 1px solid $dm-border;
   color: $dm-text-muted;
@@ -689,11 +689,28 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
   height: auto;
 }
 
-// Homepage hero logo — kept modest so it doesn't crowd the intro text.
+// Homepage hero logo — sized by its .life-hero wrapper below.
 .home-hero-img {
   width: 100%;
-  max-width: 340px;
   height: auto;
+}
+
+// Game of Life intro drawn over the hero logo (static/js/life-hero.js).
+// The wrapper takes the image's box so the canvas lines up exactly.
+// Its width leaves room for the 10-square open state (≈ 1.4 × the logomark)
+// at the same scale, using the column plus its 2rem gutters either side;
+// keep in sync with HALF / layout() in life-hero.js.
+.life-hero {
+  position: relative;
+  display: inline-block;
+  width: unquote("min(100%, calc((100% + 4rem) * 0.71))"); // unquote: libsass has no CSS min()
+  max-width: 560px;
+  line-height: 0;
+  cursor: pointer;
+
+  // Wider than the logo (left/width set in JS) so the open lockup fits.
+  canvas { position: absolute; top: 0; height: 100%; }
+  &.is-playing img { visibility: hidden; }
 }
 
 // Don't fade team/research photos on hover — the theme's .dim effect washes
