@@ -174,8 +174,16 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
   margin: 0;
 }
 
+// Line-art illustrations (SVG, transparent) sit directly on the page; the
+// placeholder tile is only useful behind photos.
+.blog-content article figure:has(img[src$=".svg"]) {
+  background: transparent;
+}
+
 // Larger, more readable listing-card text (e.g., names on /people/).
-.blog-content article header h1 { font-size: 1.7rem; line-height: 1.25; }
+// The theme puts `.underline` on the <h1> and the link inside draws its own
+// underline too — drop the h1's so the title isn't underlined twice.
+.blog-content article header h1 { font-size: 1.7rem; line-height: 1.25; text-decoration: none; }
 .blog-content article p.lh-copy { font-size: 1.05rem; line-height: 1.6; }
 
 // ─────────────────────────────────────────────────────────────────────────────

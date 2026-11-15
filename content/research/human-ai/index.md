@@ -6,7 +6,7 @@ excerpt: "We examine how patients and clinicians interact with conversational AI
 draft: false
 layout: single
 # Listing + tag order: HIGHER weight shows FIRST on /research/.
-weight: 30
+weight: 20
 # ── Publication tagging (do not remove) ──────────────────────────────────
 # pub_filter is this topic's tag. Papers in content/publications/_index.md
 # whose `categories:` include it are listed under "Selected Publications"

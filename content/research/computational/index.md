@@ -6,7 +6,7 @@ excerpt: "We develop machine learning methods that go beyond diagnostic categori
 draft: false
 layout: single
 # Listing + tag order: HIGHER weight shows FIRST on /research/.
-weight: 20
+weight: 30
 # The former "Heterogeneity in Psychiatric Diagnoses" page was folded into
 # this one; its old address redirects here.
 aliases:
