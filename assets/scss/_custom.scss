@@ -179,6 +179,12 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
 .blog-content article figure:has(img[src$=".svg"]) {
   background: transparent;
 }
+// The art is centred inside its square with empty margin above it, so a
+// top-aligned title looks higher than the picture. Centre the text column
+// on the illustration instead.
+.blog-content article figure:has(img[src$=".svg"]) + div {
+  align-self: center;
+}
 
 // Larger, more readable listing-card text (e.g., names on /people/).
 // The theme puts `.underline` on the <h1> and the link inside draws its own
