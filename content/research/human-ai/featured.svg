@@ -1,24 +1,80 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
-  <rect width="800" height="800" fill="#ECECF4"/>
-  <!-- person's message (top left) -->
-  <path d="M136 120 h258 a26 26 0 0 1 26 26 v78 a26 26 0 0 1 -26 26 h-184 l-40 50 v-50 h-34 a26 26 0 0 1 -26 -26 v-78 a26 26 0 0 1 26 -26 z" fill="#FFFFFF" stroke="#9FA1C6" stroke-width="12" stroke-linejoin="round"/>
-  <g stroke="#9FA1C6" stroke-width="12" stroke-linecap="round">
-    <line x1="150" y1="165" x2="370" y2="165"/><line x1="150" y1="205" x2="300" y2="205"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1980.5 1981.26">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke-width: 1.94px;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        stroke-width: 1.93px;
+      }
+
+      .cls-4 {
+        stroke-width: 1.9px;
+      }
+
+      .cls-5 {
+        stroke-width: 1.95px;
+      }
+
+      .cls-6 {
+        stroke-width: 1.96px;
+      }
+
+      .cls-7 {
+        stroke-width: 1.96px;
+      }
+
+      .cls-8 {
+        stroke-width: 1.92px;
+      }
+
+      .cls-9 {
+        stroke-width: 1.92px;
+      }
+
+      .cls-10 {
+        fill: #fff;
+      }
+
+      .cls-10, .cls-11 {
+        stroke-width: 8.72px;
+      }
+    </style>
+  </defs>
+  <path class="cls-11" d="M1959.07,1254.23l-154.05,42.74-2.53.7v190.57l-244.22.12,82.36,133.5-542.9.16-1.7-34.05c-5.56-113.78-56.87-195.14-131.84-276.51l-22.96-24.91c-29.64-32.24-58.16-64.24-83.15-100.39-55.59-80.38-80.16-163.85-85.93-260.66-1.66-28-1.74-54.73.08-82.69,12.87-196.54,144.88-343.43,327.66-409.97,278.3-101.34,635.65-10.99,721.33,296.24l115.36,449.09,22.5,76.06Z"/>
+  <line class="cls-1" x1="1521.28" y1="1668.67" x2="1521.01" y2="1668.4"/>
+  <path class="cls-10" d="M93.5,1254.23l154.05,42.74,2.53.7v190.57s244.22.12,244.22.12l-82.36,133.5,542.9.16,1.7-34.05c5.56-113.78,56.87-195.14,131.84-276.51l22.96-24.91c29.64-32.24,58.16-64.24,83.15-100.39,55.59-80.38,80.16-163.85,85.93-260.66,1.66-28,1.74-54.73-.08-82.69-12.87-196.54-144.88-343.43-327.66-409.97-278.3-101.34-635.65-10.99-721.33,296.24l-115.36,449.09-22.5,76.06Z"/>
+  <g>
+    <rect class="cls-6" x="911.5" y="522.25" width="263.36" height="20.01" rx="7.27" ry="7.27"/>
+    <rect class="cls-6" x="987.26" y="478.44" width="103.51" height="20.01" rx="7.27" ry="7.27"/>
+    <path class="cls-6" d="M869.01,566.07h339.68c4.01,0,7.27,3.26,7.27,7.27v5.46c0,4.01-3.26,7.27-7.27,7.27h-339.68c-2.45,0-4.43-1.99-4.43-4.43v-11.14c0-2.45,1.99-4.43,4.43-4.43Z"/>
+    <rect class="cls-6" x="833.98" y="609.88" width="410.52" height="20.01" rx="7.27" ry="7.27"/>
+    <rect class="cls-6" x="811.92" y="653.69" width="452.22" height="20.01" rx="6.85" ry="6.85"/>
+    <rect class="cls-6" x="793.81" y="697.5" width="485.09" height="20.01" rx="7.1" ry="7.1"/>
+    <rect class="cls-6" x="780.26" y="741.31" width="509.99" height="20.01" rx="7.27" ry="7.27"/>
+    <path class="cls-6" d="M778.14,785.12h515.31c3.78,0,6.85,3.07,6.85,6.85v6.3c0,3.78-3.07,6.85-6.85,6.85h-515.31c-4.01,0-7.27-3.26-7.27-7.27v-5.46c0-4.01,3.26-7.27,7.27-7.27Z"/>
+    <path class="cls-5" d="M770.69,828.93h512.74c3.77,0,6.84,3.06,6.84,6.84v6.33c0,3.77-3.06,6.84-6.84,6.84h-512.74c-4,0-7.26-3.25-7.26-7.26v-5.5c0-4,3.25-7.26,7.26-7.26Z"/>
+    <path class="cls-2" d="M771.49,872.74h518.51c3.75,0,6.79,3.04,6.79,6.79v6.42c0,3.75-3.04,6.79-6.79,6.79h-518.51c-3.98,0-7.21-3.23-7.21-7.21v-5.59c0-3.98,3.23-7.21,7.21-7.21Z"/>
+    <path class="cls-3" d="M771.46,916.56h524.38c3.74,0,6.77,3.03,6.77,6.77v6.47c0,3.74-3.03,6.77-6.77,6.77h-524.38c-3.96,0-7.18-3.22-7.18-7.18v-5.65c0-3.96,3.22-7.18,7.18-7.18Z"/>
+    <path class="cls-9" d="M774.5,960.37h526.98c3.72,0,6.74,3.02,6.74,6.74v6.53c0,3.72-3.02,6.74-6.74,6.74h-526.98c-3.95,0-7.15-3.2-7.15-7.15v-5.71c0-3.95,3.2-7.15,7.15-7.15Z"/>
+    <path class="cls-8" d="M779.41,1004.18h526.86c3.71,0,6.71,3.01,6.71,6.71v6.58c0,3.71-3.01,6.71-6.71,6.71h-526.86c-3.93,0-7.12-3.19-7.12-7.12v-5.76c0-3.93,3.19-7.12,7.12-7.12Z"/>
+    <path class="cls-4" d="M784.59,1047.99h527.13c3.69,0,6.68,2.99,6.68,6.68v6.65c0,3.69-2.99,6.68-6.68,6.68h-527.13c-3.91,0-7.08-3.17-7.08-7.08v-5.84c0-3.91,3.17-7.08,7.08-7.08Z"/>
+    <rect class="cls-7" x="851.18" y="1179.42" width="412.38" height="20.01" rx="7.29" ry="7.29" transform="translate(2114.7394 2378.8523) rotate(-180)"/>
+    <rect class="cls-7" x="831.45" y="1135.61" width="454.27" height="20.01" rx="6.87" ry="6.87" transform="translate(2117.1733 2291.2298) rotate(-180)"/>
+    <rect class="cls-7" x="803.21" y="1091.8" width="487.28" height="20.01" rx="7.11" ry="7.11" transform="translate(2093.6997 2203.6072) rotate(-180)"/>
+    <rect class="cls-6" x="923.99" y="1267.05" width="263.36" height="20.01" rx="7.27" ry="7.27" transform="translate(2111.3409 2554.0975) rotate(-180)"/>
+    <rect class="cls-6" x="978.78" y="1310.86" width="103.51" height="20.01" rx="7.27" ry="7.27" transform="translate(2061.0718 2641.7201) rotate(-180)"/>
+    <path class="cls-6" d="M887.33,1223.23h339.68c4.01,0,7.27,3.26,7.27,7.27v5.46c0,4.01-3.26,7.27-7.27,7.27h-339.68c-2.45,0-4.43-1.99-4.43-4.43v-11.14c0-2.45,1.99-4.43,4.43-4.43Z" transform="translate(2117.1733 2466.4749) rotate(-180)"/>
   </g>
-  <!-- AI's reply (middle right) -->
-  <path d="M416 265 h248 a26 26 0 0 1 26 26 v78 a26 26 0 0 1 -26 26 h-84 v45 l-40 -45 h-124 a26 26 0 0 1 -26 -26 v-78 a26 26 0 0 1 26 -26 z" fill="#FFFFFF" stroke="#2438B4" stroke-width="12" stroke-linejoin="round"/>
-  <g stroke="#2438B4" stroke-width="12" stroke-linecap="round">
-    <line x1="430" y1="310" x2="620" y2="310"/><line x1="430" y1="350" x2="540" y2="350"/>
-  </g>
-  <!-- person (bottom left) -->
-  <circle cx="170" cy="540" r="60" fill="#9FA1C6" stroke="#2438B4" stroke-width="14"/>
-  <path d="M60 720 a110 110 0 0 1 220 0 z" fill="#9FA1C6" stroke="#2438B4" stroke-width="14" stroke-linejoin="round"/>
-  <!-- AI (bottom right): antenna, head, shoulders, with clear space between head and body -->
-  <line x1="610" y1="425" x2="610" y2="455" stroke="#2438B4" stroke-width="14" stroke-linecap="round"/>
-  <circle cx="610" cy="415" r="12" fill="#D8434F"/>
-  <rect x="530" y="455" width="160" height="140" rx="30" fill="#6F74C4" stroke="#2438B4" stroke-width="14"/>
-  <circle cx="580" cy="510" r="13" fill="#ECECF4"/>
-  <circle cx="640" cy="510" r="13" fill="#ECECF4"/>
-  <path d="M580 550 q30 24 60 0" fill="none" stroke="#ECECF4" stroke-width="11" stroke-linecap="round"/>
-  <path d="M500 720 a110 110 0 0 1 220 0 z" fill="#6F74C4" stroke="#2438B4" stroke-width="14" stroke-linejoin="round"/>
 </svg>

@@ -1,22 +1,59 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
-  <rect width="800" height="800" fill="#ECECF4"/>
-  <!-- laptop -->
-  <rect x="150" y="170" width="500" height="330" rx="26" fill="#FFFFFF" stroke="#2438B4" stroke-width="14"/>
-  <rect x="180" y="200" width="440" height="270" rx="12" fill="#ECECF4"/>
-  <path d="M90 520 h620 a20 20 0 0 1 20 20 v10 a30 30 0 0 1 -30 30 h-600 a30 30 0 0 1 -30 -30 v-10 a20 20 0 0 1 20 -20 z" fill="#9FA1C6" stroke="#2438B4" stroke-width="14" stroke-linejoin="round"/>
-  <!-- clinician on video call -->
-  <circle cx="300" cy="300" r="42" fill="#9FA1C6" stroke="#2438B4" stroke-width="12"/>
-  <path d="M225 440 a75 75 0 0 1 150 0 z" fill="#9FA1C6" stroke="#2438B4" stroke-width="12" stroke-linejoin="round"/>
-  <!-- chat panel -->
-  <rect x="420" y="240" width="130" height="34" rx="17" fill="#6F74C4"/>
-  <rect x="450" y="290" width="150" height="34" rx="17" fill="#2438B4"/>
-  <rect x="420" y="340" width="110" height="34" rx="17" fill="#6F74C4"/>
-  <!-- pulse line -->
-  <polyline points="420,420 455,420 470,385 490,450 510,395 530,435 545,420 600,420" fill="none" stroke="#2438B4" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="510" cy="395" r="10" fill="#D8434F"/>
-  <!-- phone in the corner -->
-  <rect x="600" y="560" width="120" height="200" rx="22" fill="#FFFFFF" stroke="#2438B4" stroke-width="12"/>
-  <rect x="616" y="585" width="88" height="140" rx="8" fill="#ECECF4"/>
-  <circle cx="660" cy="640" r="18" fill="#D8434F"/>
-  <rect x="630" y="675" width="60" height="14" rx="7" fill="#6F74C4"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1980.5 1981.26">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 8px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        stroke-width: 5px;
+      }
+
+      .cls-3 {
+        stroke-width: 8.72px;
+      }
+
+      .cls-4 {
+        stroke-width: 4.65px;
+      }
+    </style>
+  </defs>
+  <path class="cls-3" d="M1806.89,1335.41l-200.63,55.66-3.3.92v248.19l-318.06.16,107.26,173.86-707.05.21-2.22-44.35c-7.24-148.17-74.07-254.14-171.71-360.11l-29.9-32.45c-38.6-41.99-75.74-83.66-108.29-130.75-72.39-104.68-104.4-213.39-111.91-339.47-2.16-36.47-2.27-71.27.11-107.69,16.76-255.97,188.68-447.26,426.73-533.92,362.45-131.98,827.83-14.32,939.42,385.8l150.24,584.87,29.3,99.05Z"/>
+  <g>
+    <rect class="cls-1" x="732.07" y="1292.2" width="616.99" height="174.96" rx="45.35" ry="45.35" transform="translate(-582.6859 1972.4459) rotate(-73.0369)"/>
+    <rect class="cls-1" x="233.72" y="392.27" width="806.85" height="1419.4" rx="51.94" ry="51.94"/>
+    <rect class="cls-1" x="122.57" y="946.94" width="222.12" height="161.22" rx="55" ry="55"/>
+    <rect class="cls-1" x="122.57" y="1108.15" width="229.56" height="161.22" rx="55" ry="55"/>
+    <rect class="cls-1" x="122.57" y="1269.37" width="246.16" height="161.22" rx="55" ry="55"/>
+    <rect class="cls-1" x="122.57" y="1430.59" width="258.17" height="161.22" rx="55" ry="55"/>
+    <path class="cls-1" d="M807.35,940.76h327.67c39.6,0,71.75,32.15,71.75,71.75v114.21c0,10.24-8.32,18.56-18.56,18.56h-329.34c-56.4,0-102.19-45.79-102.19-102.19v-51.66c0-27.96,22.7-50.66,50.66-50.66Z"/>
+    <rect class="cls-2" x="568.39" y="455.79" width="162.27" height="47.41" rx="17.72" ry="17.72"/>
+    <rect class="cls-2" x="495.08" y="1702.96" width="293.65" height="55.39" rx="20.7" ry="20.7"/>
+  </g>
+  <g>
+    <circle class="cls-4" cx="122.57" cy="622.98" r="43.95"/>
+    <circle class="cls-4" cx="279.76" cy="612.64" r="70.26"/>
+    <circle class="cls-4" cx="576.88" cy="612.64" r="43.95"/>
+    <circle class="cls-4" cx="759.62" cy="601" r="70.26"/>
+    <circle class="cls-4" cx="441.03" cy="622.98" r="21.98"/>
+    <circle class="cls-4" cx="934.96" cy="622.98" r="34.46"/>
+  </g>
+  <g>
+    <circle class="cls-4" cx="1081.38" cy="622.98" r="43.95"/>
+    <circle class="cls-4" cx="1238.58" cy="612.64" r="70.26"/>
+    <circle class="cls-4" cx="1535.7" cy="612.64" r="43.95"/>
+    <circle class="cls-4" cx="1718.44" cy="601" r="70.26"/>
+    <circle class="cls-4" cx="1399.84" cy="622.98" r="21.98"/>
+    <circle class="cls-4" cx="1893.77" cy="622.98" r="34.46"/>
+  </g>
 </svg>
