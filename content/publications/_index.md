@@ -9,6 +9,7 @@ ignore_dois:
 - 10.1037/dev0002213      # Gallagher, Mermin & Olson 2026 (Developmental Psychology)
 - 10.1037/sgd0000899      # Mermin, Gallagher & Olson 2026 (Psychology of Sexual Orientation and Gender Diversity)
 - 10.1111/bjc.12254       # Malins et al. 2020 (no lab author)
+- 10.48550/arxiv.2605.00275  # Wolfe et al. 2026 preprint, now in Scientific Reports (10.1038/s41598-026-78802-w)
 # Each paper may carry `categories:` — a list of research-area tags. Valid tags
 # are the `pub_filter` slugs in content/research/*/index.md (one folder per
 # topic). A paper shows up on every topic page whose tag it carries.
@@ -35,7 +36,7 @@ publications:
   - computational
   - digital
 - id: wolfe2026-engagement-phenotypes-ai-chatbot
-  title: 'Engagement phenotypes for a sample of 102,684 AI mental health chatbot users and dose-response associations with clinical outcomes'
+  title: 'Engagement phenotypes for a sample of 102,684 AI mental health chatbot (Ash) users and dose-response associations with clinical outcomes'
   authors:
   - Wolfe, E. C.
   - Su, T.
@@ -44,10 +45,10 @@ publications:
   - Malgaroli, M.
   - Stamatis, C. A.
   year: 2026
-  venue: arXiv preprint
-  doi: 10.48550/arXiv.2605.00275
-  url: https://doi.org/10.48550/arXiv.2605.00275
-  type: preprint
+  venue: Scientific Reports
+  doi: 10.1038/s41598-026-78802-w
+  url: https://doi.org/10.1038/s41598-026-78802-w
+  type: journal
   categories:
   - llms
   - human-ai
