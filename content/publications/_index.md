@@ -51,8 +51,8 @@ publications:
   type: journal
   categories:
   - llms
-  - human-ai
   - computational
+  - human-ai
   - digital
 - id: stamatis2026-talking-to-a-human-attitudinal
   title: 'Talking to a human as an attitudinal barrier: A mixed methods evaluation of stigma, access, and the appeal of AI mental health support'
@@ -279,8 +279,8 @@ publications:
   categories:
   - nlp
   - llms
-  - human-ai
   - computational
+  - human-ai
 - id: galatzer-levy2023-the-capability-of-large-langua
   title: The capability of large language models to measure psychiatric functioning
   authors:
