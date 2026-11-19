@@ -15,6 +15,9 @@ approve them.
 
 Every paper has tags that decide which research page it appears on:
 `nlp`, `llms`, `human-ai`, `computational`, `digital`.
+These five research areas are the only tags. A paper can have several, or
+none. The tags show under the paper on the Publications page too. The robot
+suggests tags for new papers only; check them when you approve.
 
 Open `content/publications/_index.md`, find the paper, and edit its list:
 

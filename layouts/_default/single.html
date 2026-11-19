@@ -3,10 +3,13 @@
       Every content/research/<slug>/index.md that sets `pub_filter:` is a topic;
       its label is `pub_label` (or the page title). Ordered by weight desc, the
       same order as the /research/ listing. Adding a topic = adding a folder;
-      nothing here needs editing. Unknown slugs fall back to the raw slug. */}}
+      nothing here needs editing. Tags that are not a research area are not
+      shown (layouts/partials/pub-tags.html). */}}
 {{ $topics := where (where site.RegularPages "Section" "research") "Params.pub_filter" "!=" nil }}
 {{ $catLabels := dict }}
+{{ $catOrder := slice }}
 {{ range $topics.ByWeight.Reverse }}
+  {{ $catOrder = $catOrder | append (string .Params.pub_filter) }}
   {{ $catLabels = merge $catLabels (dict (string .Params.pub_filter) (default .Title .Params.pub_label)) }}
 {{ end }}
 {{/*  Single-page layout.
@@ -71,6 +74,7 @@
                   {{ if .url }}<a class="pub-title" href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>.{{ else }}<span class="pub-title">{{ .title }}</span>.{{ end }}
                   {{ with .venue }}<em class="pub-venue">{{ . }}</em>.{{ end }}
                 </p>
+                {{ partial "pub-tags.html" (dict "cats" .categories "labels" $catLabels "order" $catOrder) }}
               </article>
             {{ end }}
           </section>
@@ -97,6 +101,7 @@
                     {{ if .url }}<a class="pub-title" href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>.{{ else }}<span class="pub-title">{{ .title }}</span>.{{ end }}
                     {{ with .venue }}<em class="pub-venue">{{ . }}</em>.{{ end }}
                   </p>
+                  {{ partial "pub-tags.html" (dict "cats" .categories "labels" $catLabels "order" $catOrder) }}
                 </article>
                 {{ $num = sub $num 1 }}
               {{ end }}
@@ -143,11 +148,7 @@
                       {{ if .url }}<a class="pub-title" href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>.{{ else }}<span class="pub-title">{{ .title }}</span>.{{ end }}
                       {{ with .venue }}<em class="pub-venue">{{ . }}</em>.{{ end }}
                     </p>
-                    {{ with .categories }}
-                    <p class="pub-cats">
-                      {{ range . }}<span class="pub-tag pub-tag-{{ . }}">{{ index $catLabels . | default . }}</span>{{ end }}
-                    </p>
-                    {{ end }}
+                    {{ partial "pub-tags.html" (dict "cats" .categories "labels" $catLabels "order" $catOrder) }}
                   </article>
                 {{ end }}
                 <p class="research-pubs-link"><a href="/publications/">See all publications →</a></p>

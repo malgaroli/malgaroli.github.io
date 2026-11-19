@@ -4,16 +4,18 @@ pubsync.py — keep content/publications/_index.md up to date, automatically.
 
 Two jobs, both safe to re-run (idempotent):
 
-  --backfill   Re-tag every existing publication with research-area
-               categories, using a keyword classifier. Only ADDS tags
-               (never removes a tag you set by hand). No network needed.
-               The categories and their keywords come from the research
-               pages themselves (content/research/*/index.md — see
-               `pub_filter`, `pub_label`, `pub_keywords`, `weight`).
+  --backfill   Tidy the tags of every existing publication: keep only tags
+               that are a research area and put them in the /research/
+               order. Never adds a tag: tags on papers already in the file
+               are reviewed by a person. No network needed. The research
+               areas come from the research pages themselves
+               (content/research/*/index.md — see `pub_filter`, `pub_label`,
+               `pub_keywords`, `weight`).
 
   --sync       Do the backfill AND pull any new papers from each team
                member's ORCID record (filtered to their time in the lab),
-               look up clean metadata from Crossref, and append them.
+               look up clean metadata from Crossref, and append them. Only
+               these new papers get tags suggested from `pub_keywords`.
                This is what the weekly GitHub Action runs; it then opens a
                pull request for a human to review before anything goes live.
 
@@ -96,28 +98,29 @@ def load_research_topics() -> list[dict]:
 TOPICS = load_research_topics()
 CATEGORY_ORDER = [t["slug"] for t in TOPICS]            # canonical tag order
 KEYWORDS = {t["slug"]: t["keywords"] for t in TOPICS}   # slug -> lowercase substrings
-# Lower-cased substrings matched against "<title> <venue>". The weekly PR shows
-# every suggested tag, so a human gets the final say.
+# Lower-cased substrings matched against the TITLE of a newly found paper (not
+# the venue: "Association for Computational Linguistics" or "npj Digital
+# Medicine" would tag every paper in them). The weekly PR shows every
+# suggested tag, so a human gets the final say.
 
 
-def classify(title: str, venue: str = "") -> list[str]:
-    """Return research-area slugs whose keywords appear in title/venue."""
-    hay = f"{title or ''} {venue or ''}".lower()
+def classify(title: str) -> list[str]:
+    """Return research-area slugs whose keywords appear in the title."""
+    hay = (title or "").lower()
     hits = [slug for slug, words in KEYWORDS.items()
             if any(w in hay for w in words)]
     return [c for c in CATEGORY_ORDER if c in hits]
 
 
-def merge_cats(existing, classified) -> list[str]:
-    """Union of hand-set and classified tags, in canonical order.
+def clean_cats(existing) -> list[str]:
+    """A paper's tags, limited to the research areas, in canonical order.
 
-    Slugs that no longer match a research page are kept (appended, sorted)
-    rather than silently dropped, so removing a topic folder never erases
-    hand-set tags — they just stop rendering with a label until re-tagged.
+    The research areas (content/research/*/index.md with `pub_filter`) are the
+    only valid tags; anything else is dropped. Nothing is added here: tags on
+    papers already in the file are set by a person and are left as they are.
     """
-    have = set(existing or []) | set(classified or [])
-    ordered = [c for c in CATEGORY_ORDER if c in have]
-    return ordered + sorted(have - set(CATEGORY_ORDER))
+    have = set(existing or [])
+    return [c for c in CATEGORY_ORDER if c in have]
 
 
 # ── publications/_index.md surgery ───────────────────────────────────────────
@@ -148,7 +151,7 @@ def split_pubs(frontmatter: str):
 
 
 def retag_entry(chunk: str) -> str:
-    """Add classifier tags to one entry's YAML chunk, preserving formatting."""
+    """Tidy one entry's tags (valid slugs only, canonical order)."""
     try:
         data = yaml.safe_load(chunk)
         pub = data[0] if isinstance(data, list) else data
@@ -157,8 +160,12 @@ def retag_entry(chunk: str) -> str:
         return chunk
     if not isinstance(pub, dict):
         return chunk
-    new_cats = merge_cats(pub.get("categories"), classify(pub.get("title", ""),
-                                                          pub.get("venue", "")))
+    old_cats = pub.get("categories") or []
+    new_cats = clean_cats(old_cats)
+    dropped = [c for c in old_cats if c not in new_cats]
+    if dropped:
+        print(f"  - {pub.get('id')}: removed tag(s) that are not a research "
+              f"area: {', '.join(map(str, dropped))}")
     block = render_categories(new_cats)
     if CATS_RE.search(chunk):
         return CATS_RE.sub(lambda _m: block, chunk, count=1)
@@ -352,7 +359,7 @@ def render_entry(meta: dict) -> str:
         "doi": meta["doi"],
         "url": meta["url"],
         "type": meta["type"],
-        "categories": classify(meta["title"], meta["venue"]),
+        "categories": classify(meta["title"]),
     }
     if not entry["categories"]:
         entry["categories"] = []
@@ -408,7 +415,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--backfill", action="store_true",
-                   help="Re-tag existing entries only (no network).")
+                   help="Tidy tags on existing entries only (no network).")
     g.add_argument("--sync", action="store_true",
                    help="Backfill + pull new papers from ORCID/Crossref.")
     args = ap.parse_args()

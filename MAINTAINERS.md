@@ -32,7 +32,7 @@ site's structure. Site: Hugo (extended) with the vendored `hugo-apero` theme.
 | `layouts/` | Project overrides: `index.html`, `_default/single.html`, `_default/news.html`, `partials/head.html` (favicons), `partials/meta.html`, `partials/footer.html` |
 | `assets/scss/_custom.scss` | Palette (from `lab-logo-set/README.txt`), type sizes, header, tags |
 | `static/img/` | Deployed logo, favicons, social card; `lab-logo-set/` holds the masters |
-| `scripts/pubsync.py` | Weekly ORCID + Crossref sync and keyword tagger |
+| `scripts/pubsync.py` | Weekly ORCID + Crossref sync; suggests tags for new papers |
 | `static/js/life-hero.js` | Homepage logo animation (Game of Life) |
 
 ## Research areas are data-driven
@@ -42,10 +42,14 @@ matter has `pub_filter: <slug>`. That page also carries:
 
 - `weight` — order on `/research/` and of the tags (**higher first**);
 - `pub_label` — short tag label (falls back to `title`);
-- `pub_keywords` — lower-case phrases the robot matches against paper titles;
+- `pub_keywords` — lower-case phrases the robot matches against the title of
+  a newly found paper to suggest this tag;
 - `excerpt` — the 1–2 sentence card summary;
 - `featured.svg` or `featured.jpg` — card image (one per folder).
 
+The research areas are the only valid tags. `layouts/partials/pub-tags.html`
+shows a paper's tags on `/publications/` and on the research pages, and
+skips any tag that is not a research area.
 `layouts/_default/single.html` builds the tag labels from these pages and
 `scripts/pubsync.py` reads slugs, order and keywords from them, so adding or
 removing an area is just adding or removing a folder. To give a new tag its own
@@ -58,7 +62,10 @@ otherwise it gets the neutral default.
 `python scripts/pubsync.py --sync`, then opens a PR on branch `bot/pubsync`.
 It skips peer-review records, publisher "(Preprint)" stubs, DOIs listed under
 `ignore_dois:` in the publications front matter, and titles already present
-under another DOI. It never deletes. `--backfill` re-tags without network.
+under another DOI. It never deletes. Tags are suggested from `pub_keywords` only for
+newly found papers; papers already in the file keep the tags a person gave
+them. `--backfill` (no network) removes tags that are not a research area and
+puts the rest in the `/research/` order.
 Run on demand from the Actions tab.
 
 ## Search engines

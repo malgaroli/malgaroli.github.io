@@ -1,0 +1,14 @@
+{{/*  Research-area tags under a citation.
+      Call with (dict "cats" <paper's categories> "labels" <slug → label map>
+      "order" <slugs in /research/ order>).
+      Only slugs that are a research area (a `pub_filter` in
+      content/research/<slug>/index.md) are shown, in the /research/ order. */}}
+{{ $cats := default (slice) .cats }}
+{{ $labels := .labels }}
+{{ $shown := slice }}
+{{ range .order }}{{ if in $cats . }}{{ $shown = $shown | append . }}{{ end }}{{ end }}
+{{ with $shown }}
+<p class="pub-cats">
+  {{ range . }}<span class="pub-tag pub-tag-{{ . }}">{{ index $labels . }}</span>{{ end }}
+</p>
+{{ end }}

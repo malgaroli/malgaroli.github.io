@@ -14,6 +14,23 @@ ignore_dois:
 # are the `pub_filter` slugs in content/research/*/index.md (one folder per
 # topic). A paper shows up on every topic page whose tag it carries.
 publications:
+- id: mathai2026-psychedelic-experience-intensity-ketamine
+  title: Psychedelic experience intensity during ketamine treatment and antidepressant outcomes
+  authors:
+  - Mathai, D. S.
+  - Goldy, S. P.
+  - Hull, T. D.
+  - Arden, K.
+  - Swain, J.
+  - Vando, L.
+  - Malgaroli, M.
+  year: 2026
+  venue: Psychopharmacology
+  doi: 10.1007/s00213-026-07219-0
+  url: https://doi.org/10.1007/s00213-026-07219-0
+  type: journal
+  categories:
+  - digital
 - id: gershov2026-multimodal-stress-profiles-healthcare-workers
   title: Multimodal computational analysis of longitudinal stress profiles in healthcare workers
   authors:
@@ -52,7 +69,6 @@ publications:
   categories:
   - llms
   - human-ai
-  - computational
   - digital
 - id: stamatis2026-talking-to-a-human-attitudinal
   title: 'Talking to a human as an attitudinal barrier: A mixed methods evaluation of stigma, access, and the appeal of AI mental health support'
@@ -67,6 +83,7 @@ publications:
   url: https://doi.org/10.48550/arXiv.2604.09575
   type: preprint
   categories:
+  - llms
   - human-ai
   - digital
 - id: beikzadeh2026-multi-objective-alignment
@@ -86,6 +103,7 @@ publications:
   type: preprint
   categories:
   - llms
+  - human-ai
 - id: jin2026-evaluating-diagnostic-accuracy-llms
   title: Evaluating diagnostic accuracy and clinical reasoning of multiple large language models in psychiatry
   authors:
@@ -210,6 +228,8 @@ publications:
   type: preprint
   categories:
   - nlp
+  - computational
+  - digital
 - id: stamatis2026-beyond-simulations-what-20000
   title: 'Beyond simulations: What 20,000 real conversations reveal about mental health AI safety'
   authors:
@@ -226,7 +246,7 @@ publications:
   type: preprint
   categories:
   - llms
-  - human-ai
+  - digital
 - id: hull2025-generative-ai-purpose-built-fo
   title: 'Generative AI purpose-built for social and mental health: A real-world pilot'
   authors:
@@ -260,7 +280,6 @@ publications:
   url: https://doi.org/10.48550/arXiv.2512.20773
   type: journal
   categories:
-  - nlp
   - llms
   - human-ai
 - id: gabriel2024-can-ai-relate-testing-large-la
@@ -277,10 +296,8 @@ publications:
   url: https://doi.org/10.18653/v1/2024.findings-emnlp.120
   type: journal
   categories:
-  - nlp
   - llms
   - human-ai
-  - computational
 - id: galatzer-levy2023-the-capability-of-large-langua
   title: The capability of large language models to measure psychiatric functioning
   authors:
@@ -637,7 +654,8 @@ publications:
   doi: 10.1002/smi.3473
   url: https://doi.org/10.1002/smi.3473
   type: journal
-  categories: []
+  categories:
+  - computational
 - id: hull2023-at-home-sublingual-ketamine-te
   title: 'At-home, sublingual ketamine telehealth is a safe and effective treatment for moderate to severe anxiety and depression: Findings from a large, prospective, open-label effectiveness trial'
   authors:
@@ -849,7 +867,8 @@ publications:
   doi: 10.1027/1016-9040/a000423
   url: https://doi.org/10.1027/1016-9040/a000423
   type: journal
-  categories: []
+  categories:
+  - digital
 - id: malgaroli2021-networks-of-major-depressive-d
   title: 'Networks of major depressive disorder: A systematic review'
   authors:
@@ -1060,6 +1079,7 @@ publications:
   categories:
   - nlp
   - computational
+  - digital
 - id: simon2020-understanding-the-impact-of-co
   title: Understanding the impact of complicated grief on combat-related posttraumatic stress disorder, guilt, suicide, and functional impairment in a clinical trial of post-9/11 service members and veterans
   authors:
@@ -1143,7 +1163,8 @@ publications:
   doi: 10.1017/S1355617717001345
   url: https://doi.org/10.1017/S1355617717001345
   type: journal
-  categories: []
+  categories:
+  - computational
 - id: malgaroli2018-symptoms-of-persistent-complex
   title: 'Symptoms of persistent complex bereavement disorder, depression, and PTSD in a conjugally bereaved sample: A network analysis'
   authors:
@@ -1219,5 +1240,6 @@ publications:
   doi: 10.2427/11126
   url: https://doi.org/10.2427/11126
   type: journal
-  categories: []
+  categories:
+  - computational
 ---
