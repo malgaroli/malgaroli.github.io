@@ -379,8 +379,8 @@ publications:
   authors:
   - Brindle, B.
   - Hull, T. D.
-  - Malgaroli, M.
-  - Charon, N.
+  - Malgaroli, M.*
+  - Charon, N.*
   year: 2025
   venue: Psychological Methods
   doi: 10.1037/met0000785
@@ -659,8 +659,8 @@ publications:
 - id: hull2023-at-home-sublingual-ketamine-te
   title: 'At-home, sublingual ketamine telehealth is a safe and effective treatment for moderate to severe anxiety and depression: Findings from a large, prospective, open-label effectiveness trial'
   authors:
-  - Hull, T. D.
-  - Malgaroli, M.
+  - Hull, T. D.*
+  - Malgaroli, M.*
   - Gazzaley, A.
   - Akiki, T. J.
   - Madan, A.
@@ -792,8 +792,8 @@ publications:
 - id: hull2022-at-home-sublingual-ketamine-te
   title: 'At-home, sublingual ketamine telehealth is a safe and effective treatment for moderate to severe anxiety and depression: Findings from a large, prospective, open-label effectiveness trial'
   authors:
-  - Hull, T. D.
-  - Malgaroli, M.
+  - Hull, T. D.*
+  - Malgaroli, M.*
   - Gazzaley, A.
   - Akiki, T. J.
   - Madan, A.
@@ -1017,16 +1017,16 @@ publications:
   type: journal
   categories:
   - computational
-- id: hull2020-
-  title: ''
+- id: hull2020-two-way-messaging-therapy
+  title: 'Two-way messaging therapy for depression and anxiety: Longitudinal response trajectories'
   authors:
-  - Hull, T.D.
-  - Malgaroli, M.
-  - Connolly
-  - 'P.S. et al. Two-way messaging therapy for depression and anxiety: longitudinal response trajectories. BMC Psychiatry 20'
-  - '297'
+  - Hull, T. D.*
+  - Malgaroli, M.*
+  - Connolly, P. S.
+  - Feuerstein, S.
+  - Simon, N. M.
   year: 2020
-  venue: ''
+  venue: BMC Psychiatry
   doi: 10.1186/s12888-020-02721-x
   url: https://doi.org/10.1186/s12888-020-02721-x
   type: journal
