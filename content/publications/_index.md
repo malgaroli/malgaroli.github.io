@@ -656,26 +656,6 @@ publications:
   type: journal
   categories:
   - computational
-- id: hull2023-at-home-sublingual-ketamine-te
-  title: 'At-home, sublingual ketamine telehealth is a safe and effective treatment for moderate to severe anxiety and depression: Findings from a large, prospective, open-label effectiveness trial'
-  authors:
-  - Hull, T. D.*
-  - Malgaroli, M.*
-  - Gazzaley, A.
-  - Akiki, T. J.
-  - Madan, A.
-  - Vando, L.
-  - Arden, K.
-  - Swain, J.
-  - Klotz, M.
-  - Paleos, C.
-  year: 2023
-  venue: Journal of Affective Disorders
-  doi: 10.1016/j.jad.2022.07.004
-  url: https://doi.org/10.1016/j.jad.2022.07.004
-  type: journal
-  categories:
-  - digital
 - id: malgaroli2023-heterogeneity-of-posttraumatic
   title: 'Heterogeneity of posttraumatic stress, depression, and fear of cancer recurrence in breast cancer survivors: A latent class analysis'
   authors:

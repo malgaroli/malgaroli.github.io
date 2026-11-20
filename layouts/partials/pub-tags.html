@@ -1,14 +1,17 @@
 {{/*  Research-area tags under a citation.
       Call with (dict "cats" <paper's categories> "labels" <slug → label map>
-      "order" <slugs in /research/ order>).
+      "order" <slugs in /research/ order> "glyphs" <slug → pub_glyph map>).
       Only slugs that are a research area (a `pub_filter` in
-      content/research/<slug>/index.md) are shown, in the /research/ order. */}}
+      content/research/<slug>/index.md) are shown, in the /research/ order.
+      Each tag starts with the area's 3×3 pixel glyph (`pub_glyph`: nine 0/1
+      cells, row by row); an area without one shows the label only. */}}
 {{ $cats := default (slice) .cats }}
 {{ $labels := .labels }}
+{{ $glyphs := default dict .glyphs }}
 {{ $shown := slice }}
 {{ range .order }}{{ if in $cats . }}{{ $shown = $shown | append . }}{{ end }}{{ end }}
 {{ with $shown }}
 <p class="pub-cats">
-  {{ range . }}<span class="pub-tag pub-tag-{{ . }}">{{ index $labels . }}</span>{{ end }}
+  {{ range . }}{{ $g := index $glyphs . | default "" }}<span class="pub-tag pub-tag-{{ . }}">{{ if eq (len $g) 9 }}<svg class="pub-glyph" viewBox="0 0 3 3" aria-hidden="true" focusable="false">{{ range $i, $c := split $g "" }}{{ if eq $c "1" }}<rect x="{{ mod $i 3 }}" y="{{ div $i 3 }}" width="1" height="1"/>{{ end }}{{ end }}</svg>{{ end }}{{ index $labels . }}</span>{{ end }}
 </p>
 {{ end }}

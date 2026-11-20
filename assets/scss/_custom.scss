@@ -345,26 +345,39 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
   .pub-cats {
     margin: 0.3rem 0 0;
 
+    // Tags: black DM Mono label on a soft box, led by the area's 3×3 pixel
+    // glyph (pub_glyph in content/research/<slug>/index.md). Label and glyph
+    // stay black; only the box colour differs per area.
     .pub-tag {
-      display: inline-block;
-      font-size: 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45em;
+      font-family: $dm-mono;
+      font-size: 0.65rem;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: $dm-slate-dk;
-      background: lighten($dm-slate, 22%);
+      color: #000000;
+      background: #E4E4DF; // neutral default for an area with no rule below
       border-radius: 3px;
-      padding: 0.12rem 0.5rem;
-      margin-right: 0.3rem;
+      padding: 0.15rem 0.5rem;
+      margin: 0 0.3rem 0.3rem 0;
 
-      // Per-research-area colors, one rule per `pub_filter` slug
-      // (content/research/<slug>/index.md). A slug with no rule here simply
-      // gets the neutral default above — so a new topic needs no CSS change,
-      // but adding a line here gives it its own colour.
-      &.pub-tag-nlp           { background: #DCE0F7; color: #2438B4; } // tube blue
-      &.pub-tag-llms          { background: #D9DBEA; color: #151B4D; } // deep navy
-      &.pub-tag-human-ai      { background: #FADFE1; color: #B0303C; } // node red
-      &.pub-tag-computational { background: #F1E1EA; color: #7A3B5E; } // digit pink → mauve
-      &.pub-tag-digital       { background: #E3E4F5; color: #4A50A6; } // base slab
+      .pub-glyph {
+        width: 0.8em;
+        height: 0.8em;
+        flex: none;
+        fill: #000000;
+        shape-rendering: crispEdges;
+      }
+
+      // Box colour per research area, one rule per `pub_filter` slug. A new
+      // area needs no CSS change (it gets the neutral default); add a line
+      // here to give it its own colour.
+      &.pub-tag-nlp           { background: #D5E1F2; } // soft blue
+      &.pub-tag-llms          { background: #E2DAF0; } // lilac
+      &.pub-tag-computational { background: #F2D9DF; } // rose
+      &.pub-tag-human-ai      { background: #EFE5CC; } // sand
+      &.pub-tag-digital       { background: #D9E6D3; } // sage
     }
   }
 }

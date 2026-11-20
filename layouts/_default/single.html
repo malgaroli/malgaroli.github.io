@@ -2,13 +2,16 @@
 {{/*  Category slug → display label, built from the research pages themselves.
       Every content/research/<slug>/index.md that sets `pub_filter:` is a topic;
       its label is `pub_label` (or the page title). Ordered by weight desc, the
-      same order as the /research/ listing. Adding a topic = adding a folder;
+      same order as the /research/ listing. `pub_glyph` is the tag's 3×3 pixel
+      glyph. Adding a topic = adding a folder;
       nothing here needs editing. Tags that are not a research area are not
       shown (layouts/partials/pub-tags.html). */}}
 {{ $topics := where (where site.RegularPages "Section" "research") "Params.pub_filter" "!=" nil }}
 {{ $catLabels := dict }}
 {{ $catOrder := slice }}
+{{ $catGlyphs := dict }}
 {{ range $topics.ByWeight.Reverse }}
+  {{ $catGlyphs = merge $catGlyphs (dict (string .Params.pub_filter) (string (default "" .Params.pub_glyph))) }}
   {{ $catOrder = $catOrder | append (string .Params.pub_filter) }}
   {{ $catLabels = merge $catLabels (dict (string .Params.pub_filter) (default .Title .Params.pub_label)) }}
 {{ end }}
@@ -74,7 +77,7 @@
                   {{ if .url }}<a class="pub-title" href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>.{{ else }}<span class="pub-title">{{ .title }}</span>.{{ end }}
                   {{ with .venue }}<em class="pub-venue">{{ . }}</em>.{{ end }}
                 </p>
-                {{ partial "pub-tags.html" (dict "cats" .categories "labels" $catLabels "order" $catOrder) }}
+                {{ partial "pub-tags.html" (dict "cats" .categories "labels" $catLabels "order" $catOrder "glyphs" $catGlyphs) }}
               </article>
             {{ end }}
           </section>
@@ -101,7 +104,7 @@
                     {{ if .url }}<a class="pub-title" href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>.{{ else }}<span class="pub-title">{{ .title }}</span>.{{ end }}
                     {{ with .venue }}<em class="pub-venue">{{ . }}</em>.{{ end }}
                   </p>
-                  {{ partial "pub-tags.html" (dict "cats" .categories "labels" $catLabels "order" $catOrder) }}
+                  {{ partial "pub-tags.html" (dict "cats" .categories "labels" $catLabels "order" $catOrder "glyphs" $catGlyphs) }}
                 </article>
                 {{ $num = sub $num 1 }}
               {{ end }}
@@ -148,7 +151,7 @@
                       {{ if .url }}<a class="pub-title" href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a>.{{ else }}<span class="pub-title">{{ .title }}</span>.{{ end }}
                       {{ with .venue }}<em class="pub-venue">{{ . }}</em>.{{ end }}
                     </p>
-                    {{ partial "pub-tags.html" (dict "cats" .categories "labels" $catLabels "order" $catOrder) }}
+                    {{ partial "pub-tags.html" (dict "cats" .categories "labels" $catLabels "order" $catOrder "glyphs" $catGlyphs) }}
                   </article>
                 {{ end }}
                 <p class="research-pubs-link"><a href="/publications/">See all publications →</a></p>

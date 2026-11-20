@@ -18,6 +18,9 @@ aliases:
 pub_filter: computational
 # Short label for the coloured tag (falls back to the title).
 pub_label: "Computational"
+# 3×3 pixel glyph shown in the tag: nine 0/1 cells, read left to right, top
+# row first (1 = black square).
+pub_glyph: "100110111"
 # Lower-case phrases the weekly robot looks for in a paper's title/venue to
 # suggest this tag. Add or remove freely; a human reviews every suggestion.
 pub_keywords:
