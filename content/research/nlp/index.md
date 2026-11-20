@@ -13,7 +13,7 @@ weight: 50
 # below, automatically.
 pub_filter: nlp
 # Short label for the coloured tag (falls back to the title).
-pub_label: "NLP & Language Markers"
+pub_label: "Language Markers"
 # 3×3 pixel glyph shown in the tag: nine 0/1 cells, read left to right, top
 # row first (1 = black square).
 pub_glyph: "101010101"

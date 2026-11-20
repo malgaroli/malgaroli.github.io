@@ -373,11 +373,11 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
       // Box colour per research area, one rule per `pub_filter` slug. A new
       // area needs no CSS change (it gets the neutral default); add a line
       // here to give it its own colour.
-      &.pub-tag-nlp           { background: #D5E1F2; } // soft blue
-      &.pub-tag-llms          { background: #E2DAF0; } // lilac
-      &.pub-tag-computational { background: #F2D9DF; } // rose
-      &.pub-tag-human-ai      { background: #EFE5CC; } // sand
-      &.pub-tag-digital       { background: #D9E6D3; } // sage
+      &.pub-tag-nlp           { background: #BFE6FF; } // sky
+      &.pub-tag-llms          { background: #C9CCFF; } // periwinkle
+      &.pub-tag-computational { background: #FFD1E8; } // pink
+      &.pub-tag-human-ai      { background: #FFF0A8; } // yellow
+      &.pub-tag-digital       { background: #C8F5D0; } // mint
     }
   }
 }
