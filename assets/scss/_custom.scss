@@ -353,14 +353,15 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; }
       align-items: center;
       gap: 0.45em;
       font-family: $dm-mono;
-      font-size: 0.65rem;
+      font-size: 0.55rem;
+      line-height: 1.4;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       color: #000000;
       background: #E4E4DF; // neutral default for an area with no rule below
-      border-radius: 3px;
-      padding: 0.15rem 0.5rem;
-      margin: 0 0.3rem 0.3rem 0;
+      border-radius: 2px;
+      padding: 0.08rem 0.4rem;
+      margin: 0 0.25rem 0.25rem 0;
 
       .pub-glyph {
         width: 0.8em;
